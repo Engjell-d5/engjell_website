@@ -1,221 +1,119 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Instagram, Linkedin, Twitter, ArrowLeft, Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
+import NavigationMenu from "@/components/navigation-menu"
 
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col">
-        <div className="p-8">
-          <Link href="/">
-            <div className="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center">
-              <span className="text-white text-2xl font-light italic">ER</span>
-            </div>
-          </Link>
-        </div>
+      <div className="w-80 bg-emerald-400 flex flex-col relative">
+        <NavigationMenu activePage="contact" />
 
-        <nav className="flex-1 px-8">
-          <div className="space-y-1">
-            <div className="bg-black text-white px-4 py-2 text-sm font-bold uppercase tracking-wider">
-              ENGJELL RRAKLLI
-            </div>
-            <Link
-              href="/entrepreneur"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              ENTREPRENEUR
-            </Link>
-            <Link
-              href="/the-3d-guy"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              THE 3D GUY
-            </Link>
-            <Link
-              href="/blog"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              BLOG
-            </Link>
-            <Link
-              href="/podcast"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              PODCAST
-            </Link>
-            <Link href="/contact" className="block text-white py-3 text-lg font-medium bg-white/20 px-4 rounded">
-              CONTACT
-            </Link>
-          </div>
-        </nav>
-
-        <div className="p-8">
-          <div className="flex space-x-4">
+        {/* Social Icons */}
+        <div className="p-8 pb-12">
+          <div className="flex space-x-6">
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Instagram size={24} />
+              <span className="text-xl font-bold">©</span>
             </Link>
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Linkedin size={24} />
+              <span className="text-xl font-bold">in</span>
             </Link>
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Twitter size={24} />
+              <span className="text-xl font-bold">X</span>
             </Link>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-800 p-16">
-        <div className="max-w-6xl">
-          <Link href="/" className="inline-flex items-center text-white mb-8 hover:opacity-80">
-            <ArrowLeft className="mr-2" size={20} />
-            Back to Home
-          </Link>
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `repeating-linear-gradient(
+              45deg,
+              transparent,
+              transparent 40px,
+              rgba(255,255,255,0.1) 40px,
+              rgba(255,255,255,0.1) 80px
+            )`
+          }}>
+            <div className="absolute bottom-0 right-0 w-full h-full opacity-5">
+              <div className="absolute bottom-20 right-20 text-white text-6xl font-bold opacity-20">
+                ENTREPRENEUR /
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <h1 className="text-white text-6xl font-bold mb-4">CONTACT</h1>
-          <p className="text-gray-300 text-xl mb-12">
-            Let's discuss your next project, speaking opportunity, or collaboration.
-          </p>
+        {/* Scrollable Content */}
+        <div className="relative z-10 overflow-y-auto h-full">
+          {/* Page Title */}
+          <div className="p-16 text-center">
+            <h1 className="text-white text-8xl font-bold mb-16 font-bebas uppercase tracking-wide">CONTACTS</h1>
+          </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <Card className="bg-slate-700/50 border-slate-600">
-              <CardHeader>
-                <CardTitle className="text-white text-2xl">Get in Touch</CardTitle>
-                <CardDescription className="text-gray-300">
-                  Fill out the form below and I'll get back to you within 24 hours.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-white text-sm font-medium mb-2 block">First Name</label>
+          {/* Content Sections */}
+          <div className="px-16 pb-16">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                {/* MY CONTACTS Section - Left Column */}
+                <div>
+                  <h2 className="text-white text-4xl font-bold mb-4 font-bebas uppercase tracking-wide">MY CONTACTS</h2>
+                  <h3 className="text-white text-3xl font-bold mb-8 font-bebas">Want to reach out?</h3>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-center space-x-4">
+                      <Mail className="text-white text-xl" />
+                      <a href="mailto:engjell@division5.co" className="text-blue-400 underline font-montserrat">
+                        engjell@division5.co
+                      </a>
+                    </div>
+                    
+                    <div className="flex items-center space-x-4">
+                      <Phone className="text-white text-xl" />
+                      <span className="text-gray-300 font-montserrat">+35569-38-86-643</span>
+                    </div>
+                    
+                    <div className="flex items-center space-x-4">
+                      <MapPin className="text-white text-xl" />
+                      <span className="text-gray-300 font-montserrat">Tirane, Albania 10299</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SEND ME AN EMAIL Section - Right Column */}
+                <div>
+                  <h2 className="text-white text-4xl font-bold mb-4 font-bebas uppercase tracking-wide">SEND ME AN EMAIL</h2>
+                  <h3 className="text-white text-3xl font-bold mb-8 font-bebas">Have a question?</h3>
+                  
+                  <div className="space-y-6">
                     <Input
-                      placeholder="John"
-                      className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400"
+                      placeholder="Your Name"
+                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg"
                     />
-                  </div>
-                  <div>
-                    <label className="text-white text-sm font-medium mb-2 block">Last Name</label>
+                    
                     <Input
-                      placeholder="Doe"
-                      className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400"
+                      type="email"
+                      placeholder="Your Email"
+                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg"
                     />
+                    
+                    <Textarea
+                      placeholder="Your Email"
+                      rows={6}
+                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg"
+                    />
+                    
+                    <Button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold px-8 py-4 text-lg rounded-lg font-bebas">
+                      SEND
+                    </Button>
                   </div>
                 </div>
-
-                <div>
-                  <label className="text-white text-sm font-medium mb-2 block">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-white text-sm font-medium mb-2 block">Company</label>
-                  <Input
-                    placeholder="Your Company"
-                    className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-white text-sm font-medium mb-2 block">Subject</label>
-                  <Input
-                    placeholder="What would you like to discuss?"
-                    className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-white text-sm font-medium mb-2 block">Message</label>
-                  <Textarea
-                    placeholder="Tell me more about your project or inquiry..."
-                    rows={6}
-                    className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400"
-                  />
-                </div>
-
-                <Button className="w-full bg-emerald-400 hover:bg-emerald-500 text-black font-bold py-3">
-                  <Send size={16} className="mr-2" />
-                  Send Message
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <Card className="bg-slate-700/50 border-slate-600">
-                <CardHeader>
-                  <CardTitle className="text-white text-2xl">Contact Information</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-emerald-400 rounded-full flex items-center justify-center">
-                      <Mail size={20} className="text-black" />
-                    </div>
-                    <div>
-                      <p className="text-white font-medium">Email</p>
-                      <p className="text-gray-300">hello@engjellrraklli.com</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-emerald-400 rounded-full flex items-center justify-center">
-                      <Phone size={20} className="text-black" />
-                    </div>
-                    <div>
-                      <p className="text-white font-medium">Phone</p>
-                      <p className="text-gray-300">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-emerald-400 rounded-full flex items-center justify-center">
-                      <MapPin size={20} className="text-black" />
-                    </div>
-                    <div>
-                      <p className="text-white font-medium">Location</p>
-                      <p className="text-gray-300">San Francisco, CA</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-slate-700/50 border-slate-600">
-                <CardHeader>
-                  <CardTitle className="text-white text-2xl">Speaking & Consulting</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300 mb-4">
-                    Available for speaking engagements, workshops, and consulting on:
-                  </p>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Entrepreneurship and startup strategy</li>
-                    <li>• 3D technology and immersive experiences</li>
-                    <li>• Innovation and digital transformation</li>
-                    <li>• Leadership and team building</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-slate-700/50 border-slate-600">
-                <CardHeader>
-                  <CardTitle className="text-white text-2xl">Response Time</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-300">
-                    I typically respond to all inquiries within 24 hours. For urgent matters, please mention it in your
-                    subject line.
-                  </p>
-                </CardContent>
-              </Card>
+              </div>
             </div>
           </div>
         </div>

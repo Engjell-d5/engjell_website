@@ -1,0 +1,49 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Mail } from "lucide-react"
+
+interface SubscribeSectionProps {
+  heading?: string
+  title?: string
+  placeholder?: string
+  buttonText?: string
+}
+
+export default function SubscribeSection({ 
+  heading = "SCALING THE UNSCALABLE",
+  title = "I write about scaling service-based businesses in my newsletter. Subscribe below.",
+  placeholder = "Enter your email address",
+  buttonText = "Subscribe"
+}: SubscribeSectionProps) {
+  return (
+    <div className="px-16 py-24">
+      <div className="max-w-4xl mx-auto text-center">
+        <Card className="bg-slate-700/50 border-slate-600 max-w-2xl mx-auto">
+          <CardHeader>
+            <CardTitle className="text-white text-4xl font-bold font-bebas uppercase tracking-wide">{heading}</CardTitle>
+            <CardDescription className="text-white text-xl font-montserrat">
+              {title}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Input
+                type="email"
+                placeholder={placeholder}
+                className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400 flex-1"
+              />
+              <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-2 font-bebas">
+                <Mail size={16} className="mr-2" />
+                {buttonText}
+              </Button>
+            </div>
+            <p className="text-gray-400 text-sm mt-4 font-montserrat">
+              No spam, unsubscribe at any time. Your privacy is important to us.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+} 

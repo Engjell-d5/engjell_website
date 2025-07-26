@@ -1,152 +1,261 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Instagram, Linkedin, Twitter, ArrowLeft } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Mail, Phone, MapPin, BookOpen, Gamepad2, Users, Target, TrendingUp, Shield, Zap, Globe } from "lucide-react"
+import Footer from "@/components/footer"
+import SubscribeSection from "@/components/subscribe-section"
+import NavigationMenu from "@/components/navigation-menu"
 
 export default function The3DGuyPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col">
-        <div className="p-8">
-          <Link href="/">
-            <div className="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center">
-              <span className="text-white text-2xl font-light italic">ER</span>
-            </div>
-          </Link>
-        </div>
+      <div className="w-80 bg-emerald-400 flex flex-col relative">
+        <NavigationMenu activePage="3d-guy" />
 
-        <nav className="flex-1 px-8">
-          <div className="space-y-1">
-            <div className="bg-black text-white px-4 py-2 text-sm font-bold uppercase tracking-wider">
-              ENGJELL RRAKLLI
-            </div>
-            <Link
-              href="/entrepreneur"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              ENTREPRENEUR
-            </Link>
-            <Link href="/the-3d-guy" className="block text-white py-3 text-lg font-medium bg-white/20 px-4 rounded">
-              THE 3D GUY
-            </Link>
-            <Link
-              href="/blog"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              BLOG
-            </Link>
-            <Link
-              href="/podcast"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              PODCAST
-            </Link>
-            <Link
-              href="/contact"
-              className="block text-white py-3 text-lg font-medium hover:opacity-80 transition-opacity"
-            >
-              CONTACT
-            </Link>
-          </div>
-        </nav>
-
-        <div className="p-8">
-          <div className="flex space-x-4">
+        {/* Social Icons */}
+        <div className="p-8 pb-12">
+          <div className="flex space-x-6">
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Instagram size={24} />
+              <span className="text-xl font-bold">©</span>
             </Link>
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Linkedin size={24} />
+              <span className="text-xl font-bold">in</span>
             </Link>
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Twitter size={24} />
+              <span className="text-xl font-bold">X</span>
             </Link>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-800 p-16">
-        <div className="max-w-4xl">
-          <Link href="/" className="inline-flex items-center text-white mb-8 hover:opacity-80">
-            <ArrowLeft className="mr-2" size={20} />
-            Back to Home
-          </Link>
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden">
+        {/* Flowing Wave Pattern Background */}
+        <div className="absolute inset-0 opacity-30">
+          <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Top flowing lines */}
+            <path d="M0 100C300 50 600 150 900 100C1050 75 1150 125 1200 100V0H0V100Z" fill="rgba(255,255,255,0.03)" />
+            <path
+              d="M0 150C250 100 500 200 750 150C900 125 1050 175 1200 150V50C1050 75 900 25 750 50C500 100 250 0 0 50V150Z"
+              fill="rgba(255,255,255,0.02)"
+            />
 
-          <h1 className="text-white text-6xl font-bold mb-8">THE 3D GUY</h1>
+            {/* Middle flowing lines */}
+            <path
+              d="M0 300C200 250 400 350 600 300C800 250 1000 350 1200 300V200C1000 250 800 150 600 200C400 250 200 150 0 200V300Z"
+              fill="rgba(255,255,255,0.02)"
+            />
+            <path
+              d="M0 400C300 350 600 450 900 400C1050 375 1150 425 1200 400V300C1050 325 900 275 750 300C500 350 250 250 0 300V400Z"
+              fill="rgba(255,255,255,0.01)"
+            />
 
-          <div className="prose prose-invert prose-lg max-w-none">
-            <p className="text-xl text-gray-300 leading-relaxed mb-8">
-              Welcome to the world of 3D technology and immersive experiences. As "The 3D Guy," I specialize in creating
-              cutting-edge 3D solutions that transform how we interact with digital content.
-            </p>
+            {/* Bottom flowing lines */}
+            <path
+              d="M0 600C200 550 400 650 600 600C800 550 1000 650 1200 600V500C1000 550 800 450 600 500C400 550 200 450 0 500V600Z"
+              fill="rgba(255,255,255,0.02)"
+            />
+            <path
+              d="M0 750C250 700 500 800 750 750C900 725 1050 775 1200 750V650C1050 675 900 625 750 650C500 700 250 600 0 650V750Z"
+              fill="rgba(255,255,255,0.01)"
+            />
+          </svg>
+        </div>
 
-            <h2 className="text-3xl font-bold text-white mb-6">3D Expertise</h2>
+        {/* Additional decorative elements */}
+        <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-gradient-to-br from-teal-400/5 to-transparent blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-emerald-400/5 to-transparent blur-3xl"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-slate-700/50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-white mb-3">3D Modeling & Animation</h3>
-                <p className="text-gray-300">
-                  Creating stunning 3D models and animations for various industries including gaming, architecture, and
-                  product visualization.
-                </p>
+        {/* Scrollable Content */}
+        <div className="relative z-10 overflow-y-auto h-full">
+          {/* Hero Section */}
+          <div className="p-16 min-h-screen flex flex-col justify-center">
+            <div className="max-w-6xl">
+              <div className="text-center mb-16">
+                <h1 className="text-white text-8xl font-bold mb-8 font-bebas uppercase tracking-wide">THE 3D GUY</h1>
               </div>
 
-              <div className="bg-slate-700/50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-white mb-3">Virtual Reality</h3>
-                <p className="text-gray-300">
-                  Developing immersive VR experiences that transport users to new worlds and enhance training and
-                  education.
-                </p>
-              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                {/* Left side - Image placeholder */}
+                <div className="relative">
+                  <div className="w-full h-96 bg-slate-700/50 rounded-2xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-6xl font-bold text-blue-300 mb-4">New o</div>
+                      <div className="text-gray-400 text-lg">3D Scene Preview</div>
+                    </div>
+                  </div>
+                </div>
 
-              <div className="bg-slate-700/50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-white mb-3">Augmented Reality</h3>
-                <p className="text-gray-300">
-                  Building AR applications that blend digital content with the real world for enhanced user experiences.
-                </p>
-              </div>
-
-              <div className="bg-slate-700/50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-white mb-3">3D Web Development</h3>
-                <p className="text-gray-300">
-                  Creating interactive 3D web experiences using cutting-edge technologies like Three.js and WebGL.
-                </p>
+                {/* Right side - Text content */}
+                <div className="space-y-6">
+                  <h2 className="text-white text-2xl font-bold font-bebas uppercase tracking-wide">
+                    ENGJELL RRAKLLI - THE 3D GUY
+                  </h2>
+                  <p className="text-white text-3xl font-bold leading-relaxed font-bebas">
+                    Building scalable and performant 3D browser apps.
+                  </p>
+                  
+                  <div className="space-y-6 text-white text-lg leading-relaxed font-montserrat">
+                    <p>
+                      I built my first game at 15, fell in love with computer graphics, and became known as "the 3D guy" after helping companies build complex 3D browser apps. My passion for 3D technology has driven me to push the boundaries of what's possible in web-based{" "}
+                      <span className="text-orange-400 font-semibold">business</span> applications.
+                    </p>
+                    
+                    <p>
+                      I've contributed to{" "}
+                      <span className="text-orange-400 font-semibold">Babylon.js</span> and built a C++ game engine from scratch. My deep expertise in 3D and computer graphics has been the foundation for creating immersive experiences that transform how businesses interact with their customers.
+                    </p>
+                    
+                    <p>
+                      A few years ago I decided to found{" "}
+                      <span className="text-orange-400 font-semibold">division3D</span>. Initially what started as a subset of{" "}
+                      <span className="text-orange-400 font-semibold">division5</span> in the 3D space has quickly grown into a company of it's own where we help companies building scalable and complex 3D web applications.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <h2 className="text-3xl font-bold text-white mb-6">Recent Projects</h2>
-
-            <div className="space-y-6 mb-8">
-              <div className="border-l-4 border-orange-400 pl-6">
-                <h3 className="text-xl font-bold text-white mb-2">Interactive 3D Product Configurator</h3>
-                <p className="text-gray-300">
-                  Developed a real-time 3D product configurator for a major automotive brand, allowing customers to
-                  customize vehicles in 3D.
-                </p>
               </div>
 
-              <div className="border-l-4 border-orange-400 pl-6">
-                <h3 className="text-xl font-bold text-white mb-2">VR Training Simulation</h3>
-                <p className="text-gray-300">
-                  Created an immersive VR training platform for healthcare professionals, reducing training costs by
-                  40%.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-orange-400 pl-6">
-                <h3 className="text-xl font-bold text-white mb-2">AR Marketing Campaign</h3>
-                <p className="text-gray-300">
-                  Launched an AR marketing campaign that increased brand engagement by 300% for a leading fashion
-                  retailer.
-                </p>
+          {/* THE BOOK Section */}
+          <div className="px-16 py-24">
+            <div className="max-w-6xl">
+              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE BOOK</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                  <p className="text-white text-3xl font-bold mb-8 leading-tight font-bebas">
+                    Build scalable 3D web apps.
+                  </p>
+                  <p className="text-white text-lg leading-relaxed font-montserrat">
+                    I've been tinkering with{" "}
+                    <span className="text-orange-400 font-semibold">Three.js</span> and{" "}
+                    <span className="text-orange-400 font-semibold">Babylon.js</span> since 2017. I was impressed with what you could do with graphics in the browser. I invested a lot of time in these technologies and started helping companies build performant 3D web apps. That's how I became known as{" "}
+                    <span className="text-orange-400 font-semibold">the 3D guy</span>.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="w-full h-96 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-32 h-32 bg-purple-400 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span className="text-black text-4xl font-bold">📚</span>
+                      </div>
+                      <p className="text-white text-xl font-semibold">3D GUIDE - THE WEB</p>
+                      <p className="text-white text-sm mt-2">HOW TO BUILD SCALABLE AND PERFORMANT 3D WEB APPS</p>
+                      <p className="text-white text-sm mt-4">ENGJELL RRAKLLI</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+              </div>
 
-            <Button className="bg-orange-400 hover:bg-orange-500 text-black font-bold px-8 py-4">
-              View 3D Portfolio
-            </Button>
+          {/* DIVISION 3D Section */}
+          <div className="px-16 py-24">
+            <div className="max-w-6xl mx-auto text-center">
+              <h2 className="text-white text-5xl font-bold mb-8 font-bebas uppercase tracking-wide">DIVISION 3D</h2>
+              <p className="text-blue-300 text-3xl font-bold mb-8 font-bebas">division 3D</p>
+              <p className="text-white text-xl leading-relaxed font-montserrat max-w-4xl mx-auto">
+                We specialize in cutting-edge, scalable, and fast 3D web applications. Our expertise in browser-based 3D apps transforms your vision into immersive digital experiences. We use the latest technologies to build high-performance 3D solutions.
+                </p>
+              </div>
           </div>
+
+          {/* 3D Browser Apps Section */}
+          <div className="px-16 py-24">
+            <div className="max-w-6xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                {/* Left side - 3D Character Placeholder */}
+                <div className="relative">
+                  <div className="w-full h-96 bg-slate-700/50 rounded-2xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-32 h-32 bg-blue-400/20 rounded-full mb-4 mx-auto flex items-center justify-center">
+                        <div className="w-16 h-16 bg-purple-400 rounded-full"></div>
+                      </div>
+                      <div className="text-gray-400 text-lg font-montserrat">3D Character</div>
+                      <div className="text-gray-500 text-sm mt-2">VR Headset & Interactive Elements</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right side - Content */}
+                <div className="space-y-8">
+                  <h3 className="text-white text-4xl font-bold font-bebas leading-tight">
+                    3D browser apps that run like native.
+                  </h3>
+                  
+                  <p className="text-white text-lg leading-relaxed font-montserrat">
+                    division3D provides deep expertise on WebGL, WebGL2 and WebGPU and extensive experience with{" "}
+                    <span className="text-orange-400 font-semibold">Three.js</span> and{" "}
+                    <span className="text-orange-400 font-semibold">Babylon.js</span> for building complex 3D applications.
+                  </p>
+                  
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-2 font-bebas">Advanced Rendering Techniques:</h4>
+                        <p className="text-white text-base leading-relaxed font-montserrat">
+                          Expertise in{" "}
+                          <span className="text-orange-400 font-semibold">WebGL</span>,{" "}
+                          <span className="text-orange-400 font-semibold">WebGL2</span>,{" "}
+                          <span className="text-orange-400 font-semibold">WebGPU</span>,{" "}
+                          <span className="text-orange-400 font-semibold">Three.js</span>, and{" "}
+                          <span className="text-orange-400 font-semibold">Babylon.js</span> for creating high-performance and realistic 3D environments.
+                </p>
+              </div>
+            </div>
+
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-2 font-bebas">Future-Proof Architecture:</h4>
+                        <p className="text-white text-base leading-relaxed font-montserrat">
+                          3D browser applications are built on a robust and flexible architecture that adapts to business needs.
+                        </p>
+                      </div>
+              </div>
+
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-2 font-bebas">Cross-Device Compatibility:</h4>
+                        <p className="text-white text-base leading-relaxed font-montserrat">
+                          3D browser applications are designed to perform consistently across desktops, tablets, and smartphones.
+                        </p>
+                      </div>
+              </div>
+
+                    <div className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
+                      <div>
+                        <h4 className="text-white font-semibold mb-2 font-bebas">Efficient Data Handling:</h4>
+                        <p className="text-white text-base leading-relaxed font-montserrat">
+                          Efficient data handling and management practices minimize latency and ensure application performance.
+                        </p>
+
+                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-12 py-6 mt-10 text-lg rounded-full transition-all duration-300 font-bebas">
+                          HIRE OUR EXPERTISE
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* SCALING THE UNSCALABLE Section */}
+          <SubscribeSection 
+            heading="SCALING THE UNSCALABLE"
+            title="I write about scaling service-based businesses in my newsletter. Subscribe below."
+            placeholder="Mail"
+            buttonText="SUBSCRIBE"
+          />
+
+          {/* Footer */}
+          <Footer />
         </div>
       </div>
     </div>

@@ -2,70 +2,29 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Instagram, Linkedin, Twitter, ArrowRight, Mail, ExternalLink } from "lucide-react"
+import { Mail, Phone, MapPin } from "lucide-react"
+import Footer from "@/components/footer"
+import SubscribeSection from "@/components/subscribe-section"
+import NavigationMenu from "@/components/navigation-menu"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
       <div className="w-80 bg-emerald-400 flex flex-col relative">
-        {/* Logo */}
-        <div className="p-8 pt-12">
-          <div className="w-28 h-28 rounded-full border-2 border-white flex items-center justify-center">
-            <span className="text-white text-3xl font-light italic tracking-wide">ER</span>
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 px-8 pt-8">
-          <div className="space-y-2">
-            <div className="bg-black text-white px-4 py-3 text-sm font-bold uppercase tracking-wider mb-6">
-              ENGJELL RRAKLLI
-            </div>
-            <Link
-              href="/entrepreneur"
-              className="block text-white py-4 text-lg font-medium hover:opacity-80 transition-opacity uppercase tracking-wide"
-            >
-              ENTREPRENEUR
-            </Link>
-            <Link
-              href="/the-3d-guy"
-              className="block text-white py-4 text-lg font-medium hover:opacity-80 transition-opacity uppercase tracking-wide"
-            >
-              THE 3D GUY
-            </Link>
-            <Link
-              href="/blog"
-              className="block text-white py-4 text-lg font-medium hover:opacity-80 transition-opacity uppercase tracking-wide"
-            >
-              BLOG
-            </Link>
-            <Link
-              href="/podcast"
-              className="block text-white py-4 text-lg font-medium hover:opacity-80 transition-opacity uppercase tracking-wide"
-            >
-              PODCAST
-            </Link>
-            <Link
-              href="/contact"
-              className="block text-white py-4 text-lg font-medium hover:opacity-80 transition-opacity uppercase tracking-wide"
-            >
-              CONTACT
-            </Link>
-          </div>
-        </nav>
+        <NavigationMenu activePage="home" />
 
         {/* Social Icons */}
         <div className="p-8 pb-12">
           <div className="flex space-x-6">
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Instagram size={28} />
+              <span className="text-xl font-bold">©</span>
             </Link>
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Linkedin size={28} />
+              <span className="text-xl font-bold">in</span>
             </Link>
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <Twitter size={28} />
+              <span className="text-xl font-bold">X</span>
             </Link>
           </div>
         </div>
@@ -112,24 +71,33 @@ export default function HomePage() {
         {/* Scrollable Content */}
         <div className="relative z-10 overflow-y-auto h-full">
           {/* Hero Section */}
-          <div className="p-16 min-h-screen flex flex-col justify-center">
+          <div className="p-16 min-h-screen flex flex-col justify-center relative">
+            {/* Background Person Image */}
+            <div className="absolute right-0 top-0 w-1/2 h-full flex items-center justify-end pr-16 opacity-20">
+              <div className="w-96 h-96 bg-gradient-to-br from-white/10 to-transparent rounded-full flex items-center justify-center">
+                <div className="w-80 h-80 bg-gradient-to-br from-white/5 to-transparent rounded-full"></div>
+              </div>
+            </div>
             <div className="max-w-5xl">
               {/* Main Title */}
               <h1 className="mb-8">
-                <span className="block text-white text-8xl font-black tracking-tight leading-none mb-2">ENGJELL</span>
-                <span className="block text-8xl font-black tracking-tight leading-none font-outline-2">RRAKLLI</span>
+                <span className="block text-white text-8xl font-black tracking-tight leading-none mb-2 font-bebas">ENGJELL</span>
+                <span className="block text-8xl font-black tracking-tight leading-none font-bebas" style={{
+                  WebkitTextStroke: '2px white',
+                  color: 'transparent'
+                }}>RRAKLLI</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-white text-xl mb-16 tracking-widest font-medium">
-                ENTREPRENEUR | THE 3D GUY | SPEAKER
+              <p className="text-white text-xl mb-16 tracking-widest font-medium font-bebas">
+                THE 3D GUY | ENTREPRENEUR | SPEAKER
               </p>
 
               {/* CTA Button */}
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 mb-32"
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 mb-32 font-bebas"
               >
                 LET'S TALK
               </Button>
@@ -162,32 +130,20 @@ export default function HomePage() {
           {/* The Entrepreneur Section */}
           <div className="px-16 py-24">
             <div className="max-w-6xl">
-              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide">The Entrepreneur</h2>
+              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                  <p className="text-gray-300 text-xl leading-relaxed mb-8">
-                    Building innovative solutions and scaling businesses from concept to market leadership. My
-                    entrepreneurial journey spans multiple successful ventures in technology, 3D innovation, and digital
-                    transformation.
+                  <p className="text-white text-3xl font-bold mb-8 leading-tight">
+                    A journey of a thousand miles starts with 1 step.
                   </p>
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center text-emerald-400">
-                      <ArrowRight size={20} className="mr-3" />
-                      <span className="text-lg">Founded 5+ successful tech companies</span>
-                    </div>
-                    <div className="flex items-center text-emerald-400">
-                      <ArrowRight size={20} className="mr-3" />
-                      <span className="text-lg">Raised $10M+ in funding</span>
-                    </div>
-                    <div className="flex items-center text-emerald-400">
-                      <ArrowRight size={20} className="mr-3" />
-                      <span className="text-lg">Mentored 100+ entrepreneurs</span>
-                    </div>
-                  </div>
+                  <p className="text-white text-xl leading-relaxed mb-8">
+                    10 years ago, I quit traditional education to build my own business. Since then, I founded and currently run{" "}
+                    <span className="text-orange-400 font-semibold">division5</span>, a company which provides world-class software development services all over the globe. As a highly creative person, I thoroughly enjoy creating things. Be it software or companies. I have failed more than I have succeeded. Each experience came with a big set of learnings that has helped shape me into the entrepreneur I am today. I share my experience of{" "}
+                    <span className="text-orange-400 font-semibold">scaling the unscalable</span>, growing service-based businesses to 7-figures and more.
+                  </p>
                   <Link href="/entrepreneur">
-                    <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg">
-                      Learn More
-                      <ExternalLink size={20} className="ml-2" />
+                    <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                      FIND MORE
                     </Button>
                   </Link>
                 </div>
@@ -195,9 +151,9 @@ export default function HomePage() {
                   <div className="w-full h-96 bg-gradient-to-br from-emerald-400/20 to-teal-600/20 rounded-2xl flex items-center justify-center">
                     <div className="text-center">
                       <div className="w-32 h-32 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <span className="text-black text-4xl font-bold">💼</span>
+                        <span className="text-black text-4xl font-bold">🎤</span>
                       </div>
-                      <p className="text-white text-xl font-semibold">Innovation & Leadership</p>
+                      <p className="text-white text-xl font-semibold">Speaking & Leadership</p>
                     </div>
                   </div>
                 </div>
@@ -206,46 +162,64 @@ export default function HomePage() {
           </div>
 
           {/* The 3D Guy Section */}
-          <div className="px-16 py-24 bg-slate-900/50">
+          <div className="px-16 py-24">
             <div className="max-w-6xl">
-              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide">The 3D Guy</h2>
+              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div className="relative order-2 lg:order-1">
-                  <div className="w-full h-96 bg-gradient-to-br from-orange-400/20 to-red-600/20 rounded-2xl flex items-center justify-center">
+                <div className="relative">
+                  <div className="w-full h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-2xl flex items-center justify-center">
                     <div className="text-center">
-                      <div className="w-32 h-32 bg-orange-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <span className="text-black text-4xl font-bold">🎯</span>
+                      <div className="w-32 h-32 bg-blue-400 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span className="text-black text-4xl font-bold">🎮</span>
                       </div>
-                      <p className="text-white text-xl font-semibold">3D Innovation</p>
+                      <p className="text-white text-xl font-semibold">3D Game Scene</p>
                     </div>
                   </div>
                 </div>
-                <div className="order-1 lg:order-2">
-                  <p className="text-gray-300 text-xl leading-relaxed mb-8">
-                    Pioneering the future of 3D technology and immersive experiences. From virtual reality applications
-                    to interactive 3D web experiences, I create solutions that transform how people interact with
-                    digital content.
+                <div>
+                  <p className="text-white text-3xl font-bold mb-8 leading-tight">
+                    Passion turned into deep expertise.
                   </p>
-                  <div className="space-y-4 mb-8">
-                    <div className="flex items-center text-orange-400">
-                      <ArrowRight size={20} className="mr-3" />
-                      <span className="text-lg">VR/AR Development Expert</span>
-                    </div>
-                    <div className="flex items-center text-orange-400">
-                      <ArrowRight size={20} className="mr-3" />
-                      <span className="text-lg">3D Web Applications</span>
-                    </div>
-                    <div className="flex items-center text-orange-400">
-                      <ArrowRight size={20} className="mr-3" />
-                      <span className="text-lg">Immersive Experience Design</span>
-                    </div>
-                  </div>
+                  <p className="text-white text-xl leading-relaxed mb-8">
+                    I built my first game at 15, fell in love with 3D, and have been playing with 3D technology on the browser since 2017. I've built applications with{" "}
+                    <span className="text-orange-400 font-semibold">Babylon.js</span> and{" "}
+                    <span className="text-orange-400 font-semibold">Three.js</span>, and became known as "The 3D guy" after helping companies build complex 3D browser apps.
+                  </p>
                   <Link href="/the-3d-guy">
-                    <Button className="bg-orange-400 hover:bg-orange-500 text-black font-bold px-8 py-4 text-lg">
-                      Explore 3D Work
-                      <ExternalLink size={20} className="ml-2" />
+                    <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                      FIND MORE
                     </Button>
                   </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* The Book Section */}
+          <div className="px-16 py-24">
+            <div className="max-w-6xl">
+              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE BOOK</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                  <p className="text-white text-3xl font-bold mb-8 leading-tight">
+                    Build scalable 3D web apps.
+                  </p>
+                  <p className="text-white text-xl leading-relaxed mb-8">
+                    I've been tinkering with{" "}
+                    <span className="text-orange-400 font-semibold">Three.js</span> and{" "}
+                    <span className="text-orange-400 font-semibold">Babylon.js</span> since 2017. I was impressed with what you could do with graphics in the browser. I invested a lot of time in these technologies and started helping companies build performant 3D web apps. That's how I became known as the 3D guy.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="w-full h-96 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-32 h-32 bg-purple-400 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <span className="text-black text-4xl font-bold">📚</span>
+                      </div>
+                      <p className="text-white text-xl font-semibold">3D Guide Book</p>
+                      <p className="text-white text-sm mt-2">THE WEB HOW TO</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,128 +228,26 @@ export default function HomePage() {
           {/* Subscribe Section */}
           <div className="px-16 py-24">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-white text-5xl font-bold mb-8 uppercase tracking-wide">Subscribe</h2>
+              <h2 className="text-white text-5xl font-bold mb-8 uppercase tracking-wide font-bebas">SUBSCRIBE</h2>
               <p className="text-gray-300 text-xl mb-12 leading-relaxed">
-                Get exclusive insights on entrepreneurship, 3D technology, and innovation delivered straight to your
-                inbox. Join 10,000+ subscribers who stay ahead of the curve.
+                Subscribe to my weekly newsletter about growing service-based businesses globally. Submit your email below.
               </p>
 
-              <Card className="bg-slate-700/50 border-slate-600 max-w-2xl mx-auto">
-                <CardHeader>
-                  <CardTitle className="text-white text-2xl">Stay Updated</CardTitle>
-                  <CardDescription className="text-gray-300">
-                    Weekly insights, behind-the-scenes content, and early access to new projects.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email address"
-                      className="bg-slate-600 border-slate-500 text-white placeholder:text-gray-400 flex-1"
-                    />
-                    <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-2">
-                      <Mail size={16} className="mr-2" />
-                      Subscribe
-                    </Button>
-                  </div>
-                  <p className="text-gray-400 text-sm mt-4">
-                    No spam, unsubscribe at any time. Your privacy is important to us.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 flex-1 px-6 py-4 rounded-lg border"
+                />
+                <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas">
+                  SEND
+                </Button>
+              </div>
             </div>
           </div>
 
           {/* Footer */}
-          <footer className="px-16 py-12 border-t border-slate-700/50">
-            <div className="max-w-6xl">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                  <h3 className="text-white text-lg font-bold mb-4">Engjell Rraklli</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Entrepreneur, 3D innovator, and speaker passionate about building the future through technology and
-                    innovation.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="text-white text-md font-semibold mb-4">Quick Links</h4>
-                  <div className="space-y-2">
-                    <Link
-                      href="/entrepreneur"
-                      className="block text-gray-400 hover:text-white text-sm transition-colors"
-                    >
-                      Entrepreneur
-                    </Link>
-                    <Link href="/the-3d-guy" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      The 3D Guy
-                    </Link>
-                    <Link href="/blog" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      Blog
-                    </Link>
-                    <Link href="/podcast" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      Podcast
-                    </Link>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-white text-md font-semibold mb-4">Services</h4>
-                  <div className="space-y-2">
-                    <Link href="#" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      Speaking
-                    </Link>
-                    <Link href="#" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      Consulting
-                    </Link>
-                    <Link href="#" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      3D Development
-                    </Link>
-                    <Link href="/contact" className="block text-gray-400 hover:text-white text-sm transition-colors">
-                      Contact
-                    </Link>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-white text-md font-semibold mb-4">Connect</h4>
-                  <div className="flex space-x-4 mb-4">
-                    <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                      <Instagram size={20} />
-                    </Link>
-                    <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                      <Linkedin size={20} />
-                    </Link>
-                    <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                      <Twitter size={20} />
-                    </Link>
-                  </div>
-                  <p className="text-gray-400 text-sm">hello@engjellrraklli.com</p>
-                </div>
-              </div>
-
-              <div className="border-t border-slate-700/50 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <div className="text-center md:text-left mb-4 md:mb-0">
-                  <p className="text-gray-400 text-sm">© 2024 Engjell Rraklli. All rights reserved.</p>
-                </div>
-                <div className="flex space-x-6">
-                  <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                    Privacy Policy
-                  </Link>
-                  <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                    Terms of Service
-                  </Link>
-                </div>
-              </div>
-
-              <div className="text-center mt-4">
-                <p className="text-gray-500 text-xs">
-                  Designed and built by{" "}
-                  <Link href="#" className="text-orange-400 hover:text-orange-300">
-                    division5
-                  </Link>
-                </p>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </div>
     </div>
