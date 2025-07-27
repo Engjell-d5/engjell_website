@@ -19,8 +19,10 @@ export default function HomeClient() {
             src="/DSC0048-1.jpg"
             alt="Background"
             fill
+            sizes="100vw"
             className="object-cover object-bottom"
             priority
+            quality={85}
           />
         </div>
       </div>

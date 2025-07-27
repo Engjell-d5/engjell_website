@@ -3,6 +3,7 @@ import './globals.css'
 import { Montserrat, Bebas_Neue } from 'next/font/google'
 import ClientLayout from '@/components/client-layout'
 import StructuredData from '@/components/structured-data'
+import PerformanceMonitor from '@/components/performance-monitor'
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -103,6 +104,7 @@ export default function RootLayout({
       </head>
       <body className="font-montserrat">
         <StructuredData />
+        <PerformanceMonitor />
         <ClientLayout>
           {children}
         </ClientLayout>

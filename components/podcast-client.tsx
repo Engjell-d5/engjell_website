@@ -147,8 +147,42 @@ export default function PodcastClient() {
               </div>
 
               {/* Loading State for Podcast Episodes */}
-              <div className="flex items-center justify-center py-20">
-                <div className="text-white text-xl">Loading podcast episodes...</div>
+              <div className="flex flex-col items-center justify-center py-20">
+                {/* Animated Podcast Icon */}
+                <div className="relative mb-8">
+                  {/* Outer Ring */}
+                  <div className="w-24 h-24 border-4 border-emerald-400/30 rounded-full animate-pulse"></div>
+                  
+                  {/* Inner Ring */}
+                  <div className="absolute top-2 left-2 w-20 h-20 border-4 border-emerald-400/60 rounded-full animate-spin" style={{ animationDuration: '2s' }}></div>
+                  
+                  {/* Center Play Button */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center animate-pulse">
+                      <Play size={16} className="text-black ml-0.5" />
+                    </div>
+                  </div>
+                  
+                  {/* Floating Sound Waves */}
+                  <div className="absolute -top-4 -right-4 w-8 h-8 bg-emerald-400/20 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-emerald-400/30 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                  <div className="absolute top-1/2 -right-8 w-4 h-4 bg-emerald-400/40 rounded-full animate-bounce" style={{ animationDelay: '0.6s' }}></div>
+                </div>
+                
+                {/* Loading Text */}
+                <div className="text-center">
+                  <h3 className="text-white text-2xl font-bold mb-4 font-bebas tracking-wider">LOADING EPISODES</h3>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                  <p className="text-gray-400 text-sm mt-4 font-montserrat">Fetching the latest conversations...</p>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-emerald-400/5 rounded-full blur-xl animate-pulse"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-40 h-40 bg-emerald-400/5 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
             </div>
           </div>
@@ -280,9 +314,17 @@ export default function PodcastClient() {
                 <Button 
                   onClick={loadMoreEpisodes}
                   disabled={loadingMore}
-                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas disabled:opacity-50"
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas disabled:opacity-50 relative overflow-hidden"
                 >
-                  {loadingMore ? 'LOADING...' : 'LOAD MORE EPISODES'}
+                  {loadingMore ? (
+                    <div className="flex items-center space-x-2">
+                      {/* Animated Spinner */}
+                      <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+                      <span>LOADING EPISODES</span>
+                    </div>
+                  ) : (
+                    'LOAD MORE EPISODES'
+                  )}
                 </Button>
               </div>
             )}
