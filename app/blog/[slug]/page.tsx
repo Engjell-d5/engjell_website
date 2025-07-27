@@ -186,7 +186,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-800 p-16 ml-64">
+      <div className="flex-1 bg-slate-800 p-16 ml-0 transition-all duration-300">
         <div className="max-w-4xl">
           <Link href="/blog" className="inline-flex items-center text-white mb-8 hover:opacity-80">
             <ArrowLeft className="mr-2" size={20} />

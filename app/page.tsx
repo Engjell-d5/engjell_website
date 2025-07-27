@@ -9,30 +9,13 @@ import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import NavigationMenu from "@/components/navigation-menu"
 import Image from "next/image"
+import { useState } from "react"
+
 export default function HomePage() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
-        <NavigationMenu activePage="home" />
-
-        {/* Social Icons */}
-        <div className="px-8 pb-12">
-          <div className="flex space-x-6">
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">©</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">in</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">X</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Fixed Background Image - Behind Everything */}
       <div className="fixed inset-0 overflow-hidden -z-20">
         <div className="absolute inset-0">
@@ -47,7 +30,7 @@ export default function HomePage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 relative overflow-hidden ml-64">
+      <div className="flex-1 relative overflow-hidden  ml-0 transition-all duration-300">
         {/* Flowing Wave Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
