@@ -50,7 +50,8 @@ export default function BlogClient() {
         setNextPageToken(data.nextPageToken || null)
       }
       
-      setHasMore(!!data.nextPageToken)
+      // Handle both storage-based (hasMore) and API-based (nextPageToken) pagination
+      setHasMore(data.hasMore || !!data.nextPageToken)
       setCurrentPage(page)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch posts')

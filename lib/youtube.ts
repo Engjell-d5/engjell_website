@@ -1,6 +1,8 @@
 // YouTube Data API utility functions
 // You'll need to get a YouTube Data API key from Google Cloud Console
 
+import { StoredPodcast, updateStoredPodcasts, findNewPodcasts } from './podcast-storage'
+
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
 const CHANNEL_USERNAME = 'engjellrraklli'; // Your YouTube username
 const PODCAST_PLAYLIST_ID = 'PL_ScalingTheUnscalable'; // This will need to be updated with your actual playlist ID
@@ -108,7 +110,7 @@ export async function getChannelVideos(maxResults: number = 10): Promise<YouTube
     const detailsData = await detailsResponse.json();
     const detailsMap = new Map(detailsData.items.map((item: any) => [item.id, item]));
 
-    return videosData.items.map((item: any) => {
+    const videos = videosData.items.map((item: any) => {
       const details = detailsMap.get(item.snippet.resourceId.videoId) as any;
       const duration = details?.contentDetails?.duration || 'PT0S';
       
@@ -130,6 +132,35 @@ export async function getChannelVideos(maxResults: number = 10): Promise<YouTube
         url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`
       };
     }).filter(Boolean); // Remove null entries (Shorts)
+
+    // Convert to StoredPodcast format and update storage
+    const storedPodcasts: StoredPodcast[] = videos.map((video: YouTubeVideo) => ({
+      id: video.id,
+      title: video.title,
+      description: video.description,
+      publishedAt: video.publishedAt,
+      thumbnails: {
+        default: { url: video.thumbnail, width: 120, height: 90 },
+        medium: { url: video.thumbnail, width: 320, height: 180 },
+        high: { url: video.thumbnail, width: 480, height: 360 }
+      },
+      channelTitle: 'Engjell Rraklli',
+      duration: video.duration,
+      viewCount: video.viewCount,
+      url: video.url,
+      lastFetched: new Date().toISOString()
+    }))
+
+    // Update stored podcasts
+    updateStoredPodcasts(storedPodcasts)
+    
+    // Check for new podcasts
+    const newPodcasts = findNewPodcasts(storedPodcasts)
+    if (newPodcasts.length > 0) {
+      console.log(`Found ${newPodcasts.length} new podcasts`)
+    }
+
+    return videos
 
   } catch (error) {
     console.error('Error fetching YouTube videos:', error);
@@ -173,7 +204,7 @@ export async function getPlaylistVideos(playlistId: string, maxResults: number =
     const detailsData = await detailsResponse.json();
     const detailsMap = new Map(detailsData.items.map((item: any) => [item.id, item]));
 
-    return videosData.items.map((item: any) => {
+    const videos = videosData.items.map((item: any) => {
       const details = detailsMap.get(item.snippet.resourceId.videoId) as any;
       const duration = details?.contentDetails?.duration || 'PT0S';
       
@@ -195,6 +226,35 @@ export async function getPlaylistVideos(playlistId: string, maxResults: number =
         url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`
       };
     }).filter(Boolean); // Remove null entries (Shorts)
+
+    // Convert to StoredPodcast format and update storage
+    const storedPodcasts: StoredPodcast[] = videos.map((video: YouTubeVideo) => ({
+      id: video.id,
+      title: video.title,
+      description: video.description,
+      publishedAt: video.publishedAt,
+      thumbnails: {
+        default: { url: video.thumbnail, width: 120, height: 90 },
+        medium: { url: video.thumbnail, width: 320, height: 180 },
+        high: { url: video.thumbnail, width: 480, height: 360 }
+      },
+      channelTitle: 'Engjell Rraklli',
+      duration: video.duration,
+      viewCount: video.viewCount,
+      url: video.url,
+      lastFetched: new Date().toISOString()
+    }))
+
+    // Update stored podcasts
+    updateStoredPodcasts(storedPodcasts)
+    
+    // Check for new podcasts
+    const newPodcasts = findNewPodcasts(storedPodcasts)
+    if (newPodcasts.length > 0) {
+      console.log(`Found ${newPodcasts.length} new podcasts from playlist`)
+    }
+
+    return videos
 
   } catch (error) {
     console.error('Error fetching playlist videos:', error);

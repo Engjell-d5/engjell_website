@@ -2,6 +2,9 @@
 // This allows you to write posts in Blogger but keep them as drafts
 // so they're only published on your website
 
+import { StoredPost, findNewPosts, updateStoredPosts } from './posts-storage'
+import { createCampaignsForNewPosts } from './sender-campaigns'
+
 const BLOGGER_API_KEY = process.env.BLOGGER_API_KEY
 const BLOG_ID = process.env.BLOG_ID
 
@@ -144,9 +147,8 @@ function generateSlug(title: string): string {
 
 // Get category from labels
 function getCategory(labels: string[]): string {
-  const categoryLabels = ['Entrepreneurship', '3D Technology', 'Leadership', 'Content Marketing', 'Personal Growth', 'Innovation']
-  const category = labels.find(label => categoryLabels.includes(label))
-  return category || 'General'
+  // For now, label all posts as Entrepreneurship
+  return 'Entrepreneurship'
 }
 
 export async function getDraftPosts(maxResults: number = 10, pageToken?: string): Promise<{ posts: BlogPost[], nextPageToken?: string }> {
@@ -197,6 +199,40 @@ export async function getDraftPosts(maxResults: number = 10, pageToken?: string)
       readTime: calculateReadTime(item.content),
       category: getCategory(item.labels || [])
     }))
+
+    // Update stored posts and check for new ones
+    const storedPosts: StoredPost[] = posts.map(post => ({
+      id: post.id,
+      title: post.title,
+      slug: post.slug,
+      published: post.published,
+      updated: post.updated,
+      excerpt: post.excerpt,
+      content: post.content,
+      category: post.category,
+      readTime: post.readTime,
+      labels: post.labels,
+      author: post.author,
+      images: post.images
+    }))
+
+    updateStoredPosts(storedPosts)
+    
+    // Check for new posts and create campaigns
+    const newPosts = findNewPosts(storedPosts)
+    console.log(`🔍 Checking for new posts: found ${newPosts.length} new posts out of ${storedPosts.length} total posts`)
+    
+    if (newPosts.length > 0) {
+      console.log(`🎯 Found ${newPosts.length} new posts, creating campaigns...`)
+      console.log(`📝 New post titles:`, newPosts.map(p => p.title))
+      
+      // Create campaigns asynchronously (don't wait for completion)
+      createCampaignsForNewPosts().catch(error => {
+        console.error('❌ Error creating campaigns for new posts:', error)
+      })
+    } else {
+      console.log(`✅ No new posts found, skipping campaign creation`)
+    }
 
     return {
       posts,
@@ -277,14 +313,42 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   }
 
   try {
-    // Fetch all posts and find the one with matching slug
+    // Use stored data first (much faster)
+    const { getStoredPostBySlug } = await import('./posts-storage')
+    const storedPost = getStoredPostBySlug(slug)
+    
+    if (storedPost) {
+      // Convert StoredPost to BlogPost format
+      const post: BlogPost = {
+        id: storedPost.id,
+        title: storedPost.title,
+        content: storedPost.content,
+        excerpt: storedPost.excerpt,
+        published: storedPost.published,
+        updated: storedPost.updated,
+        labels: storedPost.labels,
+        author: storedPost.author,
+        images: storedPost.images,
+        slug: storedPost.slug,
+        readTime: storedPost.readTime,
+        category: storedPost.category
+      }
+      
+      // Cache the post
+      postCache[cacheKey] = { data: post, lastFetched: Date.now() }
+      console.log('Serving blog post from storage:', slug)
+      return post
+    }
+    
+    // Fallback to API if not found in storage
+    console.log('Post not found in storage, fetching from API:', slug)
     const result = await getDraftPosts(50) // Fetch more to find the post
     const post = result.posts.find(p => p.slug === slug)
     
     if (post) {
       // Cache the post
       postCache[cacheKey] = { data: post, lastFetched: Date.now() }
-      console.log('Cached blog post:', slug)
+      console.log('Cached blog post from API:', slug)
     }
     
     return post || null

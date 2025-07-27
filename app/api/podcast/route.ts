@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getPlaylistVideos, searchPlaylists, getChannelVideos } from '@/lib/youtube';
+import { loadStoredPodcasts, getStoredPodcastsPaginated } from '@/lib/podcast-storage';
 
 // In-memory cache
 const cache: Record<string, { data: any, lastFetched: number }> = {};
@@ -11,6 +12,7 @@ export async function GET(request: Request) {
   const playlistId = searchParams.get('playlistId');
   const page = parseInt(searchParams.get('page') || '1');
   const limit = parseInt(searchParams.get('limit') || '6');
+  const forceRefresh = searchParams.get('forceRefresh') === 'true';
 
   // Cache key (only cache first page for each action/playlist)
   let cacheKey = '';
@@ -19,8 +21,8 @@ export async function GET(request: Request) {
   if (action === 'get-channel-videos' && page === 1) cacheKey = 'channel-videos';
 
   try {
-    // Serve from cache if available and fresh
-    if (cacheKey && cache[cacheKey] && (Date.now() - cache[cacheKey].lastFetched < ONE_DAY)) {
+    // Serve from cache if available and fresh (unless force refresh is requested)
+    if (!forceRefresh && cacheKey && cache[cacheKey] && (Date.now() - cache[cacheKey].lastFetched < ONE_DAY)) {
       return NextResponse.json(cache[cacheKey].data);
     }
 
@@ -32,26 +34,130 @@ export async function GET(request: Request) {
     }
 
     if (action === 'get-playlist-videos' && playlistId) {
+      // Try to serve from stored data first (unless force refresh is requested)
+      console.log('🔍 Checking stored data for playlist videos...')
+      const storedData = loadStoredPodcasts()
+      console.log('📊 Stored data:', { 
+        hasData: !!storedData, 
+        lastUpdated: storedData.lastUpdated, 
+        podcastCount: storedData.podcasts?.length || 0 
+      })
+      
+      // Check if we need to refresh based on last fetch time (24 hours)
+      const needsRefresh = forceRefresh || 
+        !storedData.lastUpdated || 
+        (Date.now() - new Date(storedData.lastUpdated).getTime()) > (24 * 60 * 60 * 1000)
+      
+      console.log('🔄 Needs refresh:', needsRefresh, 'Force refresh:', forceRefresh)
+      
+      if (!needsRefresh && storedData.podcasts.length > 0) {
+        console.log('📦 Serving playlist podcasts from storage (last updated:', storedData.lastUpdated, ')')
+        
+        // Use stored data with pagination
+        const paginatedData = getStoredPodcastsPaginated(page, limit)
+        
+        // Convert StoredPodcast format back to YouTubeVideo format for compatibility
+        const videos = paginatedData.podcasts.map(podcast => ({
+          id: podcast.id,
+          title: podcast.title,
+          description: podcast.description,
+          publishedAt: podcast.publishedAt,
+          duration: podcast.duration,
+          thumbnail: podcast.thumbnails.high.url,
+          viewCount: podcast.viewCount,
+          likeCount: '0', // Not stored in podcast data
+          url: podcast.url
+        }))
+
+        const response = {
+          videos,
+          hasMore: paginatedData.hasNext,
+          total: paginatedData.total,
+          fromStorage: true,
+          lastUpdated: storedData.lastUpdated
+        }
+        
+        if (cacheKey) cache[cacheKey] = { data: response, lastFetched: Date.now() };
+        return NextResponse.json(response);
+      }
+
+      // Fallback to fetching from YouTube API
+      console.log('🔄 Fetching fresh playlist podcasts from YouTube API (needs refresh or no stored data)')
+      
       const offset = (page - 1) * limit;
       const videos = await getPlaylistVideos(playlistId, limit + offset);
       const newVideos = videos.slice(offset);
       const response = {
         videos: newVideos,
         hasMore: newVideos.length === limit,
-        total: videos.length
+        total: videos.length,
+        fromStorage: false,
+        refreshed: true
       };
       if (cacheKey) cache[cacheKey] = { data: response, lastFetched: Date.now() };
       return NextResponse.json(response);
     }
 
     if (action === 'get-channel-videos') {
+      // Try to serve from stored data first (unless force refresh is requested)
+      const storedData = loadStoredPodcasts()
+      
+      // Check if we need to refresh based on last fetch time (24 hours)
+      const needsRefresh = forceRefresh || 
+        !storedData.lastUpdated || 
+        (Date.now() - new Date(storedData.lastUpdated).getTime()) > (24 * 60 * 60 * 1000)
+      
+      if (!needsRefresh && storedData.podcasts.length > 0) {
+        console.log('📦 Serving podcasts from storage (last updated:', storedData.lastUpdated, ')')
+        
+        // Use stored data with pagination
+        const paginatedData = getStoredPodcastsPaginated(page, limit)
+        
+        // Convert StoredPodcast format back to YouTubeVideo format for compatibility
+        const videos = paginatedData.podcasts.map(podcast => ({
+          id: podcast.id,
+          title: podcast.title,
+          description: podcast.description,
+          publishedAt: podcast.publishedAt,
+          duration: podcast.duration,
+          thumbnail: podcast.thumbnails.high.url,
+          viewCount: podcast.viewCount,
+          likeCount: '0', // Not stored in podcast data
+          url: podcast.url
+        }))
+
+        const response = {
+          videos,
+          hasMore: paginatedData.hasNext,
+          total: paginatedData.total,
+          fromStorage: true,
+          lastUpdated: storedData.lastUpdated
+        }
+        
+        if (cacheKey) cache[cacheKey] = { data: response, lastFetched: Date.now() };
+        return NextResponse.json(response);
+      }
+
+      // Fallback to fetching from YouTube API
+      console.log('🔄 Fetching fresh podcasts from YouTube API (needs refresh or no stored data)')
+      
       const offset = (page - 1) * limit;
       const videos = await getChannelVideos(limit + offset);
       const newVideos = videos.slice(offset);
+      
+      // Ensure the data is saved to file by calling getChannelVideos again with full data
+      // This will trigger the updateStoredPodcasts function in youtube.ts
+      if (page === 1) {
+        console.log('💾 Ensuring podcast data is saved to file...');
+        await getChannelVideos(50); // Fetch more data to ensure it gets saved
+      }
+      
       const response = {
         videos: newVideos,
         hasMore: newVideos.length === limit,
-        total: videos.length
+        total: videos.length,
+        fromStorage: false,
+        refreshed: true
       };
       if (cacheKey) cache[cacheKey] = { data: response, lastFetched: Date.now() };
       return NextResponse.json(response);

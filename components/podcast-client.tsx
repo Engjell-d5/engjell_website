@@ -19,112 +19,25 @@ export default function PodcastClient() {
   const [playlistId, setPlaylistId] = useState<string | null>(null);
   const episodesPerPage = 6;
 
-  // Check if we have cached data
-  const getCachedData = (key: string) => {
-    if (typeof window === 'undefined') return null;
-    const cached = localStorage.getItem(key);
-    if (cached) {
-      const { data, timestamp } = JSON.parse(cached);
-      const ONE_DAY = 24 * 60 * 60 * 1000;
-      if (Date.now() - timestamp < ONE_DAY) {
-        return data;
-      }
-    }
-    return null;
-  };
 
-  // Cache data locally
-  const setCachedData = (key: string, data: any) => {
-    if (typeof window === 'undefined') return;
-    localStorage.setItem(key, JSON.stringify({
-      data,
-      timestamp: Date.now()
-    }));
-  };
 
   // Fetch initial episodes
   useEffect(() => {
     async function fetchInitialEpisodes() {
       try {
-        // Check for cached playlist data first
-        const cachedPlaylistData = getCachedData('podcast-playlist');
-        let playlistData;
+        // Check for force refresh parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const forceRefresh = urlParams.get('refresh') === 'true';
         
-        if (cachedPlaylistData) {
-          console.log('Using cached playlist data');
-          playlistData = cachedPlaylistData;
-        } else {
-          console.log('Fetching playlist data from API');
-          const playlistResponse = await fetch('/api/podcast?action=search-playlists');
-          playlistData = await playlistResponse.json();
-          setCachedData('podcast-playlist', playlistData);
-        }
+        // Fetch channel videos directly (most efficient - no playlist search needed)
+        console.log('Fetching channel videos directly');
+        const videosResponse = await fetch(`/api/podcast?action=get-channel-videos&page=1&limit=${episodesPerPage}${forceRefresh ? '&forceRefresh=true' : ''}`);
+        const videosData = await videosResponse.json();
         
-        if (playlistData.playlists && playlistData.playlists.length > 0) {
-          // Use the first playlist found
-          const foundPlaylistId = playlistData.playlists[0].id.playlistId;
-          console.log(`Found playlist: ${playlistData.playlists[0].snippet.title} (ID: ${foundPlaylistId})`);
-          setPlaylistId(foundPlaylistId);
-          
-          // Check for cached videos data
-          const cachedVideosData = getCachedData(`podcast-videos-${foundPlaylistId}-1`);
-          
-          if (cachedVideosData) {
-            console.log('Using cached videos data');
-            setPodcastEpisodes(cachedVideosData.videos);
-            setHasMore(cachedVideosData.hasMore);
-          } else {
-            console.log('Fetching videos data from API');
-            const videosResponse = await fetch(`/api/podcast?action=get-playlist-videos&playlistId=${foundPlaylistId}&page=1&limit=${episodesPerPage}`);
-            const videosData = await videosResponse.json();
-            
-            setPodcastEpisodes(videosData.videos);
-            setHasMore(videosData.hasMore);
-            setCachedData(`podcast-videos-${foundPlaylistId}-1`, videosData);
-          }
-        } else {
-          // Fallback to channel videos if no playlist found
-          console.log('No "Scaling the Unscalable" playlist found, using channel videos');
-          
-          // Check for cached channel videos
-          const cachedChannelVideos = getCachedData('podcast-channel-videos-1');
-          
-          if (cachedChannelVideos) {
-            console.log('Using cached channel videos data');
-            setPodcastEpisodes(cachedChannelVideos.videos);
-            setHasMore(cachedChannelVideos.hasMore);
-          } else {
-            console.log('Fetching channel videos from API');
-            const videosResponse = await fetch(`/api/podcast?action=get-channel-videos&page=1&limit=${episodesPerPage}`);
-            const videosData = await videosResponse.json();
-            
-            setPodcastEpisodes(videosData.videos);
-            setHasMore(videosData.hasMore);
-            setCachedData('podcast-channel-videos-1', videosData);
-          }
-        }
+        setPodcastEpisodes(videosData.videos);
+        setHasMore(videosData.hasMore);
       } catch (error) {
         console.error('Error fetching podcast episodes:', error);
-        // Fallback to channel videos
-        try {
-          const cachedChannelVideos = getCachedData('podcast-channel-videos-1');
-          
-          if (cachedChannelVideos) {
-            console.log('Using cached channel videos as fallback');
-            setPodcastEpisodes(cachedChannelVideos.videos);
-            setHasMore(cachedChannelVideos.hasMore);
-          } else {
-            console.log('Fetching channel videos as fallback');
-            const videosResponse = await fetch(`/api/podcast?action=get-channel-videos&page=1&limit=${episodesPerPage}`);
-            const videosData = await videosResponse.json();
-            
-            setPodcastEpisodes(videosData.videos);
-            setHasMore(videosData.hasMore);
-            setCachedData('podcast-channel-videos-1', videosData);
-          }
-        } catch (fallbackError) {
-          console.error('Fallback error:', fallbackError);
-        }
       } finally {
         setLoading(false);
       }
@@ -141,40 +54,22 @@ export default function PodcastClient() {
     try {
       const nextPage = currentPage + 1;
       
-      // Check for cached data first
-      let cacheKey;
+      console.log(`Fetching data for page ${nextPage}`);
+      let response;
       if (playlistId) {
-        cacheKey = `podcast-videos-${playlistId}-${nextPage}`;
+        response = await fetch(`/api/podcast?action=get-playlist-videos&playlistId=${playlistId}&page=${nextPage}&limit=${episodesPerPage}`);
       } else {
-        cacheKey = `podcast-channel-videos-${nextPage}`;
+        response = await fetch(`/api/podcast?action=get-channel-videos&page=${nextPage}&limit=${episodesPerPage}`);
       }
       
-      const cachedData = getCachedData(cacheKey);
+      const data = await response.json();
       
-      if (cachedData) {
-        console.log(`Using cached data for page ${nextPage}`);
-        setPodcastEpisodes(prev => [...prev, ...cachedData.videos]);
+      if (data.videos && data.videos.length > 0) {
+        setPodcastEpisodes(prev => [...prev, ...data.videos]);
         setCurrentPage(nextPage);
-        setHasMore(cachedData.hasMore);
+        setHasMore(data.hasMore);
       } else {
-        console.log(`Fetching data for page ${nextPage}`);
-        let response;
-        if (playlistId) {
-          response = await fetch(`/api/podcast?action=get-playlist-videos&playlistId=${playlistId}&page=${nextPage}&limit=${episodesPerPage}`);
-        } else {
-          response = await fetch(`/api/podcast?action=get-channel-videos&page=${nextPage}&limit=${episodesPerPage}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.videos && data.videos.length > 0) {
-          setPodcastEpisodes(prev => [...prev, ...data.videos]);
-          setCurrentPage(nextPage);
-          setHasMore(data.hasMore);
-          setCachedData(cacheKey, data);
-        } else {
-          setHasMore(false);
-        }
+        setHasMore(false);
       }
     } catch (error) {
       console.error('Error loading more episodes:', error);

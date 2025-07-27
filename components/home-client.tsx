@@ -1,15 +1,57 @@
 'use client'
 
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import Image from "next/image"
 
 export default function HomeClient() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState("")
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!email) {
+      setStatus('error')
+      setMessage('Please enter your email address')
+      return
+    }
+
+    setStatus('loading')
+    setMessage("")
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setStatus('success')
+        setMessage(data.message)
+        setEmail("")
+      } else {
+        setStatus('error')
+        setMessage(data.error || 'Failed to subscribe. Please try again.')
+      }
+    } catch (error) {
+      setStatus('error')
+      setMessage('Failed to subscribe. Please try again.')
+    }
+  }
+
   return (
     <div className="min-h-screen flex">
       {/* Fixed Background Image - Behind Everything */}
@@ -224,16 +266,46 @@ export default function HomeClient() {
                   Subscribe to my weekly newsletter about growing service-based businesses globally. Submit your email below.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
-                  <input
-                    type="email"
-                    placeholder="E-mail"
-                    className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 flex-1 px-6 py-4 rounded-lg border"
-                  />
-                  <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas h-14">
-                    SEND
-                  </Button>
-                </div>
+                <form onSubmit={handleSubscribe} className="space-y-4">
+                  <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                    <input
+                      type="email"
+                      placeholder="E-mail"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={status === 'loading'}
+                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 flex-1 px-6 py-4 rounded-lg border"
+                    />
+                    <Button 
+                      type="submit"
+                      disabled={status === 'loading'}
+                      className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas h-14 disabled:opacity-50"
+                    >
+                      {status === 'loading' ? (
+                        <>
+                          <Loader2 size={16} className="mr-2 animate-spin" />
+                          Subscribing...
+                        </>
+                      ) : (
+                        'SEND'
+                      )}
+                    </Button>
+                  </div>
+                  
+                  {/* Status Message */}
+                  {message && (
+                    <div className={`flex items-center justify-center space-x-2 text-sm ${
+                      status === 'success' ? 'text-emerald-400' : 'text-red-400'
+                    }`}>
+                      {status === 'success' ? (
+                        <CheckCircle size={16} />
+                      ) : (
+                        <AlertCircle size={16} />
+                      )}
+                      <span>{message}</span>
+                    </div>
+                  )}
+                </form>
               </div>
             </div>
           {/* Footer */}
