@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, Rocket, Users, Target, TrendingUp, Shield, Zap, Gl
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import NavigationMenu from "@/components/navigation-menu"
+import Image from "next/image"
 
 export default function EntrepreneurPage() {
   return (
@@ -96,13 +97,14 @@ export default function EntrepreneurPage() {
                     </p>
                   </div>
                   <div className="relative">
-                    <div className="w-full h-96 bg-gradient-to-br from-emerald-400/20 to-teal-600/20 rounded-2xl flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-32 h-32 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <span className="text-black text-4xl font-bold">🚀</span>
-                        </div>
-                        <p className="text-white text-xl font-semibold">Rocket Launch</p>
-                      </div>
+                    <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <Image
+                        src="/DSC0019-scaled.jpg"
+                        alt="Engjell Rraklli - Entrepreneur"
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -131,9 +133,11 @@ export default function EntrepreneurPage() {
               </div>
 
               <div className="mt-12">
-                <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
-                  LEARN MORE
-                </Button>
+                <Link href="https://division5.co" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                    LEARN MORE
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -146,8 +150,8 @@ export default function EntrepreneurPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
                 {/* Feature 1 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-black text-2xl font-bold">⚡</span>
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                    <Zap className="text-white text-3xl" />
                   </div>
                   <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
                     Hire a full-time from 2-weeks to 2 months.
@@ -159,8 +163,8 @@ export default function EntrepreneurPage() {
 
                 {/* Feature 2 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-black text-2xl font-bold">📋</span>
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                    <Target className="text-white text-3xl" />
                   </div>
                   <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
                     Full transparency on every part of the process.
@@ -172,8 +176,8 @@ export default function EntrepreneurPage() {
 
                 {/* Feature 3 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-black text-2xl font-bold">📈</span>
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                    <TrendingUp className="text-white text-3xl" />
                   </div>
                   <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
                     Scaling was never this flexible.
@@ -185,8 +189,8 @@ export default function EntrepreneurPage() {
 
                 {/* Feature 4 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-black text-2xl font-bold">🏢</span>
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                    <Shield className="text-white text-3xl" />
                   </div>
                   <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
                     Leverage our 9+ years experience in building successful teams.
@@ -198,8 +202,8 @@ export default function EntrepreneurPage() {
 
                 {/* Feature 5 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-black text-2xl font-bold">👤</span>
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                    <Users className="text-white text-3xl" />
                   </div>
                   <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
                     The best Albanian talent at your fingertips.
@@ -211,8 +215,8 @@ export default function EntrepreneurPage() {
 
                 {/* Feature 6 */}
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-black text-2xl font-bold">💸</span>
+                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                    <Globe className="text-white text-3xl" />
                   </div>
                   <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
                     If you're not happy, you pay nothing.
@@ -225,9 +229,11 @@ export default function EntrepreneurPage() {
               </div>
 
               <div className="text-center">
-                <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-12 py-6 text-lg rounded-full transition-all duration-300 font-bebas">
-                  BUILD YOUR TEAM
-            </Button>
+                <Link href="https://division5.co/services/staff-augmentation/" target="_blank" rel="noopener noreferrer">
+                  <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-12 py-6 text-lg rounded-full transition-all duration-300 font-bebas">
+                    BUILD YOUR TEAM
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

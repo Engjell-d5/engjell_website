@@ -68,8 +68,8 @@ export default function ContactPage() {
                   <div className="space-y-6">
                     <div className="flex items-center space-x-4">
                       <Mail className="text-white text-xl" />
-                      <a href="mailto:engjell@division5.co" className="text-blue-400 underline font-montserrat">
-                        engjell@division5.co
+                      <a href="mailto:info@engjellrraklli.com" className="text-blue-400 underline font-montserrat">
+                        info@engjellrraklli.com
                       </a>
                     </div>
                     

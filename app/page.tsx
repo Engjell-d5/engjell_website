@@ -19,7 +19,7 @@ export default function HomePage() {
 
         {/* Social Icons */}
         <div className="p-8 pb-12">
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 justify-center">
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
               <span className="text-xl font-bold">©</span>
             </Link>
@@ -85,7 +85,7 @@ export default function HomePage() {
         <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-emerald-400/5 to-transparent blur-3xl"></div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 bg-gradient-to-b from-transparent via-15% via-slate-900/100 to-99% to-teal-900 relative overflow-hidden">
+        <div className="flex-1 bg-[linear-gradient(to_bottom,transparent_0%,#0f172a_15%,#0f172a_70%,#134e4a)] relative overflow-hidden">
         {/* Hero Section */}
           <div className="p-16 min-h-screen flex flex-col justify-center relative">
 
@@ -167,13 +167,14 @@ export default function HomePage() {
                     </Link>
                   </div>
                   <div className="relative">
-                    <div className="w-full h-96 bg-gradient-to-br from-emerald-400/20 to-teal-600/20 rounded-2xl flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-32 h-32 bg-emerald-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <span className="text-black text-4xl font-bold">🎤</span>
-                        </div>
-                        <p className="text-white text-xl font-semibold">Speaking & Leadership</p>
-                      </div>
+                    <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <Image
+                        src="/DSC0112-scaled.jpg"
+                        alt="Engjell Rraklli - Entrepreneur"
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>
@@ -186,13 +187,14 @@ export default function HomePage() {
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                   <div className="relative">
-                    <div className="w-full h-96 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-2xl flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-32 h-32 bg-blue-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <span className="text-black text-4xl font-bold">🎮</span>
-                        </div>
-                        <p className="text-white text-xl font-semibold">3D Game Scene</p>
-                      </div>
+                    <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <Image
+                        src="/DSC0036-scaled.jpg"
+                        alt="Engjell Rraklli - The 3D Guy"
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                   <div>
@@ -214,30 +216,34 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* The Book Section */}
+            {/* The Podcast Section */}
             <div className="px-16 py-24">
               <div className="max-w-6xl">
-                <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE BOOK</h2>
+                <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                   <div>
                     <p className="text-white text-3xl font-bold mb-8 leading-tight">
-                      Build scalable 3D web apps.
+                      Conversations that matter.
                     </p>
                     <p className="text-white text-xl leading-relaxed mb-8">
-                      I've been tinkering with{" "}
-                      <span className="text-orange-400 font-semibold">Three.js</span> and{" "}
-                      <span className="text-orange-400 font-semibold">Babylon.js</span> since 2017. I was impressed with what you could do with graphics in the browser. I invested a lot of time in these technologies and started helping companies build performant 3D web apps. That's how I became known as the 3D guy.
+                      Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business. I share insights from my journey of{" "}
+                      <span className="text-orange-400 font-semibold">scaling the unscalable</span> and growing service-based businesses to 7-figures and beyond. Join me for weekly episodes that inspire and educate.
                     </p>
+                    <Link href="/podcast">
+                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                        LISTEN NOW
+                      </Button>
+                    </Link>
                   </div>
                   <div className="relative">
-                    <div className="w-full h-96 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-32 h-32 bg-purple-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                          <span className="text-black text-4xl font-bold">📚</span>
-                        </div>
-                        <p className="text-white text-xl font-semibold">3D Guide Book</p>
-                        <p className="text-white text-sm mt-2">THE WEB HOW TO</p>
-                      </div>
+                    <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <Image
+                        src="/IMG_0425-scaled.jpg"
+                        alt="Engjell Rraklli - Podcast"
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
                 </div>

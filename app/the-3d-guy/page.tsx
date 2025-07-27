@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, BookOpen, Gamepad2, Users, Target, TrendingUp, Shi
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import NavigationMenu from "@/components/navigation-menu"
+import Image from "next/image"
 
 export default function The3DGuyPage() {
   return (
@@ -78,13 +79,16 @@ export default function The3DGuyPage() {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                {/* Left side - Image placeholder */}
+                {/* Left side - Image */}
                 <div className="relative">
-                  <div className="w-full h-96 bg-slate-700/50 rounded-2xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-6xl font-bold text-blue-300 mb-4">New o</div>
-                      <div className="text-gray-400 text-lg">3D Scene Preview</div>
-                    </div>
+                  <div className="w-full h-96 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/DSC0055-scaled.jpg"
+                      alt="Engjell Rraklli - The 3D Guy"
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 
@@ -119,37 +123,7 @@ export default function The3DGuyPage() {
             </div>
               </div>
 
-          {/* THE BOOK Section */}
-          <div className="px-16 py-24">
-            <div className="max-w-6xl">
-              <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE BOOK</h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                  <p className="text-white text-3xl font-bold mb-8 leading-tight font-bebas">
-                    Build scalable 3D web apps.
-                  </p>
-                  <p className="text-white text-lg leading-relaxed font-montserrat">
-                    I've been tinkering with{" "}
-                    <span className="text-orange-400 font-semibold">Three.js</span> and{" "}
-                    <span className="text-orange-400 font-semibold">Babylon.js</span> since 2017. I was impressed with what you could do with graphics in the browser. I invested a lot of time in these technologies and started helping companies build performant 3D web apps. That's how I became known as{" "}
-                    <span className="text-orange-400 font-semibold">the 3D guy</span>.
-                  </p>
-                </div>
-                <div className="relative">
-                  <div className="w-full h-96 bg-gradient-to-br from-purple-400/20 to-pink-600/20 rounded-2xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-purple-400 rounded-full flex items-center justify-center mb-6 mx-auto">
-                        <span className="text-black text-4xl font-bold">📚</span>
-                      </div>
-                      <p className="text-white text-xl font-semibold">3D GUIDE - THE WEB</p>
-                      <p className="text-white text-sm mt-2">HOW TO BUILD SCALABLE AND PERFORMANT 3D WEB APPS</p>
-                      <p className="text-white text-sm mt-4">ENGJELL RRAKLLI</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-              </div>
+
 
           {/* DIVISION 3D Section */}
           <div className="px-16 py-24">
@@ -166,16 +140,16 @@ export default function The3DGuyPage() {
           <div className="px-16 py-24">
             <div className="max-w-6xl">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Left side - 3D Character Placeholder */}
+                {/* Left side - 3D Image */}
                 <div className="relative">
-                  <div className="w-full h-96 bg-slate-700/50 rounded-2xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-blue-400/20 rounded-full mb-4 mx-auto flex items-center justify-center">
-                        <div className="w-16 h-16 bg-purple-400 rounded-full"></div>
-                      </div>
-                      <div className="text-gray-400 text-lg font-montserrat">3D Character</div>
-                      <div className="text-gray-500 text-sm mt-2">VR Headset & Interactive Elements</div>
-                    </div>
+                  <div className="w-full h-96 rounded-2xl overflow-hidden">
+                    <Image
+                      src="/3d.png"
+                      alt="3D Technology"
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 
@@ -235,9 +209,11 @@ export default function The3DGuyPage() {
                           Efficient data handling and management practices minimize latency and ensure application performance.
                         </p>
 
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-12 py-6 mt-10 text-lg rounded-full transition-all duration-300 font-bebas">
-                          HIRE OUR EXPERTISE
-                        </Button>
+                        <Link href="https://division3d.co" target="_blank" rel="noopener noreferrer">
+                          <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-12 py-6 mt-10 text-lg rounded-full transition-all duration-300 font-bebas">
+                            HIRE OUR EXPERTISE
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </div>
