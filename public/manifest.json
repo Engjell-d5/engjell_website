@@ -1,0 +1,27 @@
+{
+  "name": "Engjell Rraklli - Entrepreneur, 3D Expert & Podcast Host",
+  "short_name": "Engjell Rraklli",
+  "description": "Entrepreneur, 3D visualization expert, and host of 'Scaling the Unscalable' podcast",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["business", "technology", "education"],
+  "lang": "en",
+  "dir": "ltr"
+} 

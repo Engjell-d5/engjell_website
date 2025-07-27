@@ -5,34 +5,42 @@ import { Input } from "@/components/ui/input"
 import { Mail, Phone, MapPin, Rocket, Users, Target, TrendingUp, Shield, Zap, Globe } from "lucide-react"
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
-import NavigationMenu from "@/components/navigation-menu"
+
 import Image from "next/image"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Entrepreneur - Engjell Rraklli",
+  description: "Discover how Engjell Rraklli built Division5, a successful staff augmentation company. Learn about scaling service-based businesses and entrepreneurship insights.",
+  keywords: ["entrepreneur", "staff augmentation", "business scaling", "Division5", "service business", "entrepreneurship", "business growth"],
+  openGraph: {
+    title: "Entrepreneur - Engjell Rraklli",
+    description: "Discover how Engjell Rraklli built Division5, a successful staff augmentation company. Learn about scaling service-based businesses and entrepreneurship insights.",
+    type: "website",
+    url: "https://engjellrraklli.com/entrepreneur",
+    images: [
+      {
+        url: "/DSC0019-scaled.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Engjell Rraklli - Entrepreneur and Business Leader"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Entrepreneur - Engjell Rraklli",
+    description: "Discover how Engjell Rraklli built Division5, a successful staff augmentation company.",
+    images: ["/DSC0019-scaled.jpg"]
+  },
+  alternates: {
+    canonical: "https://engjellrraklli.com/entrepreneur"
+  }
+}
 
 export default function EntrepreneurPage() {
   return (
-    <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
-        <NavigationMenu activePage="entrepreneur" />
-
-        {/* Social Icons */}
-        <div className="p-8 pb-12">
-          <div className="flex space-x-6">
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">©</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">in</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">X</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
+    <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
         {/* Flowing Wave Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,6 +258,5 @@ export default function EntrepreneurPage() {
           <Footer />
         </div>
       </div>
-    </div>
   )
 }

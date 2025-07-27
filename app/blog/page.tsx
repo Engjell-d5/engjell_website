@@ -3,7 +3,37 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Clock } from "lucide-react"
 import SubscribeSection from "@/components/subscribe-section"
-import NavigationMenu from "@/components/navigation-menu"
+
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Blog - Engjell Rraklli",
+  description: "Read insights on entrepreneurship, business scaling, 3D visualization, and technology from Engjell Rraklli. Expert articles on scaling service-based businesses and innovation.",
+  keywords: ["blog", "entrepreneurship articles", "business scaling", "3D visualization blog", "technology insights", "business growth", "innovation"],
+  openGraph: {
+    title: "Blog - Engjell Rraklli",
+    description: "Read insights on entrepreneurship, business scaling, 3D visualization, and technology from Engjell Rraklli. Expert articles on scaling service-based businesses and innovation.",
+    type: "website",
+    url: "https://engjellrraklli.com/blog",
+    images: [
+      {
+        url: "/DSC0048-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Blog - Engjell Rraklli"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - Engjell Rraklli",
+    description: "Read insights on entrepreneurship, business scaling, 3D visualization, and technology from Engjell Rraklli.",
+    images: ["/DSC0048-1.jpg"]
+  },
+  alternates: {
+    canonical: "https://engjellrraklli.com/blog"
+  }
+}
 
 const blogPosts = [
   {
@@ -52,29 +82,7 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen flex">
-      {/* Sidebar */}
-      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
-        <NavigationMenu activePage="blog" />
-
-        {/* Social Icons */}
-        <div className="p-8 pb-12">
-          <div className="flex space-x-6">
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">©</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">in</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">X</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
+    <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
         {/* Scrollable Content */}
         <div className="relative z-10 overflow-y-auto h-full">
           {/* Page Title */}
@@ -125,6 +133,5 @@ export default function BlogPage() {
           />
         </div>
       </div>
-    </div>
   )
 }

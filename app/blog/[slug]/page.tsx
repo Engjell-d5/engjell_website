@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Instagram, Linkedin, Twitter, ArrowLeft, Calendar, Clock, Share2 } from "lucide-react"
 import { notFound } from "next/navigation"
+import { Metadata } from "next"
 
 const blogPosts = {
   "future-of-3d-technology-in-business": {
@@ -9,6 +10,7 @@ const blogPosts = {
     date: "2024-01-15",
     readTime: "5 min read",
     category: "Technology",
+    excerpt: "Discover how 3D technology is reshaping business operations, from virtual showrooms to immersive training programs.",
     content: `
       <p>The landscape of business is rapidly evolving, and at the forefront of this transformation is 3D technology. From virtual showrooms to immersive training programs, 3D technology is reshaping how companies operate, engage with customers, and deliver value.</p>
 
@@ -56,6 +58,7 @@ const blogPosts = {
     date: "2024-01-10",
     readTime: "8 min read",
     category: "Entrepreneurship",
+    excerpt: "Key lessons from founding multiple startups, including validation strategies, team building, and the mindset shifts that lead to success.",
     content: `
       <p>After founding multiple startups and experiencing both spectacular failures and remarkable successes, I've learned that entrepreneurship is as much about mindset as it is about execution. Here are the key lessons that have shaped my journey.</p>
 
@@ -100,20 +103,55 @@ const blogPosts = {
         <li>Building systems, not just solving immediate problems</li>
       </ul>
 
-      <h2>Practical Advice for New Entrepreneurs</h2>
-      <p>If you're just starting your entrepreneurial journey, here's my practical advice:</p>
-      <ol>
-        <li>Start before you feel ready</li>
-        <li>Talk to customers every single day</li>
-        <li>Build a strong network of mentors and peers</li>
-        <li>Learn to sell—everything depends on it</li>
-        <li>Take care of your mental and physical health</li>
-      </ol>
-
-      <p>Remember, entrepreneurship is a marathon, not a sprint. The goal isn't to avoid all mistakes but to learn from them quickly and keep moving forward.</p>
+      <p>Success in entrepreneurship isn't about having the perfect idea or the most funding—it's about having the right mindset, validating your assumptions, and being willing to learn from every experience.</p>
     `,
   },
-  // Add more blog posts as needed
+}
+
+type Props = {
+  params: { slug: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = blogPosts[params.slug as keyof typeof blogPosts]
+  
+  if (!post) {
+    return {
+      title: 'Blog Post Not Found',
+      description: 'The requested blog post could not be found.'
+    }
+  }
+
+  return {
+    title: `${post.title} - Engjell Rraklli`,
+    description: post.excerpt,
+    keywords: [post.category.toLowerCase(), "blog", "engjell rraklli", "entrepreneurship", "technology", "business"],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      url: `https://engjellrraklli.com/blog/${params.slug}`,
+      publishedTime: post.date,
+      authors: ["Engjell Rraklli"],
+      images: [
+        {
+          url: "/DSC0048-1.jpg",
+          width: 1200,
+          height: 630,
+          alt: post.title
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: ["/DSC0048-1.jpg"]
+    },
+    alternates: {
+      canonical: `https://engjellrraklli.com/blog/${params.slug}`
+    }
+  }
 }
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
