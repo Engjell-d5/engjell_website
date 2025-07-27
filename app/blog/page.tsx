@@ -54,12 +54,27 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="hidden lg:block w-64 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="blog" />
+
+        {/* Social Icons */}
+        <div className="p-8 pb-12">
+          <div className="flex space-x-6">
+            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+              <span className="text-xl font-bold">©</span>
+            </Link>
+            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+              <span className="text-xl font-bold">in</span>
+            </Link>
+            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+              <span className="text-xl font-bold">X</span>
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden lg:ml-64">
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-64">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -88,32 +103,30 @@ export default function BlogPage() {
 
           {/* Blog Posts Grid */}
           <div className="px-16 pb-16">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {blogPosts.map((post) => (
-                  <div key={post.id} className="bg-slate-700/50 rounded-lg overflow-hidden hover:bg-slate-700/70 transition-all duration-300 hover:scale-105">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-full h-48 object-cover"
-                    />
+                  <div key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    {/* Image */}
+                    <div className="h-48 bg-gray-200">
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Content */}
                     <div className="p-6">
-                      <h3 className="text-white text-xl font-bold mb-3 line-clamp-2">
+                      <h3 className="text-black font-bold text-lg mb-3 leading-tight">
                         {post.title}
                       </h3>
-                      <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                      <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center text-gray-400 text-sm">
-                          <Clock size={14} className="mr-1" />
-                          {post.readTime}
-                        </div>
-                        <Link href={`/blog/${post.id}`}>
-                          <Button variant="outline" size="sm" className="border-white text-white hover:bg-white hover:text-slate-800">
-                            Read More
-                          </Button>
-                        </Link>
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <Clock size={16} className="mr-2" />
+                        {post.readTime}
                       </div>
                     </div>
                   </div>
@@ -122,7 +135,7 @@ export default function BlogPage() {
             </div>
           </div>
 
-          {/* Subscribe Section */}
+          {/* Subscription Section */}
           <SubscribeSection 
             heading="SCALING THE UNSCALABLE"
             title="I write about scaling service-based businesses in my newsletter. Subscribe below."

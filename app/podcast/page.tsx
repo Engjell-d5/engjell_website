@@ -101,20 +101,34 @@ export default function PodcastPage() {
 
   // Subscribe to YouTube channel
   const subscribeToYouTube = () => {
-    window.open('https://www.youtube.com/@engjellrraklli', '_blank');
+    window.open('https://www.youtube.com/@engjellrraklli?sub_confirmation=1', '_blank');
   };
 
+  // Get latest episode URL
   const getLatestEpisodeUrl = () => {
-    return podcastEpisodes.length > 0 ? `https://www.youtube.com/watch?v=${podcastEpisodes[0].id}` : '#';
+    return podcastEpisodes.length > 0 ? podcastEpisodes[0].url : '#';
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex">
-        <div className="hidden lg:block w-64 bg-emerald-400 flex flex-col fixed h-screen">
+        <div className="w-80 bg-emerald-400 flex flex-col fixed h-screen">
           <NavigationMenu activePage="podcast" />
+          <div className="p-8 pb-12">
+            <div className="flex space-x-6">
+              <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+                <span className="text-xl font-bold">©</span>
+              </Link>
+              <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+                <span className="text-xl font-bold">in</span>
+              </Link>
+              <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+                <span className="text-xl font-bold">X</span>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden lg:ml-64">
+        <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-80">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -195,12 +209,27 @@ export default function PodcastPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="hidden lg:block w-64 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="podcast" />
+
+        {/* Social Icons */}
+        <div className="p-8 pb-12">
+          <div className="flex space-x-6">
+            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+              <span className="text-xl font-bold">©</span>
+            </Link>
+            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+              <span className="text-xl font-bold">in</span>
+            </Link>
+            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+              <span className="text-xl font-bold">X</span>
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden lg:ml-64">
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-64">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -268,21 +297,27 @@ export default function PodcastPage() {
                       />
                       <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Button 
+                          size="lg" 
+                          className="bg-red-600 hover:bg-red-700 text-white rounded-full w-16 h-16"
                           asChild
-                          className="bg-red-600 hover:bg-red-700 text-white rounded-full w-16 h-16 p-0"
                         >
-                          <Link href={`https://www.youtube.com/watch?v=${episode.id}`} target="_blank">
+                          <Link href={episode.url} target="_blank">
                             <Play size={24} className="ml-1" />
                           </Link>
                         </Button>
                       </div>
+                      <div className="absolute top-3 right-3 bg-black bg-opacity-75 text-white text-sm px-2 py-1 rounded">
+                        {episode.duration}
+                      </div>
                     </div>
 
-                    {/* Episode Info */}
-                    <CardContent className="p-6">
+                    <CardHeader className="p-6">
                       <CardTitle className="text-white text-lg font-bold mb-3 line-clamp-2">
                         {episode.title}
                       </CardTitle>
+                      <CardDescription className="text-gray-300 text-sm mb-4 line-clamp-3">
+                        {episode.description}
+                      </CardDescription>
                       
                       <div className="flex items-center justify-between text-gray-400 text-sm mb-4">
                         <div className="flex items-center">
@@ -295,33 +330,25 @@ export default function PodcastPage() {
                         </div>
                       </div>
 
-                      <p className="text-gray-300 text-sm line-clamp-3 mb-4">
-                        {episode.description}
-                      </p>
-
-                      <div className="flex space-x-2">
+                      <div className="flex items-center justify-between">
+                        <div className="text-gray-400 text-sm">
+                          <div className="flex items-center space-x-4">
+                            <span>{episode.viewCount} views</span>
+                            <span>{episode.likeCount} likes</span>
+                          </div>
+                        </div>
                         <Button 
+                          size="sm" 
+                          className="bg-red-600 hover:bg-red-700 text-white"
                           asChild
-                          size="sm"
-                          className="bg-red-600 hover:bg-red-700 text-white flex-1"
                         >
-                          <Link href={`https://www.youtube.com/watch?v=${episode.id}`} target="_blank">
-                            <Play size={16} className="mr-2" />
+                          <Link href={episode.url} target="_blank">
+                            <ExternalLink size={14} className="mr-1" />
                             Watch
                           </Link>
                         </Button>
-                        <Button 
-                          asChild
-                          size="sm"
-                          variant="outline"
-                          className="border-slate-600 text-gray-300 hover:bg-slate-600"
-                        >
-                          <Link href={`https://www.youtube.com/watch?v=${episode.id}`} target="_blank">
-                            <ExternalLink size={16} />
-                          </Link>
-                        </Button>
                       </div>
-                    </CardContent>
+                    </CardHeader>
                   </Card>
                 ))}
               </div>
@@ -332,9 +359,9 @@ export default function PodcastPage() {
                   <Button 
                     onClick={loadMoreEpisodes}
                     disabled={loadingMore}
-                    className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas"
+                    className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas disabled:opacity-50"
                   >
-                    {loadingMore ? 'Loading...' : 'Load More Episodes'}
+                    {loadingMore ? 'LOADING...' : 'LOAD MORE EPISODES'}
                   </Button>
                 </div>
               )}
