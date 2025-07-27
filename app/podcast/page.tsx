@@ -209,7 +209,7 @@ export default function PodcastPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="podcast" />
 
         {/* Social Icons */}
@@ -229,7 +229,7 @@ export default function PodcastPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-80">
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-64">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{

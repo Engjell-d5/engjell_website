@@ -11,13 +11,13 @@ export default function Footer() {
             </Link>
           </div>
           <div className="text-center mb-4 md:mb-0">
-            <p className="text-gray-400 text-sm">© 2024 Engjell Rraklli. All rights reserved.</p>
+            <p className="text-gray-400 text-sm">© 2025 Engjell Rraklli. All rights reserved.</p>
           </div>
           <div className="text-center">
             <p className="text-gray-400 text-sm">
               Designed and built by{" "}
-              <Link href="#" className="text-emerald-400 hover:text-emerald-300">
-                division5
+              <Link href="https://divisionAI.co" className="text-emerald-400 hover:text-emerald-300">
+                divisionAI
               </Link>
             </p>
           </div>

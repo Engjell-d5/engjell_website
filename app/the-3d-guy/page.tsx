@@ -12,7 +12,7 @@ export default function The3DGuyPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="3d-guy" />
 
         {/* Social Icons */}
@@ -32,7 +32,7 @@ export default function The3DGuyPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-80">
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-64">
         {/* Flowing Wave Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,7 +129,6 @@ export default function The3DGuyPage() {
           <div className="px-16 py-24">
             <div className="max-w-6xl mx-auto text-center">
               <h2 className="text-white text-5xl font-bold mb-8 font-bebas uppercase tracking-wide">DIVISION 3D</h2>
-              <p className="text-blue-300 text-3xl font-bold mb-8 font-bebas">division 3D</p>
               <p className="text-white text-xl leading-relaxed font-montserrat max-w-4xl mx-auto">
                 We specialize in cutting-edge, scalable, and fast 3D web applications. Our expertise in browser-based 3D apps transforms your vision into immersive digital experiences. We use the latest technologies to build high-performance 3D solutions.
                 </p>

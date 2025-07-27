@@ -14,12 +14,12 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="home" />
 
         {/* Social Icons */}
-        <div className="p-8 pb-12">
-          <div className="flex space-x-6 justify-center">
+        <div className="px-8 pb-12">
+          <div className="flex space-x-6">
             <Link href="#" className="text-white hover:opacity-80 transition-opacity">
               <span className="text-xl font-bold">©</span>
             </Link>
@@ -40,14 +40,14 @@ export default function HomePage() {
             src="/DSC0048-1.jpg"
             alt="Background"
             fill
-            className="object-cover object-center"
+            className="object-cover object-bottom"
             priority
           />
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 relative overflow-hidden ml-80">
+      <div className="flex-1 relative overflow-hidden ml-64">
         {/* Flowing Wave Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -264,9 +264,9 @@ export default function HomePage() {
                     placeholder="E-mail"
                     className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 flex-1 px-6 py-4 rounded-lg border"
                   />
-                  <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas">
-                    SEND
-                  </Button>
+                                  <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas h-14">
+                  SEND
+                </Button>
                 </div>
               </div>
             </div>
