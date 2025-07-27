@@ -126,7 +126,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col">
+      <div className="w-80 bg-emerald-400 flex flex-col fixed h-screen">
         <div className="p-8">
           <Link href="/">
             <div className="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center">
@@ -186,7 +186,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-800 p-16">
+      <div className="flex-1 bg-slate-800 p-16 ml-80">
         <div className="max-w-4xl">
           <Link href="/blog" className="inline-flex items-center text-white mb-8 hover:opacity-80">
             <ArrowLeft className="mr-2" size={20} />

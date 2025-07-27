@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-80 bg-emerald-400 flex flex-col relative">
+      <div className="w-80 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="home" />
 
         {/* Social Icons */}
@@ -47,7 +47,7 @@ export default function HomePage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 relative overflow-hidden">
+      <div className="flex-1 relative overflow-hidden ml-80">
         {/* Flowing Wave Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,7 +85,7 @@ export default function HomePage() {
         <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-emerald-400/5 to-transparent blur-3xl"></div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 bg-gradient-to-b from-transparent via-15% via-slate-900/100 to-teal-900 relative overflow-hidden">
+        <div className="flex-1 bg-gradient-to-b from-transparent via-15% via-slate-900/100 to-99% to-teal-900 relative overflow-hidden">
         {/* Hero Section */}
           <div className="p-16 min-h-screen flex flex-col justify-center relative">
 

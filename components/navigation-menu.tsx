@@ -8,9 +8,9 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
   return (
     <>
       {/* Logo */}
-      <div className="p-8 pt-12  items-center justify-center">
+      <div className="p-8 pt-12 flex items-center justify-center">
         <Link href="/">
-          <div className="w-28 h-28  ">
+          <div className="w-28 h-28 flex items-center justify-center">
             <img src="/logo.svg" alt="ER Logo" className="w-28 h-28" />
           </div>
         </Link>
