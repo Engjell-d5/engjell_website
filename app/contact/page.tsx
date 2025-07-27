@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
+import SharedBackground from "@/components/shared-background"
+import Footer from "@/components/footer"
 
 import { Metadata } from "next"
 
@@ -37,10 +39,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
-
-        {/* Scrollable Content */}
-        <div className="relative z-10 overflow-y-auto h-full">
+    <SharedBackground>
           {/* Page Title */}
           <div className="p-16 text-center">
             <h1 className="text-white text-8xl font-bold mb-16 font-bebas uppercase tracking-wide">CONTACTS</h1>
@@ -106,7 +105,9 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+
+          {/* Footer */}
+          <Footer />
+    </SharedBackground>
   )
 }

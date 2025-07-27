@@ -8,6 +8,7 @@ import SubscribeSection from "@/components/subscribe-section"
 import Footer from "@/components/footer"
 import Image from "next/image"
 import { useState } from "react"
+import SharedBackground from "@/components/shared-background"
 
 const blogPosts = [
   {
@@ -82,9 +83,7 @@ export default function BlogClient() {
     : blogPosts.filter(post => post.category === selectedCategory)
 
   return (
-    <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
-      {/* Scrollable Content */}
-      <div className="relative z-10 overflow-y-auto h-full">
+    <SharedBackground>
         {/* Page Title */}
         <div className="p-16 text-center">
           <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">BLOG</h1>
@@ -177,18 +176,9 @@ export default function BlogClient() {
                         <Calendar size={14} className="mr-1" />
                         {new Date(post.date).toLocaleDateString()}
                       </div>
-                      <div className="flex items-center">
-                        <Clock size={14} className="mr-1" />
-                        {post.readTime}
-                      </div>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <div className="text-gray-400 text-sm">
-                        <div className="flex items-center space-x-4">
-                          <span>{post.category}</span>
-                        </div>
-                      </div>
                       <Button 
                         size="sm" 
                         className="bg-emerald-400 hover:bg-emerald-500 text-black"
@@ -241,7 +231,6 @@ export default function BlogClient() {
 
         {/* Footer */}
         <Footer />
-      </div>
-    </div>
+    </SharedBackground>
   )
 } 

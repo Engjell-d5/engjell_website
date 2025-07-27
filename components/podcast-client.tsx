@@ -8,6 +8,7 @@ import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import { YouTubeVideo } from "@/lib/youtube"
 import { useState, useEffect } from "react"
+import SharedBackground from "@/components/shared-background"
 
 export default function PodcastClient() {
   const [podcastEpisodes, setPodcastEpisodes] = useState<YouTubeVideo[]>([]);
@@ -110,9 +111,7 @@ export default function PodcastClient() {
 
   if (loading) {
     return (
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
-        {/* Scrollable Content */}
-        <div className="relative z-10 overflow-y-auto h-full">
+      <SharedBackground>
           {/* Page Title */}
           <div className="p-16 text-center">
             <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
@@ -197,15 +196,12 @@ export default function PodcastClient() {
 
           {/* Footer */}
           <Footer />
-        </div>
-      </div>
+      </SharedBackground>
     );
   }
 
   return (
-    <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
-      {/* Scrollable Content */}
-      <div className="relative z-10 overflow-y-auto h-full">
+    <SharedBackground>
         {/* Page Title */}
         <div className="p-16 text-center">
           <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
@@ -341,7 +337,6 @@ export default function PodcastClient() {
 
         {/* Footer */}
         <Footer />
-      </div>
-    </div>
+    </SharedBackground>
   )
 } 

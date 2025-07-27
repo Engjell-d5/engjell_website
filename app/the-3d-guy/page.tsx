@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Mail, Phone, MapPin, BookOpen, Gamepad2, Users, Target, TrendingUp, Shield, Zap, Globe } from "lucide-react"
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
+import SharedBackground from "@/components/shared-background"
 
 import Image from "next/image"
 import { Metadata } from "next"
@@ -40,45 +41,7 @@ export const metadata: Metadata = {
 
 export default function The3DGuyPage() {
   return (
-    <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
-        {/* Flowing Wave Pattern Background */}
-        <div className="absolute inset-0 opacity-30">
-          <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Top flowing lines */}
-            <path d="M0 100C300 50 600 150 900 100C1050 75 1150 125 1200 100V0H0V100Z" fill="rgba(255,255,255,0.03)" />
-            <path
-              d="M0 150C250 100 500 200 750 150C900 125 1050 175 1200 150V50C1050 75 900 25 750 50C500 100 250 0 0 50V150Z"
-              fill="rgba(255,255,255,0.02)"
-            />
-
-            {/* Middle flowing lines */}
-            <path
-              d="M0 300C200 250 400 350 600 300C800 250 1000 350 1200 300V200C1000 250 800 150 600 200C400 250 200 150 0 200V300Z"
-              fill="rgba(255,255,255,0.02)"
-            />
-            <path
-              d="M0 400C300 350 600 450 900 400C1050 375 1150 425 1200 400V300C1050 325 900 275 750 300C500 350 250 250 0 300V400Z"
-              fill="rgba(255,255,255,0.01)"
-            />
-
-            {/* Bottom flowing lines */}
-            <path
-              d="M0 600C200 550 400 650 600 600C800 550 1000 650 1200 600V500C1000 550 800 450 600 500C400 550 200 450 0 500V600Z"
-              fill="rgba(255,255,255,0.02)"
-            />
-            <path
-              d="M0 750C250 700 500 800 750 750C900 725 1050 775 1200 750V650C1050 675 900 625 750 650C500 700 250 600 0 650V750Z"
-              fill="rgba(255,255,255,0.01)"
-            />
-          </svg>
-        </div>
-
-        {/* Additional decorative elements */}
-        <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-gradient-to-br from-teal-400/5 to-transparent blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-emerald-400/5 to-transparent blur-3xl"></div>
-
-        {/* Scrollable Content */}
-        <div className="relative z-10 overflow-y-auto h-full">
+    <SharedBackground>
           {/* Hero Section */}
           <div className="p-16 min-h-screen flex flex-col justify-center">
             <div className="max-w-6xl">
@@ -239,7 +202,6 @@ export default function The3DGuyPage() {
 
           {/* Footer */}
           <Footer />
-        </div>
-      </div>
+    </SharedBackground>
   )
 }
