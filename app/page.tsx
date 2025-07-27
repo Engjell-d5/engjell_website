@@ -94,13 +94,15 @@ export default function HomePage() {
               </p>
 
               {/* CTA Button */}
-              <Button
-                variant="outline"
-                size="lg"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 mb-32 font-bebas"
-              >
-                LET'S TALK
-              </Button>
+              <Link href="/contact">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 mb-32 font-bebas"
+                >
+                  LET'S TALK
+                </Button>
+              </Link>
 
               {/* Quote Section */}
               <div className="relative">
@@ -144,7 +146,7 @@ export default function HomePage() {
                       <span className="text-orange-400 font-semibold">scaling the unscalable</span>, growing service-based businesses to 7-figures and more.
                     </p>
                     <Link href="/entrepreneur">
-                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
                         FIND MORE
                       </Button>
                     </Link>
@@ -190,7 +192,7 @@ export default function HomePage() {
                       <span className="text-orange-400 font-semibold">Three.js</span>, and became known as "The 3D guy" after helping companies build complex 3D browser apps.
                     </p>
                     <Link href="/the-3d-guy">
-                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
                         FIND MORE
                       </Button>
                     </Link>
@@ -213,7 +215,7 @@ export default function HomePage() {
                       <span className="text-orange-400 font-semibold">scaling the unscalable</span> and growing service-based businesses to 7-figures and beyond. Join me for weekly episodes that inspire and educate.
                     </p>
                     <Link href="/podcast">
-                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 py-4 text-lg transition-all duration-300 font-bebas">
+                      <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
                         LISTEN NOW
                       </Button>
                     </Link>

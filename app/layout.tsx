@@ -37,10 +37,6 @@ export default function RootLayout({
   else if (pathname.startsWith('/contact')) activePage = 'contact'
   else activePage = 'home'
 
-  function handleNavigate() {
-    if (window.innerWidth < 768) setSidebarOpen(false)
-  }
-
   return (
     <html lang="en" className={`${montserrat.variable} ${bebasNeue.variable}`}>
       <head>
@@ -73,32 +69,28 @@ export default function RootLayout({
         </button>
         {/* Sidebar */}
         <div
-          className={`fixed top-0 left-0 z-40 transition-transform duration-300
-            md:w-64 md:h-screen md:bg-emerald-400 md:translate-x-0
-            w-full h-full bg-emerald-400
-            ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
-            md:items-stretch md:justify-start`}
+          className={
+            `w-64 bg-emerald-400 flex flex-col fixed h-screen top-0 left-0 z-40 transition-transform duration-300
+            md:translate-x-0
+            ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`
+          }
           style={{
             boxShadow: sidebarOpen ? '0 0 0 9999px rgba(0,0,0,0.7)' : undefined
           }}
         >
-          <div className="w-full h-full flex flex-col">
-            <div className="flex-grow flex flex-col items-center justify-center md:block md:items-stretch md:justify-start">
-              <NavigationMenu activePage={activePage} onNavigate={handleNavigate} />
-            </div>
-            {/* Social Icons */}
-            <div className="px-8 pb-12 mt-auto">
-              <div className="flex space-x-6">
-                <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-                  <span className="text-xl font-bold">©</span>
-                </Link>
-                <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-                  <span className="text-xl font-bold">in</span>
-                </Link>
-                <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-                  <span className="text-xl font-bold">X</span>
-                </Link>
-              </div>
+          <NavigationMenu activePage={activePage} />
+          {/* Social Icons */}
+          <div className="px-8 pb-12 mt-auto">
+            <div className="flex space-x-6">
+              <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+                <span className="text-xl font-bold">©</span>
+              </Link>
+              <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+                <span className="text-xl font-bold">in</span>
+              </Link>
+              <Link href="#" className="text-white hover:opacity-80 transition-opacity">
+                <span className="text-xl font-bold">X</span>
+              </Link>
             </div>
           </div>
         </div>

@@ -75,11 +75,11 @@ export default function EntrepreneurPage() {
           <div className="p-16 min-h-screen flex flex-col justify-center">
             <div className="max-w-6xl">
               <div className="text-center mb-16">
-                <h1 className="text-white text-8xl font-bold mb-8 font-bebas uppercase tracking-wide">ENTREPRENEUR</h1>
+                <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-8 font-bebas uppercase tracking-wide text-center">ENTREPRENEUR</h1>
               </div>
 
           <div className="prose prose-invert prose-lg max-w-none">
-                <h2 className="text-white text-2xl font-bold mb-4 font-bebas uppercase tracking-wide">ENGJELL RRAKLLI - ENTREPRENEUR</h2>
+                <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-bebas uppercase tracking-wide text-center break-words">ENGJELL RRAKLLI - ENTREPRENEUR</h2>
                 <p className="text-white text-3xl font-bold leading-tight mb-8 font-montserrat">
                   Empowering companies through staff augmentation services.
                 </p>
@@ -115,7 +115,7 @@ export default function EntrepreneurPage() {
           {/* ABOUT DIVISION5 Section */}
           <div className="px-16 py-24">
             <div className="max-w-6xl">
-              <h2 className="text-white text-5xl font-bold mb-8 font-bebas uppercase tracking-wide">ABOUT DIVISION5</h2>
+              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-8 font-bebas uppercase tracking-wide text-center break-words">ABOUT DIVISION5</h2>
               <h3 className="text-white text-3xl font-bold mb-8 font-bebas leading-tight">
                 Augment your engineering team with world-class developers.
               </h3>
@@ -145,7 +145,7 @@ export default function EntrepreneurPage() {
           {/* OUR STAFF AUGMENTATION MODEL Section */}
           <div className="px-16 py-24">
             <div className="max-w-6xl">
-              <h2 className="text-white text-5xl font-bold mb-16 font-bebas uppercase tracking-wide">OUR STAFF AUGMENTATION MODEL</h2>
+              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">OUR STAFF AUGMENTATION MODEL</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
                 {/* Feature 1 */}

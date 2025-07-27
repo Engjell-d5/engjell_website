@@ -30,24 +30,6 @@ export default function ContactPage() {
 
       {/* Main Content */}
       <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-0 transition-all duration-300">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `repeating-linear-gradient(
-              45deg,
-              transparent,
-              transparent 40px,
-              rgba(255,255,255,0.1) 40px,
-              rgba(255,255,255,0.1) 80px
-            )`
-          }}>
-            <div className="absolute bottom-0 right-0 w-full h-full opacity-5">
-              <div className="absolute bottom-20 right-20 text-white text-6xl font-bold opacity-20">
-                ENTREPRENEUR /
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Scrollable Content */}
         <div className="relative z-10 overflow-y-auto h-full">
