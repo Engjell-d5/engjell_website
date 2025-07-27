@@ -12,6 +12,9 @@ export default function StructuredData() {
       "name": "Division5"
     },
     "sameAs": [
+      "https://threads.net/@engjellrraklli",
+      "https://linkedin.com/in/engjell-rraklli-a8b20a68",
+      "https://instagram.com/engjellrraklli",
       "https://www.youtube.com/@engjellrraklli",
       "https://division5.co",
       "https://division3d.co"

@@ -113,7 +113,7 @@ export default function HomeClient() {
           {/* Opaque sections */}
 
             {/* The Entrepreneur Section */}
-            <div className="px-16 py-24">
+            <div className="px-16 py-24 relative z-10">
               <div className="max-w-6xl">
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
                   <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
@@ -148,7 +148,7 @@ export default function HomeClient() {
               </div>
 
             {/* The 3D Guy Section */}
-            <div className="px-16 py-24">
+            <div className="px-16 py-24 relative z-10">
               <div className="max-w-6xl">
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
                   <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
@@ -183,7 +183,7 @@ export default function HomeClient() {
               </div>
 
             {/* The Podcast Section */}
-            <div className="px-16 py-24">
+            <div className="px-16 py-24 relative z-10">
               <div className="max-w-6xl">
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
                   <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
@@ -217,7 +217,7 @@ export default function HomeClient() {
               </div>
 
             {/* Subscribe Section */}
-            <div className="px-16 py-24">
+            <div className="px-16 py-24 relative z-10">
               <div className="max-w-4xl mx-auto text-center">
                 <h2 className="text-white text-5xl font-bold mb-8 uppercase tracking-wide font-bebas">SUBSCRIBE</h2>
                 <p className="text-gray-300 text-xl mb-12 leading-relaxed">
@@ -237,7 +237,9 @@ export default function HomeClient() {
               </div>
             </div>
           {/* Footer */}
-          <Footer />
+          <div className="relative z-10">
+            <Footer />
+          </div>
 
         </div>
       </div>

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
-            <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
               Privacy Policy
             </Link>
           </div>

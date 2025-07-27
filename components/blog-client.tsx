@@ -3,84 +3,85 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Clock, ArrowRight, Calendar, Tag } from "lucide-react"
+import { Clock, ArrowRight, Calendar, Tag, Search, Loader2 } from "lucide-react"
 import SubscribeSection from "@/components/subscribe-section"
 import Footer from "@/components/footer"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SharedBackground from "@/components/shared-background"
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Art of Scaling Service-Based Businesses",
-    excerpt: "Discover the proven strategies and frameworks I've used to scale Division5 from a small startup to a thriving staff augmentation company serving clients worldwide.",
-    readTime: "8 min read",
-    category: "Entrepreneurship",
-    date: "2024-01-15",
-    image: "/DSC0112-scaled.jpg",
-    slug: "scaling-service-businesses"
-  },
-  {
-    id: 2,
-    title: "3D Visualization: The Future of Digital Marketing",
-    excerpt: "Explore how 3D technology is revolutionizing digital marketing and creating immersive experiences that drive engagement and conversions.",
-    readTime: "12 min read",
-    category: "3D Technology",
-    date: "2024-01-10",
-    image: "/DSC0036-scaled.jpg",
-    slug: "3d-visualization-marketing"
-  },
-  {
-    id: 3,
-    title: "Building High-Performance Teams in Tech",
-    excerpt: "Learn the key principles and practices for building and managing high-performance teams in the fast-paced world of technology.",
-    readTime: "15 min read",
-    category: "Leadership",
-    date: "2024-01-05",
-    image: "/DSC0019-scaled.jpg",
-    slug: "high-performance-teams"
-  },
-  {
-    id: 4,
-    title: "The Podcast Revolution: Why Audio Content Matters",
-    excerpt: "Dive into the growing importance of podcast content and how it's becoming a powerful tool for thought leadership and audience building.",
-    readTime: "10 min read",
-    category: "Content Marketing",
-    date: "2024-01-01",
-    image: "/IMG_0425-scaled.jpg",
-    slug: "podcast-revolution"
-  },
-  {
-    id: 5,
-    title: "From Developer to Entrepreneur: My Journey",
-    excerpt: "Follow my personal journey from being a developer to becoming an entrepreneur and the lessons learned along the way.",
-    readTime: "14 min read",
-    category: "Personal Growth",
-    date: "2023-12-28",
-    image: "/DSC0055-scaled.jpg",
-    slug: "developer-to-entrepreneur"
-  },
-  {
-    id: 6,
-    title: "Innovation in the Digital Age: What's Next?",
-    excerpt: "Explore the emerging trends and technologies that will shape the future of business and digital innovation.",
-    readTime: "18 min read",
-    category: "Innovation",
-    date: "2023-12-20",
-    image: "/DSC0048-1.jpg",
-    slug: "innovation-digital-age"
-  }
-]
+import { BlogPost } from "@/lib/blogger"
 
 const categories = ["All", "Entrepreneurship", "3D Technology", "Leadership", "Content Marketing", "Personal Growth", "Innovation"]
 
 export default function BlogClient() {
   const [selectedCategory, setSelectedCategory] = useState("All")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const [hasMore, setHasMore] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [nextPageToken, setNextPageToken] = useState<string | null>(null)
 
-  const filteredPosts = selectedCategory === "All" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory)
+  const fetchPosts = async (category: string = selectedCategory, search: string = searchQuery, page: number = 1, token?: string | null) => {
+    try {
+      setLoading(true)
+      setError(null)
+      
+      const params = new URLSearchParams()
+      if (category && category !== 'All') params.append('category', category)
+      if (search) params.append('search', search)
+      params.append('maxResults', '6')
+      if (token) params.append('pageToken', token)
+      
+      const response = await fetch(`/api/blog?${params.toString()}`)
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch posts')
+      }
+      
+      const data = await response.json()
+      
+      if (page === 1) {
+        setPosts(data.posts)
+        setNextPageToken(data.nextPageToken || null)
+      } else {
+        setPosts(prev => [...prev, ...data.posts])
+        setNextPageToken(data.nextPageToken || null)
+      }
+      
+      setHasMore(!!data.nextPageToken)
+      setCurrentPage(page)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch posts')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+    setCurrentPage(1)
+    setNextPageToken(null)
+    fetchPosts(category, searchQuery, 1)
+  }
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query)
+    setCurrentPage(1)
+    setNextPageToken(null)
+    fetchPosts(selectedCategory, query, 1)
+  }
+
+  const loadMore = () => {
+    fetchPosts(selectedCategory, searchQuery, currentPage + 1, nextPageToken)
+  }
+
+  const filteredPosts = posts
 
   return (
     <SharedBackground>
@@ -99,12 +100,26 @@ export default function BlogClient() {
                 Real insights from real experiences.
               </p>
               
+              {/* Search Bar */}
+              <div className="max-w-md mx-auto mb-8">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Input
+                    type="text"
+                    placeholder="Search articles..."
+                    value={searchQuery}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    className="pl-10 bg-slate-700/50 border-slate-600 text-white placeholder-gray-400 focus:border-emerald-400"
+                  />
+                </div>
+              </div>
+              
               {/* Category Filter */}
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 {categories.map((category) => (
                   <button
                     key={category}
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => handleCategoryChange(category)}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                       selectedCategory === category
                         ? 'bg-emerald-400 text-black shadow-lg'
@@ -118,89 +133,132 @@ export default function BlogClient() {
               
               {/* Results Count */}
               <div className="text-gray-400 text-sm mb-8">
-                {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} found
+                {!loading && `${filteredPosts.length} ${filteredPosts.length === 1 ? 'article' : 'articles'} found`}
               </div>
             </div>
 
-            {/* Blog Posts Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <div key={post.id} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 overflow-hidden rounded-lg">
-                  {/* Image */}
-                  <div className="relative group h-48">
-                    <Image 
-                      src={post.image} 
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Button 
-                        size="lg" 
-                        className="bg-emerald-400 hover:bg-emerald-500 text-black rounded-full w-16 h-16"
-                        asChild
-                      >
-                        <Link href={`/blog/${post.slug}`}>
-                          <ArrowRight size={24} className="ml-1" />
-                        </Link>
-                      </Button>
-                    </div>
-                    
-                    {/* Category Badge - Improved visibility */}
-                    <div className="absolute top-3 left-3">
-                      <span className="bg-black bg-opacity-90 text-white px-3 py-1 rounded-full text-xs font-bold font-bebas tracking-wider border border-white/20">
-                        {post.category}
-                      </span>
-                    </div>
-                    
-                    {/* Read Time */}
-                    <div className="absolute top-3 right-3 bg-black bg-opacity-75 text-white text-sm px-2 py-1 rounded">
-                      <Clock size={12} className="mr-1 inline" />
-                      {post.readTime}
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-white text-lg font-bold mb-3 line-clamp-2">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-gray-300 text-sm mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between text-gray-400 text-sm mb-4">
-                      <div className="flex items-center">
-                        <Calendar size={14} className="mr-1" />
-                        {new Date(post.date).toLocaleDateString()}
-                      </div>
-                    </div>
+            {/* Error Message */}
+            {error && (
+              <div className="text-center py-16">
+                <div className="text-red-400 text-lg mb-4">{error}</div>
+                <Button 
+                  onClick={() => fetchPosts()}
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 py-2 rounded-lg font-bebas"
+                >
+                  TRY AGAIN
+                </Button>
+              </div>
+            )}
 
-                    <div className="flex items-center justify-between">
-                      <Button 
-                        size="sm" 
-                        className="bg-emerald-400 hover:bg-emerald-500 text-black"
-                        asChild
-                      >
-                        <Link href={`/blog/${post.slug}`}>
-                          <ArrowRight size={14} className="mr-1" />
-                          Read
-                        </Link>
-                      </Button>
+            {/* Loading State */}
+            {loading && filteredPosts.length === 0 && (
+              <div className="flex flex-col items-center justify-center py-20">
+                <div className="relative mb-8">
+                  <div className="w-24 h-24 border-4 border-emerald-400/30 rounded-full animate-pulse"></div>
+                  <div className="absolute top-2 left-2 w-20 h-20 border-4 border-emerald-400/60 rounded-full animate-spin" style={{ animationDuration: '2s' }}></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-8 h-8 bg-emerald-400 rounded-full flex items-center justify-center animate-pulse">
+                      <Tag size={16} className="text-black" />
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+                <div className="text-center">
+                  <h3 className="text-white text-2xl font-bold mb-4 font-bebas tracking-wider">LOADING ARTICLES</h3>
+                  <div className="flex items-center justify-center space-x-2">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  </div>
+                  <p className="text-gray-400 text-sm mt-4 font-montserrat">Fetching the latest insights...</p>
+                </div>
+              </div>
+            )}
+
+            {/* Blog Posts Grid */}
+            {!loading && !error && (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts.map((post) => (
+                  <div key={post.id} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 overflow-hidden rounded-lg">
+                    {/* Image */}
+                    <div className="relative group h-48">
+                      <Image 
+                        src={post.images?.[0]?.url || "/DSC0048-1.jpg"} 
+                        alt={post.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Button 
+                          size="lg" 
+                          className="bg-emerald-400 hover:bg-emerald-500 text-black rounded-full w-16 h-16"
+                          asChild
+                        >
+                          <Link href={`/blog/${post.slug}`}>
+                            <ArrowRight size={24} className="ml-1" />
+                          </Link>
+                        </Button>
+                      </div>
+                      
+                      {/* Category Badge */}
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-black bg-opacity-90 text-white px-3 py-1 rounded-full text-xs font-bold font-bebas tracking-wider border border-white/20">
+                          {post.category}
+                        </span>
+                      </div>
+                      
+                      {/* Read Time */}
+                      <div className="absolute top-3 right-3 bg-black bg-opacity-75 text-white text-sm px-2 py-1 rounded">
+                        <Clock size={12} className="mr-1 inline" />
+                        {post.readTime}
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="text-white text-lg font-bold mb-3 line-clamp-2">
+                        {post.title}
+                      </h3>
+                      
+                      <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between text-gray-400 text-sm mb-4">
+                        <div className="flex items-center">
+                          <Calendar size={14} className="mr-1" />
+                          {new Date(post.published).toLocaleDateString()}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between">
+                        <Button 
+                          size="sm" 
+                          className="bg-emerald-400 hover:bg-emerald-500 text-black"
+                          asChild
+                        >
+                          <Link href={`/blog/${post.slug}`}>
+                            <ArrowRight size={14} className="mr-1" />
+                            Read
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {/* No Results Message */}
-            {filteredPosts.length === 0 && (
+            {!loading && !error && filteredPosts.length === 0 && (
               <div className="text-center py-16">
-                <div className="text-gray-400 text-lg mb-4">No articles found in this category</div>
+                <div className="text-gray-400 text-lg mb-4">No articles found</div>
                 <Button 
-                  onClick={() => setSelectedCategory("All")}
+                  onClick={() => {
+                    setSelectedCategory("All")
+                    setSearchQuery("")
+                    fetchPosts("All", "", 1)
+                  }}
                   className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 py-2 rounded-lg font-bebas"
                 >
                   VIEW ALL ARTICLES
@@ -209,12 +267,21 @@ export default function BlogClient() {
             )}
 
             {/* Load More Button */}
-            {filteredPosts.length > 0 && (
+            {!loading && !error && filteredPosts.length > 0 && hasMore && (
               <div className="text-center mt-12">
                 <Button 
-                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas"
+                  onClick={loadMore}
+                  disabled={loading}
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas disabled:opacity-50"
                 >
-                  LOAD MORE ARTICLES
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                      LOADING...
+                    </>
+                  ) : (
+                    'LOAD MORE ARTICLES'
+                  )}
                 </Button>
               </div>
             )}
