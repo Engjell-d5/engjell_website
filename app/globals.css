@@ -80,6 +80,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Parallax scrolling styles */
+.parallax-container {
+  will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
 /* Custom prose styles for blog content */
 .prose h2 {
   @apply text-white text-3xl font-bold mt-8 mb-4;
