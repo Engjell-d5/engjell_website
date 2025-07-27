@@ -136,9 +136,9 @@ export default function The3DGuyPage() {
           </div>
 
           {/* 3D Browser Apps Section */}
-          <div className="px-16 py-24">
+          <div className="px-16">
             <div className="max-w-6xl">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-start">
                 {/* Left side - 3D Image */}
                 <div className="relative">
                   <div className="w-full h-96 rounded-2xl overflow-hidden">

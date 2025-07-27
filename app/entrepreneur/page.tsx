@@ -84,7 +84,7 @@ export default function EntrepreneurPage() {
                   Empowering companies through staff augmentation services.
                 </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
                   <div>
                     <p className="text-white text-lg leading-relaxed mb-6 font-montserrat">
                       I started entrepreneurship at a very young age. Just before graduating I quit University to build{" "}

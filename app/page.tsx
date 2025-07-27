@@ -133,7 +133,7 @@ export default function HomePage() {
             <div className="px-16 py-24">
               <div className="max-w-6xl">
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
                   <div>
                     <p className="text-white text-3xl font-bold mb-8 leading-tight">
                       A journey of a thousand miles starts with 1 step.
@@ -168,7 +168,7 @@ export default function HomePage() {
             <div className="px-16 py-24">
               <div className="max-w-6xl">
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
                   <div className="relative">
                     <div className="w-full h-96 rounded-2xl overflow-hidden">
                       <Image
@@ -203,7 +203,7 @@ export default function HomePage() {
             <div className="px-16 py-24">
               <div className="max-w-6xl">
                 <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
                   <div>
                     <p className="text-white text-3xl font-bold mb-8 leading-tight">
                       Conversations that matter.

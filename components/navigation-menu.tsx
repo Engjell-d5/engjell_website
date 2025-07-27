@@ -1,15 +1,16 @@
 import Link from "next/link"
 
 interface NavigationMenuProps {
-  activePage: 'home' | 'entrepreneur' | '3d-guy' | 'blog' | 'podcast' | 'contact'
+  activePage: 'home' | 'entrepreneur' | '3d-guy' | 'blog' | 'podcast' | 'contact',
+  onNavigate?: () => void
 }
 
-export default function NavigationMenu({ activePage }: NavigationMenuProps) {
+export default function NavigationMenu({ activePage, onNavigate }: NavigationMenuProps) {
   return (
     <>
       {/* Logo */}
       <div className="p-8 pt-12 flex items-center justify-center">
-        <Link href="/">
+        <Link href="/" onClick={onNavigate}>
           <div className="w-28 h-28 flex items-center justify-center">
             <img src="/logo.svg" alt="ER Logo" className="w-28 h-28" />
           </div>
@@ -24,6 +25,7 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
             className={`block text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'home' ? 'bg-black' : 'hover:bg-black'
             }`}
+            onClick={onNavigate}
           >
             ENGJELL RRAKLLI
           </Link>
@@ -32,6 +34,7 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
             className={`block text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'entrepreneur' ? 'bg-black' : 'hover:bg-black'
             }`}
+            onClick={onNavigate}
           >
             ENTREPRENEUR
           </Link>
@@ -40,6 +43,7 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
             className={`block text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === '3d-guy' ? 'bg-black' : 'hover:bg-black'
             }`}
+            onClick={onNavigate}
           >
             THE 3D GUY
           </Link>
@@ -48,6 +52,7 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
             className={`block text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'blog' ? 'bg-black' : 'hover:bg-black'
             }`}
+            onClick={onNavigate}
           >
             BLOG
           </Link>
@@ -56,6 +61,7 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
             className={`block text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'podcast' ? 'bg-black' : 'hover:bg-black'
             }`}
+            onClick={onNavigate}
           >
             PODCAST
           </Link>
@@ -64,6 +70,7 @@ export default function NavigationMenu({ activePage }: NavigationMenuProps) {
             className={`block text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'contact' ? 'bg-black' : 'hover:bg-black'
             }`}
+            onClick={onNavigate}
           >
             CONTACT
           </Link>
