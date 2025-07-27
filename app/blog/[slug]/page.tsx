@@ -100,20 +100,12 @@ const blogPosts = {
         <li>Building systems, not just solving immediate problems</li>
       </ul>
 
-      <h2>Practical Advice for New Entrepreneurs</h2>
-      <p>If you're just starting your entrepreneurial journey, here's my practical advice:</p>
-      <ol>
-        <li>Start before you feel ready</li>
-        <li>Talk to customers every single day</li>
-        <li>Build a strong network of mentors and peers</li>
-        <li>Learn to sell—everything depends on it</li>
-        <li>Take care of your mental and physical health</li>
-      </ol>
+      <h2>Conclusion</h2>
+      <p>Building a successful startup is a marathon, not a sprint. The lessons I've learned have been expensive, but they've been invaluable. The key is to stay curious, stay humble, and never stop learning from both successes and failures.</p>
 
-      <p>Remember, entrepreneurship is a marathon, not a sprint. The goal isn't to avoid all mistakes but to learn from them quickly and keep moving forward.</p>
+      <p>Remember, every successful entrepreneur has a graveyard of failed ventures behind them. The difference is that they learned from each failure and kept moving forward.</p>
     `,
   },
-  // Add more blog posts as needed
 }
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
@@ -126,7 +118,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="hidden lg:block w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <div className="p-8">
           <Link href="/">
             <div className="w-24 h-24 rounded-full border-2 border-white flex items-center justify-center">
@@ -186,7 +178,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-slate-800 p-16 ml-64">
+      <div className="flex-1 bg-slate-800 p-16 lg:ml-64">
         <div className="max-w-4xl">
           <Link href="/blog" className="inline-flex items-center text-white mb-8 hover:opacity-80">
             <ArrowLeft className="mr-2" size={20} />
@@ -218,12 +210,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             <div className="text-gray-300 leading-relaxed" dangerouslySetInnerHTML={{ __html: post.content }} />
           </article>
 
-          <div className="mt-16 pt-8 border-t border-slate-700">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-white text-xl font-bold mb-2">Enjoyed this article?</h3>
-                <p className="text-gray-300">Subscribe to get notified about new posts.</p>
-              </div>
+          {/* Newsletter Signup */}
+          <div className="mt-16 p-8 bg-slate-700/50 rounded-lg">
+            <h3 className="text-white text-2xl font-bold mb-4">Stay Updated</h3>
+            <p className="text-gray-300">Subscribe to get notified about new posts.</p>
+            <div className="mt-4 flex space-x-4">
+              <input type="email" placeholder="Your email" className="flex-1 px-4 py-2 bg-slate-600 border border-slate-500 rounded text-white placeholder:text-gray-400" />
               <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 py-3">Subscribe</Button>
             </div>
           </div>

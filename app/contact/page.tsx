@@ -9,27 +9,12 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div className="w-64 bg-emerald-400 flex flex-col fixed h-screen">
+      <div className="hidden lg:block w-64 bg-emerald-400 flex flex-col fixed h-screen">
         <NavigationMenu activePage="contact" />
-
-        {/* Social Icons */}
-        <div className="p-8 pb-12">
-          <div className="flex space-x-6">
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">©</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">in</span>
-            </Link>
-            <Link href="#" className="text-white hover:opacity-80 transition-opacity">
-              <span className="text-xl font-bold">X</span>
-            </Link>
-          </div>
-        </div>
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden ml-64">
+      <div className="flex-1 bg-gradient-to-br from-slate-800 via-slate-900 to-teal-900 relative overflow-hidden lg:ml-64">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -103,13 +88,13 @@ export default function ContactPage() {
                     />
                     
                     <Textarea
-                      placeholder="Your Email"
+                      placeholder="Your Message"
                       rows={6}
-                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg"
+                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg resize-none"
                     />
                     
-                    <Button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold px-8 py-4 text-lg rounded-lg font-bebas">
-                      SEND
+                    <Button className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas">
+                      SEND MESSAGE
                     </Button>
                   </div>
                 </div>
