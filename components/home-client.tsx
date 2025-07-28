@@ -1,19 +1,40 @@
 'use client'
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { Mail, Phone, MapPin, CheckCircle, AlertCircle, Loader2, Play } from "lucide-react"
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import Image from "next/image"
+import { YouTubeVideo } from "@/lib/youtube"
 
 export default function HomeClient() {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState("")
+  const [podcastEpisodes, setPodcastEpisodes] = useState<YouTubeVideo[]>([]);
+  const [podcastLoading, setPodcastLoading] = useState(true);
+
+  // Fetch podcast episodes
+  useEffect(() => {
+    async function fetchPodcastEpisodes() {
+      try {
+        const videosResponse = await fetch(`/api/podcast?action=get-channel-videos&page=1&limit=1`);
+        const videosData = await videosResponse.json();
+        
+        setPodcastEpisodes(videosData.videos || []);
+      } catch (error) {
+        console.error('Error fetching podcast episodes:', error);
+      } finally {
+        setPodcastLoading(false);
+      }
+    }
+
+    fetchPodcastEpisodes();
+  }, []);
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -155,109 +176,335 @@ export default function HomeClient() {
 
           {/* Opaque sections */}
 
-            {/* The Entrepreneur Section */}
-            <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
-              <div className="max-w-7xl">
-                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
-                  <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-                    <div>
-                      <p className="text-body text-2xl md:text-3xl font-bold mb-8 leading-tight">
-                        A journey of a thousand miles starts with 1 step.
-                      </p>
-                      <p className="text-body text-lg md:text-xl leading-relaxed mb-8">
-                        10 years ago, I quit traditional education to build my own business. Since then, I founded and currently run{" "}
-                        <span className="text-orange-400 font-semibold">division5</span>, a company which provides world-class software development services all over the globe. As a highly creative person, I thoroughly enjoy creating things. Be it software or companies. I have failed more than I have succeeded. Each experience came with a big set of learnings that has helped shape me into the entrepreneur I am today. I share my experience of{" "}
-                        <span className="text-orange-400 font-semibold">scaling the unscalable</span>, growing service-based businesses to 7-figures and more.
-                      </p>
-                      <Link href="/entrepreneur">
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
-                          FIND MORE
-                        </Button>
-                      </Link>
-                    </div>
-                    <div className="relative">
-                      <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+            {/* Combined Sections Row */}
+            <div className="px-4 md:px-8 lg:px-12 py-16 md:py-24 relative z-10">
+              <div className="w-full">
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas text-center">EXPLORE</h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                  {/* The Entrepreneur */}
+                  <Link href="/entrepreneur" className="group">
+                    <div className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
+                      <div className="aspect-[4/5] relative">
                         <Image
                           src="/DSC0112-scaled.jpg"
                           alt="Engjell Rraklli - Entrepreneur"
-                          width={600}
-                          height={400}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 right-6">
+                          <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">ENTREPRENEUR</h3>
+                          <p className="text-orange-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">BUILD</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </Link>
 
-            {/* The 3D Guy Section */}
-            <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
-              <div className="max-w-7xl">
-                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
-                  <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-                    <div className="relative">
-                      <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+                  {/* The 3D Guy */}
+                  <Link href="/entrepreneur/division3d" className="group">
+                    <div className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
+                      <div className="aspect-[4/5] relative">
                         <Image
                           src="/DSC0036-scaled.jpg"
                           alt="Engjell Rraklli - The 3D Guy"
-                          width={600}
-                          height={400}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 right-6">
+                          <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">3D GUY</h3>
+                          <p className="text-orange-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">CREATE</p>
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <p className="text-body text-2xl md:text-3xl font-bold mb-8 leading-tight">
-                        Passion turned into deep expertise.
-                      </p>
-                      <p className="text-body text-lg md:text-xl leading-relaxed mb-8">
-                        I built my first game at 15, fell in love with 3D, and have been playing with 3D technology on the browser since 2017. I've built applications with{" "}
-                        <span className="text-orange-400 font-semibold">Babylon.js</span> and{" "}
-                        <span className="text-orange-400 font-semibold">Three.js</span>, and became known as "The 3D guy" after helping companies build complex 3D browser apps.
-                      </p>
-                      <Link href="/the-3d-guy">
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
-                          FIND MORE
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                  </Link>
 
-            {/* The Podcast Section */}
-            <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
-              <div className="max-w-7xl">
-                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
-                  <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
-                    <div>
-                      <p className="text-body text-2xl md:text-3xl font-bold mb-8 leading-tight">
-                        Conversations that matter.
-                      </p>
-                      <p className="text-body text-lg md:text-xl leading-relaxed mb-8">
-                        Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business. I share insights from my journey of{" "}
-                        <span className="text-orange-400 font-semibold">scaling the unscalable</span> and growing service-based businesses to 7-figures and beyond. Join me for weekly episodes that inspire and educate.
-                      </p>
-                      <Link href="/podcast">
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
-                          LISTEN NOW
-                        </Button>
-                      </Link>
-                    </div>
-                    <div className="relative">
-                      <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
+                  {/* The Podcast */}
+                  <Link href="/podcast" className="group">
+                    <div className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
+                      <div className="aspect-[4/5] relative">
                         <Image
                           src="/IMG_0425-scaled.jpg"
                           alt="Engjell Rraklli - Podcast"
-                          width={600}
-                          height={400}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div className="absolute bottom-6 left-6 right-6">
+                          <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">PODCAST</h3>
+                          <p className="text-orange-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">LISTEN</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
+            </div>
+
+          {/* Latest Podcast Episodes Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
+            {/* Background Pattern for Podcasts */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-full h-full">
+                <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Sound waves pattern */}
+                  <path d="M0 200 Q150 150 300 200 T600 200 T900 200 T1200 200" stroke="rgba(255,255,255,0.3)" strokeWidth="2" fill="none"/>
+                  <path d="M0 250 Q150 200 300 250 T600 250 T900 250 T1200 250" stroke="rgba(255,255,255,0.2)" strokeWidth="2" fill="none"/>
+                  <path d="M0 300 Q150 250 300 300 T600 300 T900 300 T1200 300" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none"/>
+                  {/* Circular elements representing speakers */}
+                  <circle cx="100" cy="100" r="20" fill="rgba(255,255,255,0.1)"/>
+                  <circle cx="1100" cy="100" r="20" fill="rgba(255,255,255,0.1)"/>
+                  <circle cx="100" cy="700" r="15" fill="rgba(255,255,255,0.1)"/>
+                  <circle cx="1100" cy="700" r="15" fill="rgba(255,255,255,0.1)"/>
+                </svg>
+              </div>
+            </div>
+            
+            <div className="max-w-7xl relative z-10">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center">
+                    <Play className="h-6 w-6 text-orange-400" />
+                  </div>
+                  <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide font-bebas">LATEST EPISODES</h2>
+                </div>
+                <p className="text-gray-300 text-lg md:text-xl font-montserrat">Deep conversations with entrepreneurs and innovators</p>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-8 md:gap-12">
+                {podcastLoading ? (
+                  // Loading state
+                  <div className="bg-gradient-to-br from-orange-400/10 to-red-400/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-orange-400/20">
+                    <div className="aspect-[16/9] relative overflow-hidden bg-gray-800 animate-pulse">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="h-4 bg-gray-700 rounded animate-pulse w-20"></div>
+                        <span className="text-gray-400">•</span>
+                        <div className="h-4 bg-gray-700 rounded animate-pulse w-16"></div>
+                      </div>
+                      <div className="h-6 bg-gray-700 rounded animate-pulse w-3/4 mb-3"></div>
+                      <div className="h-4 bg-gray-700 rounded animate-pulse w-full mb-2"></div>
+                      <div className="h-4 bg-gray-700 rounded animate-pulse w-2/3"></div>
+                    </div>
+                  </div>
+                ) : podcastEpisodes.length > 0 ? (
+                  // Podcast episode
+                  <Link href={podcastEpisodes[0].url} target="_blank" rel="noopener noreferrer" className="group">
+                    <div className="bg-gradient-to-br from-orange-400/10 to-red-400/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-orange-400/20 transition-all duration-300 hover:scale-105 hover:border-orange-400/40">
+                      <div className="aspect-[16/9] relative overflow-hidden">
+                        <Image
+                          src={podcastEpisodes[0].thumbnail}
+                          alt={podcastEpisodes[0].title}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="bg-orange-400/90 backdrop-blur-sm rounded-full p-6 transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                            <Play className="h-10 w-10 text-white fill-white" />
+                          </div>
+                        </div>
+                        <div className="absolute top-4 right-4 bg-orange-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
+                          LATEST
+                        </div>
+                      </div>
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-orange-400 text-sm font-semibold uppercase tracking-wide">Podcast</span>
+                          <span className="text-gray-400">•</span>
+                          <span className="text-gray-400 text-sm">{podcastEpisodes[0].duration}</span>
+                          <span className="text-gray-400">•</span>
+                          <span className="text-orange-400 text-sm">🎧 Listen</span>
+                        </div>
+                        <h3 className="text-white font-bold text-xl mb-3 font-bebas uppercase tracking-wide group-hover:text-orange-400 transition-colors">
+                          {podcastEpisodes[0].title}
+                        </h3>
+                        <p className="text-gray-300 text-sm leading-relaxed font-montserrat line-clamp-3">
+                          {podcastEpisodes[0].description.length > 150 
+                            ? `${podcastEpisodes[0].description.substring(0, 150)}...` 
+                            : podcastEpisodes[0].description}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ) : (
+                  // Fallback when no episodes
+                  <div className="bg-gradient-to-br from-orange-400/10 to-red-400/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-orange-400/20">
+                    <div className="aspect-[16/9] relative overflow-hidden">
+                      <Image
+                        src="/IMG_0425-scaled.jpg"
+                        alt="Scaling the Unscalable Podcast"
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                      <div className="absolute top-4 right-4 bg-orange-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
+                        COMING SOON
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-orange-400 text-sm font-semibold uppercase tracking-wide">Podcast</span>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-gray-400 text-sm">Coming soon</span>
+                      </div>
+                      <h3 className="text-white font-bold text-xl mb-3 font-bebas uppercase tracking-wide">
+                        Scaling the Unscalable
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed font-montserrat">
+                        Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="text-center mt-12">
+                <Link href="/podcast">
+                  <Button className="bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas shadow-lg hover:shadow-xl">
+                    LISTEN TO ALL EPISODES
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Latest Blog Posts Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
+            {/* Background Pattern for Blogs */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-full h-full">
+                <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Text/document pattern */}
+                  <rect x="50" y="50" width="100" height="120" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+                  <rect x="70" y="80" width="60" height="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="70" y="90" width="40" height="2" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="70" y="100" width="50" height="2" fill="rgba(255,255,255,0.2)"/>
+                  
+                  <rect x="1050" y="50" width="100" height="120" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+                  <rect x="1070" y="80" width="60" height="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="1070" y="90" width="40" height="2" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="1070" y="100" width="50" height="2" fill="rgba(255,255,255,0.2)"/>
+                  
+                  <rect x="50" y="650" width="100" height="120" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+                  <rect x="70" y="680" width="60" height="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="70" y="690" width="40" height="2" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="70" y="700" width="50" height="2" fill="rgba(255,255,255,0.2)"/>
+                  
+                  <rect x="1050" y="650" width="100" height="120" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+                  <rect x="1070" y="680" width="60" height="2" fill="rgba(255,255,255,0.3)"/>
+                  <rect x="1070" y="690" width="40" height="2" fill="rgba(255,255,255,0.2)"/>
+                  <rect x="1070" y="700" width="50" height="2" fill="rgba(255,255,255,0.2)"/>
+                  
+                  {/* Quote marks */}
+                  <text x="200" y="200" fill="rgba(255,255,255,0.2)" fontSize="60" fontFamily="serif">"</text>
+                  <text x="1000" y="200" fill="rgba(255,255,255,0.2)" fontSize="60" fontFamily="serif">"</text>
+                  <text x="200" y="600" fill="rgba(255,255,255,0.2)" fontSize="60" fontFamily="serif">"</text>
+                  <text x="1000" y="600" fill="rgba(255,255,255,0.2)" fontSize="60" fontFamily="serif">"</text>
+                </svg>
+              </div>
+            </div>
+            
+            <div className="max-w-7xl relative z-10">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 bg-emerald-400/20 rounded-full flex items-center justify-center">
+                    <svg className="h-6 w-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide font-bebas">LATEST INSIGHTS</h2>
+                </div>
+                <p className="text-gray-300 text-lg md:text-xl font-montserrat">Thoughts on scaling service-based businesses and entrepreneurship</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                {/* Blog Post 1 */}
+                <Link href="/blog/culture-starts-at-the-top" className="group">
+                  <div className="bg-gradient-to-br from-emerald-400/10 to-teal-400/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-emerald-400/20 transition-all duration-300 hover:scale-105 hover:border-emerald-400/40 h-full flex flex-col">
+                    <div className="aspect-[16/9] relative overflow-hidden flex-shrink-0">
+                      <Image
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6CV6kTVlxgjA36P8XO4Al8gaPycuSZuR5HVgH9SR839ffF9-YVCL5IUe5yxzgLh1hag3w-57rpBB1XasVQVMZmq9zPTelatHTMHs8OdeEhwvOrnvOV4DILOf-qvhhpK8k-o52tpof2hZht4o-HSm3cUC_aCH_btAR7d1daXUPY5-PlwmaW8J9xofAKLs/w640-h426/DSC0091.jpg"
+                        alt="Culture starts at the top"
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                      <div className="absolute top-4 left-4 bg-emerald-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
+                        FEATURED
+                      </div>
+                      <div className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
+                        📖 Read
+                      </div>
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-emerald-400 text-sm font-semibold uppercase tracking-wide">Entrepreneurship</span>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-gray-400 text-sm">3 min read</span>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-emerald-400 text-sm">📖 Read</span>
+                      </div>
+                      <h3 className="text-white font-bold text-xl mb-3 font-bebas uppercase tracking-wide group-hover:text-emerald-400 transition-colors">
+                        Culture starts at the top
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed font-montserrat line-clamp-3 flex-1">
+                        It was mid-2020, right after the pandemic lockdown, when we saw a huge surge in demand for our services at division5. At that time, we were a team of about...
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Blog Post 2 */}
+                <Link href="/blog/provide-a-service-people-love-to-share" className="group">
+                  <div className="bg-gradient-to-br from-emerald-400/10 to-teal-400/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-emerald-400/20 transition-all duration-300 hover:scale-105 hover:border-emerald-400/40 h-full flex flex-col">
+                    <div className="aspect-[16/9] relative overflow-hidden flex-shrink-0">
+                      <Image
+                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIibynJHZpcNGIlTlUZLk62vZ-0yu2X0Io3eipYkfE0D1V5EdTEVaUotJgMnGaEZ8iQmE2E1FzJ9gQ7k2T5CX4KMLmcjpUisfaSg0R9dTFuDtHJubH2K2LmuiiPrm7l3zHICYvc1s1WjgORmMj0dJFkXUQqnoBG6JMQgd9QzTWvLKK8DcsXvAwttP8xmE/w640-h426/DSC0142.jpg"
+                        alt="Provide a service people love to share"
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                      <div className="absolute top-4 left-4 bg-blue-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
+                        POPULAR
+                      </div>
+                      <div className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
+                        📖 Read
+                      </div>
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-emerald-400 text-sm font-semibold uppercase tracking-wide">Entrepreneurship</span>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-gray-400 text-sm">3 min read</span>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-emerald-400 text-sm">📖 Read</span>
+                      </div>
+                      <h3 className="text-white font-bold text-xl mb-3 font-bebas uppercase tracking-wide group-hover:text-emerald-400 transition-colors">
+                        Provide a service people love to share
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed font-montserrat line-clamp-3 flex-1">
+                        A few months into my entrepreneurial journey, I was trying to figure out how to stay in business. Without connections, it's tough—especially when your clients are businesses...
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              </div>
+
+              <div className="text-center mt-12">
+                <Link href="/blog">
+                  <Button className="bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-500 hover:to-teal-500 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas shadow-lg hover:shadow-xl">
+                    READ ALL POSTS
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
    {/* Subscribe Section */}
    <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
               <div className="max-w-5xl mx-auto text-center">
