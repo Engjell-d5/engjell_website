@@ -49,6 +49,8 @@ export default function Division3DPage() {
                 fill
                 className="object-cover"
                 priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
             </div>
@@ -68,7 +70,7 @@ export default function Division3DPage() {
 
           {/* 3D Browser Apps Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <div className="max-w-4xl mx-auto">
                 <div className="space-y-8">
                   <h3 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl font-bebas leading-tight">3D browser apps that run like native.</h3>

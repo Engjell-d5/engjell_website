@@ -42,7 +42,7 @@ export default function DivisionDesignPage() {
     <SharedBackground>
           {/* Hero Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
                 <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas uppercase tracking-wide mb-8 text-center">DIVISIONDESIGN</h1>
               </div>
@@ -85,10 +85,10 @@ export default function DivisionDesignPage() {
 
           {/* DESIGN SERVICES Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">DESIGN SERVICES</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20 max-w-6xl mx-auto">
                 {/* Feature 1 */}
                 <div className="text-center">
                   <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">

@@ -50,6 +50,8 @@ export default function MyStoryPage() {
                 fill
                 className="object-cover"
                 priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
             </div>

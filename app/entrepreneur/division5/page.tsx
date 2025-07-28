@@ -49,6 +49,8 @@ export default function Division5Page() {
                 fill
                 className="object-cover"
                 priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
             </div>
@@ -90,10 +92,10 @@ export default function Division5Page() {
 
           {/* OUR STAFF AUGMENTATION MODEL Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">OUR STAFF AUGMENTATION MODEL</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20 max-w-6xl mx-auto">
                 {/* Feature 1 */}
                 <div className="text-center">
                   <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">

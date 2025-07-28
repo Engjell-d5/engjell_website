@@ -49,6 +49,8 @@ export default function DivisionGrowthPage() {
                 fill
                 className="object-cover"
                 priority
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
             </div>
@@ -90,10 +92,10 @@ export default function DivisionGrowthPage() {
 
           {/* Key Benefits Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">WHY CHOOSE DIVISIONGROWTH?</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-20">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-20 max-w-6xl mx-auto">
                 {/* Benefit 1 */}
                 <div className="text-center">
                   <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl">
@@ -134,13 +136,13 @@ export default function DivisionGrowthPage() {
 
           {/* Who Benefits Most Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-8 text-center break-words">WHO BENEFITS MOST FROM OUR SERVICES?</h2>
                 <p className="text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-montserrat max-w-4xl mx-auto">Our LinkedIn automation services are designed specifically for B2B companies that need a consistent flow of qualified meetings.</p>
               </div>
               
-              <div className="grid gap-8 md:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-8 md:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white/10">
                   <div className="text-center">
                     <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">B2B SaaS Companies</h3>
@@ -203,7 +205,7 @@ export default function DivisionGrowthPage() {
 
           {/* Trust Indicators */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl">
+            <div className="max-w-7xl mx-auto">
               <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-sm">
                 <div className="flex items-center space-x-2 text-yellow-400">
                   <Star className="h-5 w-5" />

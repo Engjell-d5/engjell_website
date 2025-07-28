@@ -85,7 +85,7 @@ export default function HomeClient() {
             sizes="100vw"
             className="object-cover object-center object-[center_50%] sm:object-[center_70%] md:object-[center_120%]"
             priority
-            quality={85}
+            quality={95}
           />
         </div>
       </div>

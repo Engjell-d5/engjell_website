@@ -12,16 +12,21 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
   // Only one category should be expanded at a time
   const [entrepreneurExpanded, setEntrepreneurExpanded] = useState(activeSubpage !== null && activePage === 'entrepreneur')
   const [engjellRraklliExpanded, setEngjellRraklliExpanded] = useState(activeSubpage !== null && activePage === 'engjell-rraklli')
+  
+  // State to track immediately clicked items for instant visual feedback
+  const [clickedItem, setClickedItem] = useState<string | null>(null)
   const pathname = usePathname()
 
   // Close submenu when navigating to a different page
-  const handleNavigate = () => {
+  const handleNavigate = (itemPath: string) => {
+    setClickedItem(itemPath)
     // Don't close the current category when navigating to its subpages
     onNavigate?.()
   }
 
   // Handle navigation to non-entrepreneur pages
-  const handleNonEntrepreneurNavigate = () => {
+  const handleNonEntrepreneurNavigate = (itemPath: string) => {
+    setClickedItem(itemPath)
     setEntrepreneurExpanded(false)
     setEngjellRraklliExpanded(false)
     onNavigate?.()
@@ -74,33 +79,33 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
                 <Link
                   href="/engjell-rraklli/my-story"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'my-story' 
+                    activeSubpage === 'my-story' || clickedItem === '/engjell-rraklli/my-story'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/engjell-rraklli/my-story')}
                 >
                   MY STORY
                 </Link>
                 <Link
                   href="/engjell-rraklli/my-divisions"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'my-divisions' 
+                    activeSubpage === 'my-divisions' || clickedItem === '/engjell-rraklli/my-divisions'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/engjell-rraklli/my-divisions')}
                 >
                   MY DIVISIONS
                 </Link>
                                     <Link
                       href="/engjell-rraklli/my-speaker-profile"
                       className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                        activeSubpage === 'my-speaker-profile'
+                        activeSubpage === 'my-speaker-profile' || clickedItem === '/engjell-rraklli/my-speaker-profile'
                           ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg'
                           : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                       }`}
-                      onClick={handleNavigate}
+                      onClick={() => handleNavigate('/engjell-rraklli/my-speaker-profile')}
                     >
                       THE SPEAKER
                     </Link>
@@ -128,55 +133,55 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
                 <Link
                   href="/entrepreneur/division5"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'division5' 
+                    activeSubpage === 'division5' || clickedItem === '/entrepreneur/division5'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/entrepreneur/division5')}
                 >
                   DIVISION5
                 </Link>
                 <Link
                   href="/entrepreneur/division3d"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'division3d' 
+                    activeSubpage === 'division3d' || clickedItem === '/entrepreneur/division3d'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/entrepreneur/division3d')}
                 >
                   DIVISION3D
                 </Link>
                 <Link
                   href="/entrepreneur/divisionai"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'divisionai' 
+                    activeSubpage === 'divisionai' || clickedItem === '/entrepreneur/divisionai'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/entrepreneur/divisionai')}
                 >
                   DIVISIONAI
                 </Link>
                 <Link
                   href="/entrepreneur/divisiongrowth"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'divisiongrowth' 
+                    activeSubpage === 'divisiongrowth' || clickedItem === '/entrepreneur/divisiongrowth'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/entrepreneur/divisiongrowth')}
                 >
                   DIVISIONGROWTH
                 </Link>
                 <Link
                   href="/entrepreneur/divisiondesign"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'divisiondesign' 
+                    activeSubpage === 'divisiondesign' || clickedItem === '/entrepreneur/divisiondesign'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={handleNavigate}
+                  onClick={() => handleNavigate('/entrepreneur/divisiondesign')}
                 >
                   DIVISIONDESIGN
                 </Link>
@@ -188,33 +193,33 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
           <Link
             href="/blog"
             className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-all duration-300 rounded-lg ${
-              activePage === 'blog' 
+              activePage === 'blog' || clickedItem === '/blog'
                 ? 'bg-black/40 backdrop-blur-sm border border-white/30' 
                 : 'hover:bg-black/40 hover:backdrop-blur-sm border border-transparent hover:border-white/30'
             }`}
-            onClick={handleNonEntrepreneurNavigate}
+            onClick={() => handleNonEntrepreneurNavigate('/blog')}
           >
             BLOG
           </Link>
           <Link
             href="/podcast"
             className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-all duration-300 rounded-lg ${
-              activePage === 'podcast' 
+              activePage === 'podcast' || clickedItem === '/podcast'
                 ? 'bg-black/40 backdrop-blur-sm border border-white/30' 
                 : 'hover:bg-black/40 hover:backdrop-blur-sm border border-transparent hover:border-white/30'
             }`}
-            onClick={handleNonEntrepreneurNavigate}
+            onClick={() => handleNonEntrepreneurNavigate('/podcast')}
           >
             PODCAST
           </Link>
           <Link
             href="/contact"
             className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-all duration-300 rounded-lg ${
-              activePage === 'contact' 
+              activePage === 'contact' || clickedItem === '/contact'
                 ? 'bg-black/40 backdrop-blur-sm border border-white/30' 
                 : 'hover:bg-black/40 hover:backdrop-blur-sm border border-transparent hover:border-white/30'
             }`}
-            onClick={handleNonEntrepreneurNavigate}
+            onClick={() => handleNonEntrepreneurNavigate('/contact')}
           >
             CONTACT
           </Link>
