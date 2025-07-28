@@ -92,29 +92,29 @@ export default function PodcastClient() {
     return (
       <SharedBackground>
           {/* Page Title */}
-          <div className="p-16 text-center">
-            <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
+            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
           </div>
 
           {/* Hero Section */}
-          <div className="px-16 pb-16">
-            <div className="max-w-6xl mx-auto">
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
+            <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-white text-3xl sm:text-4xl md:text-4xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
-                <p className="text-white text-xl mb-8 font-montserrat">
+                <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
+                <p className="text-white text-lg md:text-xl mb-8 font-montserrat">
                   Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
                 </p>
                 <div className="flex justify-center space-x-4">
                   <Button 
                     onClick={subscribeToYouTube}
-                    className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 rounded-lg font-bebas"
+                    className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
                   >
                     <Youtube size={20} className="mr-2" />
                     SUBSCRIBE ON YOUTUBE
                   </Button>
                   <Button 
                     asChild
-                    className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas"
+                    className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
                   >
                     <Link href={getLatestEpisodeUrl()} target="_blank">
                       <Play size={20} className="mr-2" />
@@ -182,29 +182,29 @@ export default function PodcastClient() {
   return (
     <SharedBackground>
         {/* Page Title */}
-        <div className="p-16 text-center">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
+        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
         </div>
 
         {/* Hero Section */}
-        <div className="px-16 pb-16">
-          <div className="max-w-6xl mx-auto">
+        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-4xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
-              <p className="text-white text-xl mb-8 font-montserrat">
+              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
+              <p className="text-white text-lg md:text-xl mb-8 font-montserrat">
                 Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
               </p>
               <div className="flex justify-center space-x-4">
                 <Button 
                   onClick={subscribeToYouTube}
-                  className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 rounded-lg font-bebas"
+                  className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
                 >
                   <Youtube size={20} className="mr-2" />
                   SUBSCRIBE ON YOUTUBE
                 </Button>
                 <Button 
                   asChild
-                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas"
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
                 >
                   <Link href={getLatestEpisodeUrl()} target="_blank">
                     <Play size={20} className="mr-2" />
@@ -215,7 +215,7 @@ export default function PodcastClient() {
             </div>
 
             {/* Podcast Episodes Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {podcastEpisodes.map((episode) => (
                 <Card key={episode.id} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 overflow-hidden">
                   {/* Thumbnail with Play Button Overlay */}
@@ -289,7 +289,7 @@ export default function PodcastClient() {
                 <Button 
                   onClick={loadMoreEpisodes}
                   disabled={loadingMore}
-                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas disabled:opacity-50 relative overflow-hidden"
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 md:px-12 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas disabled:opacity-50 relative overflow-hidden"
                 >
                   {loadingMore ? (
                     <div className="flex items-center space-x-2">

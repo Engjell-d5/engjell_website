@@ -43,16 +43,16 @@ export default function The3DGuyPage() {
   return (
     <SharedBackground>
           {/* Hero Section */}
-          <div className="p-16 min-h-screen flex flex-col justify-center">
-            <div className="max-w-6xl">
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center">
+            <div className="max-w-7xl">
               <div className="text-center mb-16">
-                <h1 className="text-white text-8xl font-bold mb-8 font-bebas uppercase tracking-wide">THE 3D GUY</h1>
+                <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-8 font-bebas uppercase tracking-wide">THE 3D GUY</h1>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                 {/* Left side - Image */}
                 <div className="relative">
-                  <div className="w-full h-96 rounded-2xl overflow-hidden">
+                  <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                     <Image
                       src="/DSC0055-scaled.jpg"
                       alt="Engjell Rraklli - The 3D Guy"
@@ -65,14 +65,14 @@ export default function The3DGuyPage() {
 
                 {/* Right side - Text content */}
                 <div className="space-y-6">
-                  <h2 className="text-white text-2xl font-bold font-bebas uppercase tracking-wide">
+                  <h2 className="text-white text-xl md:text-2xl font-bold font-bebas uppercase tracking-wide">
                     ENGJELL RRAKLLI - THE 3D GUY
                   </h2>
-                  <p className="text-white text-3xl font-bold leading-relaxed font-bebas">
+                  <p className="text-white text-2xl md:text-3xl font-bold leading-relaxed font-bebas">
                     Building scalable and performant 3D browser apps.
                   </p>
                   
-                  <div className="space-y-6 text-white text-lg leading-relaxed font-montserrat">
+                  <div className="space-y-6 text-white text-lg md:text-xl leading-relaxed font-montserrat">
                     <p>
                       I built my first game at 15, fell in love with computer graphics, and became known as "the 3D guy" after helping companies build complex 3D browser apps. My passion for 3D technology has driven me to push the boundaries of what's possible in web-based{" "}
                       <span className="text-orange-400 font-semibold">business</span> applications.
@@ -97,22 +97,22 @@ export default function The3DGuyPage() {
 
 
           {/* DIVISION 3D Section */}
-          <div className="px-16 py-24">
-            <div className="max-w-6xl mx-auto text-center">
-              <h2 className="text-white text-5xl font-bold mb-8 font-bebas uppercase tracking-wide">DIVISION 3D</h2>
-              <p className="text-white text-xl leading-relaxed font-montserrat max-w-4xl mx-auto">
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
+            <div className="max-w-7xl mx-auto text-center">
+              <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-bebas uppercase tracking-wide">DIVISION 3D</h2>
+              <p className="text-white text-lg md:text-xl leading-relaxed font-montserrat max-w-5xl mx-auto">
                 We specialize in cutting-edge, scalable, and fast 3D web applications. Our expertise in browser-based 3D apps transforms your vision into immersive digital experiences. We use the latest technologies to build high-performance 3D solutions.
                 </p>
               </div>
           </div>
 
           {/* 3D Browser Apps Section */}
-          <div className="px-16">
-            <div className="max-w-6xl">
-              <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-start">
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40">
+            <div className="max-w-7xl">
+              <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start">
                 {/* Left side - 3D Image */}
                 <div className="relative">
-                  <div className="w-full h-96 rounded-2xl overflow-hidden">
+                  <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                     <Image
                       src="/3d.png"
                       alt="3D Technology"
@@ -125,11 +125,11 @@ export default function The3DGuyPage() {
 
                 {/* Right side - Content */}
                 <div className="space-y-8">
-                  <h3 className="text-white text-4xl font-bold font-bebas leading-tight">
+                  <h3 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-bebas leading-tight">
                     3D browser apps that run like native.
                   </h3>
                   
-                  <p className="text-white text-lg leading-relaxed font-montserrat">
+                  <p className="text-white text-lg md:text-xl leading-relaxed font-montserrat">
                     division3D provides deep expertise on WebGL, WebGL2 and WebGPU and extensive experience with{" "}
                     <span className="text-orange-400 font-semibold">Three.js</span> and{" "}
                     <span className="text-orange-400 font-semibold">Babylon.js</span> for building complex 3D applications.
@@ -140,7 +140,7 @@ export default function The3DGuyPage() {
                       <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h4 className="text-white font-semibold mb-2 font-bebas">Advanced Rendering Techniques:</h4>
-                        <p className="text-white text-base leading-relaxed font-montserrat">
+                        <p className="text-white text-base md:text-lg leading-relaxed font-montserrat">
                           Expertise in{" "}
                           <span className="text-orange-400 font-semibold">WebGL</span>,{" "}
                           <span className="text-orange-400 font-semibold">WebGL2</span>,{" "}
@@ -155,7 +155,7 @@ export default function The3DGuyPage() {
                       <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h4 className="text-white font-semibold mb-2 font-bebas">Future-Proof Architecture:</h4>
-                        <p className="text-white text-base leading-relaxed font-montserrat">
+                        <p className="text-white text-base md:text-lg leading-relaxed font-montserrat">
                           3D browser applications are built on a robust and flexible architecture that adapts to business needs.
                         </p>
                       </div>
@@ -165,7 +165,7 @@ export default function The3DGuyPage() {
                       <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h4 className="text-white font-semibold mb-2 font-bebas">Cross-Device Compatibility:</h4>
-                        <p className="text-white text-base leading-relaxed font-montserrat">
+                        <p className="text-white text-base md:text-lg leading-relaxed font-montserrat">
                           3D browser applications are designed to perform consistently across desktops, tablets, and smartphones.
                         </p>
                       </div>
@@ -175,12 +175,12 @@ export default function The3DGuyPage() {
                       <div className="w-2 h-2 bg-white rounded-full mt-3 flex-shrink-0"></div>
                       <div>
                         <h4 className="text-white font-semibold mb-2 font-bebas">Efficient Data Handling:</h4>
-                        <p className="text-white text-base leading-relaxed font-montserrat">
+                        <p className="text-white text-base md:text-lg leading-relaxed font-montserrat">
                           Efficient data handling and management practices minimize latency and ensure application performance.
                         </p>
 
                         <Link href="https://division3d.co" target="_blank" rel="noopener noreferrer">
-                          <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-12 py-6 mt-10 text-lg rounded-full transition-all duration-300 font-bebas">
+                          <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 md:px-12 py-4 md:py-6 text-base md:text-lg mt-10 rounded-full transition-all duration-300 font-bebas">
                             HIRE OUR EXPERTISE
                           </Button>
                         </Link>

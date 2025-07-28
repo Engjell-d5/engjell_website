@@ -62,7 +62,8 @@ export default function HomeClient() {
             alt="Background"
             fill
             sizes="100vw"
-            className="object-cover object-bottom"
+            className="object-cover"
+            style={{ objectPosition: 'center 150%' }}
             priority
             quality={85}
           />
@@ -98,21 +99,21 @@ export default function HomeClient() {
           <div className="absolute top-20 right-20 w-96 h-96 rounded-full bg-gradient-to-br from-teal-400/5 to-transparent blur-3xl z-0"></div>
           <div className="absolute bottom-20 left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-emerald-400/5 to-transparent blur-3xl z-0"></div>
         {/* Hero Section */}
-          <div className="p-16 min-h-screen flex flex-col justify-center relative">
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center relative">
 
 
-            <div className="max-w-5xl relative z-10">
+            <div className="max-w-7xl relative z-10">
               {/* Main Title */}
               <h1 className="mb-8">
-                <span className="block text-white text-8xl font-black tracking-tight leading-none mb-2 font-bebas">ENGJELL</span>
-                <span className="block text-8xl font-black tracking-tight leading-none font-bebas" style={{
+                <span className="block text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-2 font-bebas">ENGJELL</span>
+                <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-none font-bebas" style={{
                   WebkitTextStroke: '2px white',
                   color: 'transparent'
                 }}>RRAKLLI</span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-white text-xl mb-16 tracking-widest font-medium font-bebas">
+              <p className="text-white text-lg md:text-xl lg:text-2xl mb-16 tracking-widest font-medium font-bebas">
                 THE 3D GUY | ENTREPRENEUR | SPEAKER
               </p>
 
@@ -121,7 +122,7 @@ export default function HomeClient() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 mb-32 font-bebas"
+                  className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 mb-24 md:mb-32 font-bebas"
                 >
                   LET'S TALK
                 </Button>
@@ -130,22 +131,22 @@ export default function HomeClient() {
               {/* Quote Section */}
               <div className="relative">
                 {/* Opening Quote */}
-                <div className="absolute -top-20 -left-12 text-orange-400/60 text-[200px] font-bold leading-none select-none">
+                <div className="absolute -top-16 md:-top-20 -left-8 md:-left-12 text-orange-400/60 text-[120px] md:text-[160px] lg:text-[200px] font-bold leading-none select-none">
                   "
                 </div>
 
                 {/* Quote Text */}
-                <blockquote className="relative z-10 ml-16">
-                  <p className="text-orange-400 text-5xl font-bold leading-tight mb-8">
+                <blockquote className="relative z-10 ml-8 md:ml-16">
+                  <p className="text-orange-400 text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8">
                     If it was easy, everyone
                     <br />
                     would do it.
                   </p>
-                  <cite className="block text-orange-300/80 text-xl font-medium not-italic">Engjell Rraklli</cite>
+                  <cite className="block text-orange-300/80 text-lg md:text-xl font-medium not-italic">Engjell Rraklli</cite>
                 </blockquote>
 
                 {/* Closing Quote */}
-                <div className="absolute -bottom-16 right-8 text-orange-400/60 text-[200px] font-bold leading-none rotate-180 select-none">
+                <div className="absolute -bottom-12 md:-bottom-16 right-4 md:right-8 text-orange-400/60 text-[120px] md:text-[160px] lg:text-[200px] font-bold leading-none rotate-180 select-none">
                   "
                 </div>
               </div>
@@ -155,27 +156,27 @@ export default function HomeClient() {
           {/* Opaque sections */}
 
             {/* The Entrepreneur Section */}
-            <div className="px-16 py-24 relative z-10">
-              <div className="max-w-6xl">
-                <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
-                  <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
+            <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
+              <div className="max-w-7xl">
+                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
+                  <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                     <div>
-                      <p className="text-white text-3xl font-bold mb-8 leading-tight">
+                      <p className="text-white text-2xl md:text-3xl font-bold mb-8 leading-tight">
                         A journey of a thousand miles starts with 1 step.
                       </p>
-                      <p className="text-white text-xl leading-relaxed mb-8">
+                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
                         10 years ago, I quit traditional education to build my own business. Since then, I founded and currently run{" "}
                         <span className="text-orange-400 font-semibold">division5</span>, a company which provides world-class software development services all over the globe. As a highly creative person, I thoroughly enjoy creating things. Be it software or companies. I have failed more than I have succeeded. Each experience came with a big set of learnings that has helped shape me into the entrepreneur I am today. I share my experience of{" "}
                         <span className="text-orange-400 font-semibold">scaling the unscalable</span>, growing service-based businesses to 7-figures and more.
                       </p>
                       <Link href="/entrepreneur">
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
+                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
                           FIND MORE
                         </Button>
                       </Link>
                     </div>
                     <div className="relative">
-                      <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                         <Image
                           src="/DSC0112-scaled.jpg"
                           alt="Engjell Rraklli - Entrepreneur"
@@ -190,12 +191,12 @@ export default function HomeClient() {
               </div>
 
             {/* The 3D Guy Section */}
-            <div className="px-16 py-24 relative z-10">
-              <div className="max-w-6xl">
-                <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
-                  <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
+            <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
+              <div className="max-w-7xl">
+                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
+                  <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                     <div className="relative">
-                      <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                         <Image
                           src="/DSC0036-scaled.jpg"
                           alt="Engjell Rraklli - The 3D Guy"
@@ -206,16 +207,16 @@ export default function HomeClient() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-white text-3xl font-bold mb-8 leading-tight">
+                      <p className="text-white text-2xl md:text-3xl font-bold mb-8 leading-tight">
                         Passion turned into deep expertise.
                       </p>
-                      <p className="text-white text-xl leading-relaxed mb-8">
+                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
                         I built my first game at 15, fell in love with 3D, and have been playing with 3D technology on the browser since 2017. I've built applications with{" "}
                         <span className="text-orange-400 font-semibold">Babylon.js</span> and{" "}
                         <span className="text-orange-400 font-semibold">Three.js</span>, and became known as "The 3D guy" after helping companies build complex 3D browser apps.
                       </p>
                       <Link href="/the-3d-guy">
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
+                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
                           FIND MORE
                         </Button>
                       </Link>
@@ -225,26 +226,26 @@ export default function HomeClient() {
               </div>
 
             {/* The Podcast Section */}
-            <div className="px-16 py-24 relative z-10">
-              <div className="max-w-6xl">
-                <h2 className="text-white text-5xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
-                  <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-16 items-center">
+            <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
+              <div className="max-w-7xl">
+                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
+                  <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                     <div>
-                      <p className="text-white text-3xl font-bold mb-8 leading-tight">
+                      <p className="text-white text-2xl md:text-3xl font-bold mb-8 leading-tight">
                         Conversations that matter.
                       </p>
-                      <p className="text-white text-xl leading-relaxed mb-8">
+                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
                         Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business. I share insights from my journey of{" "}
                         <span className="text-orange-400 font-semibold">scaling the unscalable</span> and growing service-based businesses to 7-figures and beyond. Join me for weekly episodes that inspire and educate.
                       </p>
                       <Link href="/podcast">
-                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-12 py-6 text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
+                        <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas">
                           LISTEN NOW
                         </Button>
                       </Link>
                     </div>
                     <div className="relative">
-                      <div className="w-full h-96 rounded-2xl overflow-hidden">
+                      <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
                         <Image
                           src="/IMG_0425-scaled.jpg"
                           alt="Engjell Rraklli - Podcast"
@@ -257,57 +258,78 @@ export default function HomeClient() {
                   </div>
                 </div>
               </div>
-
-            {/* Subscribe Section */}
-            <div className="px-16 py-24 relative z-10">
-              <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-white text-5xl font-bold mb-8 uppercase tracking-wide font-bebas">SUBSCRIBE</h2>
-                <p className="text-gray-300 text-xl mb-12 leading-relaxed">
+   {/* Subscribe Section */}
+   <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
+              <div className="max-w-5xl mx-auto text-center">
+                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-wide font-bebas">SUBSCRIBE</h2>
+                <p className="text-gray-300 text-lg md:text-xl mb-12 leading-relaxed">
                   Subscribe to my weekly newsletter about growing service-based businesses globally. Submit your email below.
                 </p>
 
-                <form onSubmit={handleSubscribe} className="space-y-4">
-                  <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                                 <form
+                   onSubmit={handleSubscribe}
+                   className="space-y-4 min-h-[200px] flex flex-col justify-center"
+                   aria-label="Subscribe to newsletter"
+                   autoComplete="off"
+                   noValidate
+                 >
+                  <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto w-full">
                     <input
                       type="email"
                       placeholder="E-mail"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       disabled={status === 'loading'}
-                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 flex-1 px-6 py-4 rounded-lg border"
+                      required
+                      aria-label="Email address"
+                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 flex-1 px-6 py-4 rounded-lg border text-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all duration-150 min-w-0"
                     />
-                    <Button 
-                      type="submit"
-                      disabled={status === 'loading'}
-                      className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas h-14 disabled:opacity-50"
-                    >
-                      {status === 'loading' ? (
-                        <>
-                          <Loader2 size={16} className="mr-2 animate-spin" />
-                          Subscribing...
-                        </>
-                      ) : (
-                        'SEND'
-                      )}
-                    </Button>
+                                         <button
+                       type="submit"
+                       disabled={status === 'loading'}
+                       aria-busy={status === 'loading'}
+                       aria-live="polite"
+                       className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-4 text-lg font-bebas h-14 min-w-[120px] rounded-lg disabled:opacity-50 flex items-center justify-center transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+                     >
+                       <span className="flex items-center justify-center w-full">
+                         {status === 'loading' ? (
+                           <>
+                             <Loader2 size={18} className="mr-2 animate-spin" aria-hidden="true" />
+                             <span>Subscribing...</span>
+                           </>
+                         ) : (
+                           <span>SEND</span>
+                         )}
+                       </span>
+                     </button>
                   </div>
-                  
-                  {/* Status Message */}
-                  {message && (
-                    <div className={`flex items-center justify-center space-x-2 text-sm ${
-                      status === 'success' ? 'text-emerald-400' : 'text-red-400'
-                    }`}>
-                      {status === 'success' ? (
-                        <CheckCircle size={16} />
-                      ) : (
-                        <AlertCircle size={16} />
-                      )}
-                      <span>{message}</span>
-                    </div>
-                  )}
+                  {/* Status Message - Always reserve space */}
+                  <div
+                    className="h-8 flex items-center justify-center text-center transition-colors duration-150"
+                    aria-live="polite"
+                    aria-atomic="true"
+                  >
+                    {status !== 'idle' && (
+                      <div
+                        className={`flex items-center justify-center space-x-2 text-sm w-full max-w-xl mx-auto ${
+                          status === 'success'
+                            ? 'text-emerald-400'
+                            : status === 'error'
+                            ? 'text-red-400'
+                            : 'text-gray-400'
+                        }`}
+                        role={status === 'error' ? 'alert' : undefined}
+                      >
+                        {status === 'success' && <CheckCircle size={16} aria-hidden="true" />}
+                        {status === 'error' && <AlertCircle size={16} aria-hidden="true" />}
+                        <span className="truncate block w-full">{message || (status === 'success' ? 'Subscribed!' : status === 'error' ? 'There was an error.' : '')}</span>
+                      </div>
+                    )}
+                  </div>
                 </form>
               </div>
             </div>
+         
           {/* Footer */}
           <div className="relative z-10">
             <Footer />

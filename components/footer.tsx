@@ -2,8 +2,8 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="px-16 py-12 border-t border-slate-700/50">
-      <div className="max-w-6xl">
+    <footer className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12 border-t border-slate-700/50">
+      <div className="max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-center md:text-left mb-4 md:mb-0">
             <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">

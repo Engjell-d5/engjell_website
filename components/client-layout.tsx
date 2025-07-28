@@ -29,7 +29,7 @@ export default function ClientLayout({
   }
 
   return (
-    <>
+    <div className="min-h-screen w-full flex">
       {/* Mobile Burger Button - Hidden on bio page */}
       {!isBioPage && (
         <button
@@ -97,9 +97,9 @@ export default function ClientLayout({
       )}
       
       {/* Main Content */}
-      <div className={`flex-1 relative overflow-hidden transition-all duration-300 ${isBioPage ? 'ml-0' : 'md:ml-64 ml-0'}`}>
+      <div className={`flex-1 relative overflow-hidden transition-all duration-300 w-full ${isBioPage ? 'ml-0' : 'md:ml-64 ml-0'}`}>
         {children}
       </div>
-    </>
+    </div>
   )
 } 

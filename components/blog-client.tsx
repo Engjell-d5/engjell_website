@@ -87,16 +87,16 @@ export default function BlogClient() {
   return (
     <SharedBackground>
         {/* Page Title */}
-        <div className="p-16 text-center">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">BLOG</h1>
+        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">BLOG</h1>
         </div>
 
         {/* Hero Section */}
-        <div className="px-16 pb-16">
-          <div className="max-w-6xl mx-auto">
+        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
+          <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-4xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">INSIGHTS & PERSPECTIVES</h2>
-              <p className="text-white text-xl mb-8 font-montserrat max-w-3xl mx-auto">
+              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">INSIGHTS & PERSPECTIVES</h2>
+              <p className="text-white text-lg md:text-xl mb-8 font-montserrat max-w-4xl mx-auto">
                 Deep dive into entrepreneurship, business scaling, 3D visualization, and the future of technology. 
                 Real insights from real experiences.
               </p>
@@ -110,7 +110,7 @@ export default function BlogClient() {
                     placeholder="Search articles..."
                     value={searchQuery}
                     onChange={(e) => handleSearch(e.target.value)}
-                    className="pl-10 bg-slate-700/50 border-slate-600 text-white placeholder-gray-400 focus:border-emerald-400"
+                    className="pl-10 bg-slate-700/50 border-slate-600 text-white placeholder-gray-400 focus:border-emerald-400 text-lg py-4"
                   />
                 </div>
               </div>
@@ -121,7 +121,7 @@ export default function BlogClient() {
                   <button
                     key={category}
                     onClick={() => handleCategoryChange(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    className={`px-4 py-2 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                       selectedCategory === category
                         ? 'bg-emerald-400 text-black shadow-lg'
                         : 'bg-emerald-400/20 text-emerald-300 hover:bg-emerald-400/30'
@@ -133,7 +133,7 @@ export default function BlogClient() {
               </div>
               
               {/* Results Count */}
-              <div className="text-gray-400 text-sm mb-8">
+              <div className="text-gray-400 text-sm md:text-base mb-8">
                 {!loading && `${filteredPosts.length} ${filteredPosts.length === 1 ? 'article' : 'articles'} found`}
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function BlogClient() {
 
             {/* Blog Posts Grid */}
             {!loading && !error && (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 {filteredPosts.map((post) => (
                   <div key={post.id} className="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-all duration-300 hover:scale-105 overflow-hidden rounded-lg">
                     {/* Image */}
@@ -273,7 +273,7 @@ export default function BlogClient() {
                 <Button 
                   onClick={loadMore}
                   disabled={loading}
-                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 py-3 rounded-lg font-bebas disabled:opacity-50"
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 md:px-12 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas disabled:opacity-50"
                 >
                   {loading ? (
                     <>

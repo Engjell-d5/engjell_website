@@ -61,12 +61,12 @@ export default function SubscribeSection({
   }
 
   return (
-    <div className="px-16 py-24">
-      <div className="max-w-4xl mx-auto text-center">
-        <Card className="bg-slate-700/50 border-slate-600 max-w-2xl mx-auto">
+    <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
+      <div className="max-w-5xl mx-auto text-center">
+        <Card className="bg-slate-700/50 border-slate-600 max-w-3xl mx-auto">
           <CardHeader>
-            <CardTitle className="text-white text-4xl font-bold font-bebas uppercase tracking-wide">{heading}</CardTitle>
-            <CardDescription className="text-white text-xl font-montserrat">
+            <CardTitle className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-bebas uppercase tracking-wide">{heading}</CardTitle>
+            <CardDescription className="text-white text-lg md:text-xl font-montserrat">
               {title}
             </CardDescription>
           </CardHeader>
