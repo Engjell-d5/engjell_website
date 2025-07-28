@@ -1,6 +1,9 @@
 // Simple Blogger API test script
 // Run this with: node test-blogger-api.js
 
+// Load environment variables from .env file
+require('dotenv').config();
+
 const API_KEY = process.env.BLOGGER_API_KEY;
 const BLOG_ID = process.env.BLOG_ID;
 

@@ -44,8 +44,10 @@ export async function GET(request: Request) {
       })
       
       // Check if we need to refresh based on last fetch time (24 hours)
+      // Also check if we have any stored podcasts
       const needsRefresh = forceRefresh || 
         !storedData.lastUpdated || 
+        storedData.podcasts.length === 0 ||
         (Date.now() - new Date(storedData.lastUpdated).getTime()) > (24 * 60 * 60 * 1000)
       
       console.log('🔄 Needs refresh:', needsRefresh, 'Force refresh:', forceRefresh)
@@ -85,8 +87,11 @@ export async function GET(request: Request) {
       console.log('🔄 Fetching fresh playlist podcasts from YouTube API (needs refresh or no stored data)')
       
       const offset = (page - 1) * limit;
-      const videos = await getPlaylistVideos(playlistId, limit + offset);
-      const newVideos = videos.slice(offset);
+      
+      // For initial fetch or when no stored data, fetch more videos to populate storage
+      const fetchLimit = (storedData.podcasts.length === 0) ? 50 : (limit + offset);
+      const videos = await getPlaylistVideos(playlistId, fetchLimit);
+      const newVideos = videos.slice(offset, offset + limit);
       const response = {
         videos: newVideos,
         hasMore: newVideos.length === limit,
@@ -103,8 +108,10 @@ export async function GET(request: Request) {
       const storedData = loadStoredPodcasts()
       
       // Check if we need to refresh based on last fetch time (24 hours)
+      // Also check if we have any stored podcasts
       const needsRefresh = forceRefresh || 
         !storedData.lastUpdated || 
+        storedData.podcasts.length === 0 ||
         (Date.now() - new Date(storedData.lastUpdated).getTime()) > (24 * 60 * 60 * 1000)
       
       if (!needsRefresh && storedData.podcasts.length > 0) {
@@ -142,15 +149,13 @@ export async function GET(request: Request) {
       console.log('🔄 Fetching fresh podcasts from YouTube API (needs refresh or no stored data)')
       
       const offset = (page - 1) * limit;
-      const videos = await getChannelVideos(limit + offset);
-      const newVideos = videos.slice(offset);
       
-      // Ensure the data is saved to file by calling getChannelVideos again with full data
-      // This will trigger the updateStoredPodcasts function in youtube.ts
-      if (page === 1) {
-        console.log('💾 Ensuring podcast data is saved to file...');
-        await getChannelVideos(50); // Fetch more data to ensure it gets saved
-      }
+      // For initial fetch or when no stored data, fetch more videos to populate storage
+      const fetchLimit = (storedData.podcasts.length === 0) ? 50 : (limit + offset);
+      const videos = await getPlaylistVideos('PLEC984WH3vNi_ffiXfqLVFgPedub_xxUO', fetchLimit);
+      
+      // For pagination, slice the results
+      const newVideos = videos.slice(offset, offset + limit);
       
       const response = {
         videos: newVideos,

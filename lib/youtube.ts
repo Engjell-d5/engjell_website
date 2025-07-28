@@ -114,9 +114,9 @@ export async function getChannelVideos(maxResults: number = 10): Promise<YouTube
       const details = detailsMap.get(item.snippet.resourceId.videoId) as any;
       const duration = details?.contentDetails?.duration || 'PT0S';
       
-      // Skip YouTube Shorts (videos shorter than 60 seconds)
+      // Skip videos shorter than 5 minutes (300 seconds)
       const durationInSeconds = parseDurationToSeconds(duration);
-      if (durationInSeconds < 60) {
+      if (durationInSeconds < 300) {
         return null; // This will be filtered out
       }
       
@@ -131,7 +131,7 @@ export async function getChannelVideos(maxResults: number = 10): Promise<YouTube
         likeCount: formatNumber(details?.statistics?.likeCount || '0'),
         url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`
       };
-    }).filter(Boolean); // Remove null entries (Shorts)
+    }).filter(Boolean); // Remove null entries (short videos)
 
     // Convert to StoredPodcast format and update storage
     const storedPodcasts: StoredPodcast[] = videos.map((video: YouTubeVideo) => ({
@@ -208,9 +208,9 @@ export async function getPlaylistVideos(playlistId: string, maxResults: number =
       const details = detailsMap.get(item.snippet.resourceId.videoId) as any;
       const duration = details?.contentDetails?.duration || 'PT0S';
       
-      // Skip YouTube Shorts (videos shorter than 60 seconds)
+      // Skip videos shorter than 5 minutes (300 seconds)
       const durationInSeconds = parseDurationToSeconds(duration);
-      if (durationInSeconds < 60) {
+      if (durationInSeconds < 300) {
         return null; // This will be filtered out
       }
       
@@ -225,7 +225,7 @@ export async function getPlaylistVideos(playlistId: string, maxResults: number =
         likeCount: formatNumber(details?.statistics?.likeCount || '0'),
         url: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`
       };
-    }).filter(Boolean); // Remove null entries (Shorts)
+    }).filter(Boolean); // Remove null entries (short videos)
 
     // Convert to StoredPodcast format and update storage
     const storedPodcasts: StoredPodcast[] = videos.map((video: YouTubeVideo) => ({
@@ -313,7 +313,9 @@ function parseDurationToSeconds(duration: string): number {
   const minutes = parseInt(match[2] || '0');
   const seconds = parseInt(match[3] || '0');
   
-  return hours * 3600 + minutes * 60 + seconds;
+  const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+  console.log(`Duration parsing: "${duration}" -> ${hours}h ${minutes}m ${seconds}s = ${totalSeconds} seconds`);
+  return totalSeconds;
 }
 
 function formatNumber(num: string): string {
