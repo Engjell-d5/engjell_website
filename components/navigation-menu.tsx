@@ -18,11 +18,11 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 px-8 pt-8">
-        <div className="space-y-1 flex flex-col">
+      <nav className="flex-1 px-8 pt-8 w-full">
+        <div className="space-y-1 flex flex-col w-full">
           <Link
             href="/"
-            className={`block w-full text-center text-white py-4 md:py-2 px-3 text-2xl md:text-lg font-extrabold md:font-bold uppercase tracking-wider font-bebas transition-colors ${
+            className={`block w-full sm:w-auto text-center text-white py-4 md:py-2 px-3 text-2xl md:text-lg font-extrabold md:font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'home' ? 'bg-black' : 'hover:bg-black'
             }`}
             onClick={onNavigate}
@@ -31,7 +31,7 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
           </Link>
           <Link
             href="/entrepreneur"
-            className={`block w-full text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
+            className={`block w-full sm:w-auto text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'entrepreneur' ? 'bg-black' : 'hover:bg-black'
             }`}
             onClick={onNavigate}
@@ -40,7 +40,7 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
           </Link>
           <Link
             href="/the-3d-guy"
-            className={`block w-full text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
+            className={`block w-full sm:w-auto text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === '3d-guy' ? 'bg-black' : 'hover:bg-black'
             }`}
             onClick={onNavigate}
@@ -49,7 +49,7 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
           </Link>
           <Link
             href="/blog"
-            className={`block w-full text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
+            className={`block w-full sm:w-auto text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'blog' ? 'bg-black' : 'hover:bg-black'
             }`}
             onClick={onNavigate}
@@ -58,7 +58,7 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
           </Link>
           <Link
             href="/podcast"
-            className={`block w-full text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
+            className={`block w-full sm:w-auto text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'podcast' ? 'bg-black' : 'hover:bg-black'
             }`}
             onClick={onNavigate}
@@ -67,7 +67,7 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
           </Link>
           <Link
             href="/contact"
-            className={`block w-full text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
+            className={`block w-full sm:w-auto text-center text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
               activePage === 'contact' ? 'bg-black' : 'hover:bg-black'
             }`}
             onClick={onNavigate}
@@ -79,7 +79,7 @@ export default function NavigationMenu({ activePage, onNavigate }: NavigationMen
         <div className="flex justify-center space-x-6 mt-8">
           <Link href="https://threads.net/@engjellrraklli" target="_blank" rel="noopener noreferrer" aria-label="Threads" className="text-white hover:opacity-80 transition-opacity">
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.022V0h3.82v12.022c0 2.776.484 4.95 1.451 6.494 1.54 2.524 4.08 3.787 7.615 3.787 3.581 0 6.334-1.205 8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334-1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787z"/>
+              <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.022V0h3.82v12.022c0 2.776.484 4.95 1.451 6.494 1.54 2.524 4.08 3.787 7.615 3.787 3.581 0 6.334-1.205 8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334-1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787z"/>
             </svg>
           </Link>
           <Link href="https://linkedin.com/in/engjell-rraklli-a8b20a68" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white hover:opacity-80 transition-opacity">

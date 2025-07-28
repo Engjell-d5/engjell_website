@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2025-07-28T13:44:28.415Z",
+  "lastChecked": "2025-07-28T13:58:10.061Z",
   "posts": [
     {
       "id": "4157248136983629110",
@@ -25,8 +25,7 @@
           "height": 630
         }
       ],
-      "campaignCreated": true,
-      "campaignId": "bmJ1kn"
+      "campaignCreated": false
     },
     {
       "id": "2188298756829490254",
@@ -52,8 +51,7 @@
           "height": 630
         }
       ],
-      "campaignCreated": true,
-      "campaignId": "enK2lP"
+      "campaignCreated": false
     },
     {
       "id": "7331533801395125439",
@@ -79,8 +77,7 @@
           "height": 630
         }
       ],
-      "campaignCreated": true,
-      "campaignId": "boL3mk"
+      "campaignCreated": false
     },
     {
       "id": "970581787430672851",
@@ -106,8 +103,7 @@
           "height": 630
         }
       ],
-      "campaignCreated": true,
-      "campaignId": "epM4nm"
+      "campaignCreated": false
     },
     {
       "id": "253307975751411662",
@@ -133,8 +129,7 @@
           "height": 630
         }
       ],
-      "campaignCreated": true,
-      "campaignId": "bqNgok"
+      "campaignCreated": false
     },
     {
       "id": "3008938480662603593",
@@ -160,8 +155,7 @@
           "height": 630
         }
       ],
-      "campaignCreated": true,
-      "campaignId": "erOjpW"
+      "campaignCreated": false
     }
   ]
 }

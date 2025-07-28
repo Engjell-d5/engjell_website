@@ -134,7 +134,7 @@ html {
 
 .blog-post-content .prose img {
   width: 56rem !important;
-  max-width: 56rem !important;
+  max-width: 100% !important;
   height: auto !important;
   margin-left: auto !important;
   margin-right: auto !important;

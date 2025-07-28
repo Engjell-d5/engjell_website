@@ -27,7 +27,7 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
 
   return (
     <SharedBackground>
-      <div className="p-16 blog-post-content">
+      <div className="px-4 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 blog-post-content">
         <div className="max-w-4xl mx-auto">
           <Link href="/blog" className="inline-flex items-center text-white mb-8 hover:opacity-80 transition-opacity">
             <ArrowLeft className="mr-2" size={20} />
