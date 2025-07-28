@@ -65,8 +65,8 @@ export default function SubscribeSection({
       <div className="max-w-5xl mx-auto text-center">
         <Card className="bg-slate-700/50 border-slate-600 max-w-3xl mx-auto">
           <CardHeader>
-            <CardTitle className="text-white text-3xl md:text-4xl lg:text-5xl font-bold font-bebas uppercase tracking-wide">{heading}</CardTitle>
-            <CardDescription className="text-white text-lg md:text-xl font-montserrat">
+            <CardTitle className="text-white font-bold text-3xl md:text-4xl lg:text-5xl font-bebas uppercase tracking-wide">{heading}</CardTitle>
+            <CardDescription className="text-body text-lg md:text-xl font-montserrat">
               {title}
             </CardDescription>
           </CardHeader>
@@ -114,7 +114,7 @@ export default function SubscribeSection({
                 </div>
               )}
               
-              <p className="text-gray-400 text-sm font-montserrat">
+              <p className="text-body text-sm font-montserrat">
                 No spam, unsubscribe at any time. Your privacy is important to us.
               </p>
             </form>

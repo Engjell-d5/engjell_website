@@ -104,8 +104,8 @@ export default function HomeClient() {
 
             <div className="max-w-7xl relative z-10">
               {/* Main Title */}
-              <h1 className="mb-8">
-                <span className="block text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-2 font-bebas">ENGJELL</span>
+              <h1 className="text-white font-bold text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-none mb-2 font-bebas">
+                <span className="block">ENGJELL</span>
                 <span className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tight leading-none font-bebas" style={{
                   WebkitTextStroke: '2px white',
                   color: 'transparent'
@@ -158,13 +158,13 @@ export default function HomeClient() {
             {/* The Entrepreneur Section */}
             <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
               <div className="max-w-7xl">
-                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE ENTREPRENEUR</h2>
                   <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                     <div>
-                      <p className="text-white text-2xl md:text-3xl font-bold mb-8 leading-tight">
+                      <p className="text-body text-2xl md:text-3xl font-bold mb-8 leading-tight">
                         A journey of a thousand miles starts with 1 step.
                       </p>
-                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
+                      <p className="text-body text-lg md:text-xl leading-relaxed mb-8">
                         10 years ago, I quit traditional education to build my own business. Since then, I founded and currently run{" "}
                         <span className="text-orange-400 font-semibold">division5</span>, a company which provides world-class software development services all over the globe. As a highly creative person, I thoroughly enjoy creating things. Be it software or companies. I have failed more than I have succeeded. Each experience came with a big set of learnings that has helped shape me into the entrepreneur I am today. I share my experience of{" "}
                         <span className="text-orange-400 font-semibold">scaling the unscalable</span>, growing service-based businesses to 7-figures and more.
@@ -193,7 +193,7 @@ export default function HomeClient() {
             {/* The 3D Guy Section */}
             <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
               <div className="max-w-7xl">
-                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE 3D GUY</h2>
                   <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                     <div className="relative">
                       <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
@@ -207,10 +207,10 @@ export default function HomeClient() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-white text-2xl md:text-3xl font-bold mb-8 leading-tight">
+                      <p className="text-body text-2xl md:text-3xl font-bold mb-8 leading-tight">
                         Passion turned into deep expertise.
                       </p>
-                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
+                      <p className="text-body text-lg md:text-xl leading-relaxed mb-8">
                         I built my first game at 15, fell in love with 3D, and have been playing with 3D technology on the browser since 2017. I've built applications with{" "}
                         <span className="text-orange-400 font-semibold">Babylon.js</span> and{" "}
                         <span className="text-orange-400 font-semibold">Three.js</span>, and became known as "The 3D guy" after helping companies build complex 3D browser apps.
@@ -228,13 +228,13 @@ export default function HomeClient() {
             {/* The Podcast Section */}
             <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
               <div className="max-w-7xl">
-                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-12 uppercase tracking-wide font-bebas">THE PODCAST</h2>
                   <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                     <div>
-                      <p className="text-white text-2xl md:text-3xl font-bold mb-8 leading-tight">
+                      <p className="text-body text-2xl md:text-3xl font-bold mb-8 leading-tight">
                         Conversations that matter.
                       </p>
-                      <p className="text-white text-lg md:text-xl leading-relaxed mb-8">
+                      <p className="text-body text-lg md:text-xl leading-relaxed mb-8">
                         Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business. I share insights from my journey of{" "}
                         <span className="text-orange-400 font-semibold">scaling the unscalable</span> and growing service-based businesses to 7-figures and beyond. Join me for weekly episodes that inspire and educate.
                       </p>
@@ -261,7 +261,7 @@ export default function HomeClient() {
    {/* Subscribe Section */}
    <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
               <div className="max-w-5xl mx-auto text-center">
-                <h2 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-wide font-bebas">SUBSCRIBE</h2>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold mb-8 uppercase tracking-wide font-bebas">SUBSCRIBE</h2>
                 <p className="text-gray-300 text-lg md:text-xl mb-12 leading-relaxed">
                   Subscribe to my weekly newsletter about growing service-based businesses globally. Submit your email below.
                 </p>

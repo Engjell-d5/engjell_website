@@ -88,15 +88,15 @@ export default function BlogClient() {
     <SharedBackground>
         {/* Page Title */}
         <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">BLOG</h1>
+          <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">BLOG</h1>
         </div>
 
         {/* Hero Section */}
         <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">INSIGHTS & PERSPECTIVES</h2>
-              <p className="text-white text-lg md:text-xl mb-8 font-montserrat max-w-4xl mx-auto">
+              <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide text-center break-words">INSIGHTS & PERSPECTIVES</h2>
+              <p className="text-body text-lg md:text-xl mb-8 font-montserrat max-w-4xl mx-auto">
                 Deep dive into entrepreneurship, business scaling, 3D visualization, and the future of technology. 
                 Real insights from real experiences.
               </p>
@@ -164,13 +164,13 @@ export default function BlogClient() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="text-white text-2xl font-bold mb-4 font-bebas tracking-wider">LOADING ARTICLES</h3>
+                  <h3 className="text-white font-bold text-2xl mb-4 font-bebas tracking-wider">LOADING ARTICLES</h3>
                   <div className="flex items-center justify-center space-x-2">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                   </div>
-                  <p className="text-gray-400 text-sm mt-4 font-montserrat">Fetching the latest insights...</p>
+                  <p className="text-body text-sm mt-4 font-montserrat">Fetching the latest insights...</p>
                 </div>
               </div>
             )}
@@ -221,7 +221,7 @@ export default function BlogClient() {
                         {post.title}
                       </h3>
                       
-                      <p className="text-gray-300 text-sm mb-4 line-clamp-3">
+                      <p className="text-body text-sm mb-4 line-clamp-3">
                         {post.excerpt}
                       </p>
                       

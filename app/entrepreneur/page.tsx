@@ -46,23 +46,21 @@ export default function EntrepreneurPage() {
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center">
             <div className="max-w-7xl">
               <div className="text-center mb-16">
-                <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-8 font-bebas uppercase tracking-wide text-center">ENTREPRENEUR</h1>
+                <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas uppercase tracking-wide mb-8 text-center">ENTREPRENEUR</h1>
               </div>
 
           <div className="prose prose-invert prose-lg max-w-none">
-                <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-bebas uppercase tracking-wide text-center break-words">ENGJELL RRAKLLI - ENTREPRENEUR</h2>
-                <p className="text-white text-2xl md:text-3xl font-bold leading-tight mb-8 font-montserrat">
-                  Empowering companies through staff augmentation services.
-                </p>
+                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4 text-center break-words">ENGJELL RRAKLLI - ENTREPRENEUR</h2>
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">Empowering companies through staff augmentation services.</h3>
 
                 <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                   <div>
-                    <p className="text-white text-lg md:text-xl leading-relaxed mb-6 font-montserrat">
+                    <p className="text-body text-lg md:text-xl leading-relaxed mb-6 font-montserrat">
                       I started entrepreneurship at a very young age. Just before graduating I quit University to build{" "}
                       <span className="text-emerald-400 font-semibold">division5</span>, a company providing staff augmentation services in the software industry.{" "}
                       <span className="text-emerald-400 font-semibold">division5</span> became very successful both in the domestic and international markets with customers all over the world and over 50 employees.
                     </p>
-                    <p className="text-white text-lg md:text-xl leading-relaxed mb-8 font-montserrat">
+                    <p className="text-body text-lg md:text-xl leading-relaxed mb-8 font-montserrat">
                       My next goal is to expand on that experience, scale division5 up and build a framework for scaling service-based businesses beyond 7 figures. As a result, I write about my journey of{" "}
                       <span className="text-emerald-400 font-semibold">scaling the unscalable</span> where I share the details of my journey, my lessons, challenges and insights on how to grow service-based businesses to 7-figures and beyond.
                     </p>
@@ -130,7 +128,7 @@ export default function EntrepreneurPage() {
           {/* OUR STAFF AUGMENTATION MODEL Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
             <div className="max-w-7xl">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-16 font-bebas uppercase tracking-wide text-center break-words">OUR STAFF AUGMENTATION MODEL</h2>
+              <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">OUR STAFF AUGMENTATION MODEL</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20">
                 {/* Feature 1 */}
@@ -138,12 +136,8 @@ export default function EntrepreneurPage() {
                   <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
                     <Zap className="text-white text-3xl" />
                   </div>
-                  <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
-                    Hire a full-time from 2-weeks to 2 months.
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-montserrat">
-                    You can easily transition your existing team to division5 or extend your team with our exceptional developers.
-                  </p>
+                  <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Hire a full-time from 2-weeks to 2 months.</h3>
+                  <p className="text-body text-base md:text-lg leading-relaxed font-montserrat">You can easily transition your existing team to division5 or extend your team with our exceptional developers.</p>
                 </div>
 
                 {/* Feature 2 */}
@@ -151,12 +145,8 @@ export default function EntrepreneurPage() {
                   <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
                     <Target className="text-white text-3xl" />
                   </div>
-                  <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
-                    Full transparency on every part of the process.
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-montserrat">
-                    Starting from recruiting and moving on with every other process, you will always have full information on our process.
-                  </p>
+                  <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Full transparency on every part of the process.</h3>
+                  <p className="text-body text-base md:text-lg leading-relaxed font-montserrat">Starting from recruiting and moving on with every other process, you will always have full information on our process.</p>
                 </div>
 
                 {/* Feature 3 */}

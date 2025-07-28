@@ -93,15 +93,15 @@ export default function PodcastClient() {
       <SharedBackground>
           {/* Page Title */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
-            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
+            <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
           </div>
 
           {/* Hero Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
-                <p className="text-white text-lg md:text-xl mb-8 font-montserrat">
+                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
+                <p className="text-body text-lg md:text-xl mb-8 font-montserrat">
                   Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
                 </p>
                 <div className="flex justify-center space-x-4">
@@ -149,7 +149,7 @@ export default function PodcastClient() {
                 
                 {/* Loading Text */}
                 <div className="text-center">
-                  <h3 className="text-white text-2xl font-bold mb-4 font-bebas tracking-wider">LOADING EPISODES</h3>
+                  <h3 className="text-white font-bold text-2xl mb-4 font-bebas tracking-wider">LOADING EPISODES</h3>
                   <div className="flex items-center justify-center space-x-2">
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
                     <div className="w-2 h-2 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -183,15 +183,15 @@ export default function PodcastClient() {
     <SharedBackground>
         {/* Page Title */}
         <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
+          <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
         </div>
 
         {/* Hero Section */}
         <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
-              <p className="text-white text-lg md:text-xl mb-8 font-montserrat">
+              <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
+              <p className="text-body text-lg md:text-xl mb-8 font-montserrat">
                 Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
               </p>
               <div className="flex justify-center space-x-4">
