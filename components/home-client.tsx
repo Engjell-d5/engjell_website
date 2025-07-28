@@ -271,7 +271,7 @@ export default function HomeClient() {
                 </div>
                 <p className="text-gray-300 text-lg md:text-xl font-montserrat">Deep conversations with entrepreneurs and innovators</p>
               </div>
-              
+
               <div className="grid grid-cols-1 gap-8 md:gap-12">
                 {podcastLoading ? (
                   // Loading state
@@ -339,7 +339,7 @@ export default function HomeClient() {
                         alt="Scaling the Unscalable Podcast"
                         fill
                         className="object-cover"
-                      />
+                        />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                       <div className="absolute top-4 right-4 bg-orange-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
                         COMING SOON
@@ -366,11 +366,11 @@ export default function HomeClient() {
                 <Link href="/podcast">
                   <Button className="bg-gradient-to-r from-orange-400 to-red-400 hover:from-orange-500 hover:to-red-500 text-white px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full font-bold tracking-wider transition-all duration-300 font-bebas shadow-lg hover:shadow-xl">
                     LISTEN TO ALL EPISODES
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
 
           {/* Latest Blog Posts Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 relative z-10">
@@ -462,7 +462,7 @@ export default function HomeClient() {
                 <Link href="/blog/provide-a-service-people-love-to-share" className="group">
                   <div className="bg-gradient-to-br from-emerald-400/10 to-teal-400/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-emerald-400/20 transition-all duration-300 hover:scale-105 hover:border-emerald-400/40 h-full flex flex-col">
                     <div className="aspect-[16/9] relative overflow-hidden flex-shrink-0">
-                      <Image
+                        <Image
                         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIibynJHZpcNGIlTlUZLk62vZ-0yu2X0Io3eipYkfE0D1V5EdTEVaUotJgMnGaEZ8iQmE2E1FzJ9gQ7k2T5CX4KMLmcjpUisfaSg0R9dTFuDtHJubH2K2LmuiiPrm7l3zHICYvc1s1WjgORmMj0dJFkXUQqnoBG6JMQgd9QzTWvLKK8DcsXvAwttP8xmE/w640-h426/DSC0142.jpg"
                         alt="Provide a service people love to share"
                         fill
@@ -493,7 +493,7 @@ export default function HomeClient() {
                     </div>
                   </div>
                 </Link>
-              </div>
+                </div>
 
               <div className="text-center mt-12">
                 <Link href="/blog">
