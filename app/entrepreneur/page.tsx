@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Mail, Phone, MapPin, Rocket, Users, Target, TrendingUp, Shield, Zap, Globe } from "lucide-react"
+import { Mail, Phone, MapPin, Rocket, Users, Target, TrendingUp, Shield, Zap, Globe, Brain, Palette, TrendingUp as TrendingUpIcon } from "lucide-react"
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import SharedBackground from "@/components/shared-background"
@@ -12,11 +12,11 @@ import { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Entrepreneur - Engjell Rraklli",
-  description: "Discover how Engjell Rraklli built Division5, a successful staff augmentation company. Learn about scaling service-based businesses and entrepreneurship insights.",
-  keywords: ["entrepreneur", "staff augmentation", "business scaling", "Division5", "service business", "entrepreneurship", "business growth"],
+  description: "Explore Engjell Rraklli's entrepreneurial ventures including Division5, Division3D, DivisionAI, DivisionGrowth, and DivisionDesign.",
+  keywords: ["entrepreneur", "Division5", "Division3D", "DivisionAI", "DivisionGrowth", "DivisionDesign", "business ventures"],
   openGraph: {
     title: "Entrepreneur - Engjell Rraklli",
-    description: "Discover how Engjell Rraklli built Division5, a successful staff augmentation company. Learn about scaling service-based businesses and entrepreneurship insights.",
+    description: "Explore Engjell Rraklli's entrepreneurial ventures including Division5, Division3D, DivisionAI, DivisionGrowth, and DivisionDesign.",
     type: "website",
     url: "https://engjellrraklli.com/entrepreneur",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Entrepreneur - Engjell Rraklli",
-    description: "Discover how Engjell Rraklli built Division5, a successful staff augmentation company.",
+    description: "Explore Engjell Rraklli's entrepreneurial ventures including Division5, Division3D, DivisionAI, DivisionGrowth, and DivisionDesign.",
     images: ["/DSC0019-scaled.jpg"]
   },
   alternates: {
@@ -51,7 +51,7 @@ export default function EntrepreneurPage() {
 
           <div className="prose prose-invert prose-lg max-w-none">
                 <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4 text-center break-words">ENGJELL RRAKLLI - ENTREPRENEUR</h2>
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">Empowering companies through staff augmentation services.</h3>
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">Building and scaling multiple successful businesses.</h3>
 
                 <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
                   <div>
@@ -61,8 +61,11 @@ export default function EntrepreneurPage() {
                       <span className="text-emerald-400 font-semibold">division5</span> became very successful both in the domestic and international markets with customers all over the world and over 50 employees.
                     </p>
                     <p className="text-body text-lg md:text-xl leading-relaxed mb-8 font-montserrat">
-                      My next goal is to expand on that experience, scale division5 up and build a framework for scaling service-based businesses beyond 7 figures. As a result, I write about my journey of{" "}
-                      <span className="text-emerald-400 font-semibold">scaling the unscalable</span> where I share the details of my journey, my lessons, challenges and insights on how to grow service-based businesses to 7-figures and beyond.
+                      Since then, I've expanded into multiple ventures including{" "}
+                      <span className="text-orange-400 font-semibold">division3D</span>,{" "}
+                      <span className="text-blue-400 font-semibold">divisionAI</span>,{" "}
+                      <span className="text-green-400 font-semibold">divisionGrowth</span>, and{" "}
+                      <span className="text-pink-400 font-semibold">divisionDesign</span>. Each division focuses on specific expertise areas while sharing the same commitment to excellence and innovation.
                     </p>
                   </div>
                   <div className="relative">
@@ -81,133 +84,112 @@ export default function EntrepreneurPage() {
             </div>
           </div>
 
-          {/* ABOUT DIVISION5 Section */}
+          {/* DIVISIONS Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
             <div className="max-w-7xl">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-bebas uppercase tracking-wide text-center break-words">ABOUT DIVISION5</h2>
-              <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">
-                Augment your engineering team with world-class developers.
-              </h3>
-              
-              <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-12">
-                <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
-                  <p>
-                    With over a decade of experience in the software development industry, division5 has established itself as a trusted partner for companies seeking to scale their engineering capabilities. Our approach is simple yet powerful: we provide you with exceptional developers who seamlessly integrate into your existing team.
-                  </p>
-                  <p>
-                    We understand that every company has unique needs and challenges. That's why we take a personalized approach to staff augmentation, ensuring that the developers we provide not only have the technical skills you need but also align with your company culture and values.
-                  </p>
-                  <p>
-                    Our commitment to quality, reliability, and transparency has made us the preferred choice for companies ranging from startups to Fortune 500 enterprises. When you choose division5, you're not just getting developers – you're getting partners in your success.
-                  </p>
-                </div>
-                
-                <div className="relative">
-                  <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-                    <Image
-                      src="/d5.jpg"
-                      alt="Division5 - Staff Augmentation Services"
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <Link href="https://division5.co" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 md:px-12 py-4 md:py-6 text-base md:text-lg transition-all duration-300 font-bebas">
-                    LEARN MORE
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* OUR STAFF AUGMENTATION MODEL Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl">
-              <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">OUR STAFF AUGMENTATION MODEL</h2>
+              <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">MY DIVISIONS</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20">
-                {/* Feature 1 */}
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <Zap className="text-white text-3xl" />
-                  </div>
-                  <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Hire a full-time from 2-weeks to 2 months.</h3>
-                  <p className="text-body text-base md:text-lg leading-relaxed font-montserrat">You can easily transition your existing team to division5 or extend your team with our exceptional developers.</p>
-                </div>
+                {/* My Story */}
+                <Link href="/entrepreneur/my-story" className="group">
+                  <Card className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 transition-all duration-300 h-full">
+                    <CardHeader className="text-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                        <Users className="text-white group-hover:text-slate-800 text-3xl transition-colors" />
+                      </div>
+                      <CardTitle className="text-white group-hover:text-slate-800 font-bebas uppercase tracking-wide">MY STORY</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
+                        Discover my entrepreneurial journey from founding Division5 to building a framework for scaling service-based businesses.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
 
-                {/* Feature 2 */}
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <Target className="text-white text-3xl" />
-                  </div>
-                  <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Full transparency on every part of the process.</h3>
-                  <p className="text-body text-base md:text-lg leading-relaxed font-montserrat">Starting from recruiting and moving on with every other process, you will always have full information on our process.</p>
-                </div>
+                {/* Division5 */}
+                <Link href="/entrepreneur/division5" className="group">
+                  <Card className="bg-transparent border-2 border-emerald-400 text-white hover:bg-emerald-400 hover:text-slate-800 transition-all duration-300 h-full">
+                    <CardHeader className="text-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                        <Zap className="text-emerald-400 group-hover:text-slate-800 text-3xl transition-colors" />
+                      </div>
+                      <CardTitle className="text-emerald-400 group-hover:text-slate-800 font-bebas uppercase tracking-wide">DIVISION5</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
+                        Staff augmentation services providing world-class developers to scale your engineering team.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
 
-                {/* Feature 3 */}
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <TrendingUp className="text-white text-3xl" />
-                  </div>
-                  <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
-                    Scaling was never this flexible.
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-montserrat">
-                    We understand how complicated it can be when you need to scale up quickly. We also understand that business is a rollercoaster so you might need to scale down. We got you covered in both cases.
-                  </p>
-                </div>
+                {/* Division3D */}
+                <Link href="/entrepreneur/division3d" className="group">
+                  <Card className="bg-transparent border-2 border-orange-400 text-white hover:bg-orange-400 hover:text-slate-800 transition-all duration-300 h-full">
+                    <CardHeader className="text-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                        <Rocket className="text-orange-400 group-hover:text-slate-800 text-3xl transition-colors" />
+                      </div>
+                      <CardTitle className="text-orange-400 group-hover:text-slate-800 font-bebas uppercase tracking-wide">DIVISION3D</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
+                        Cutting-edge 3D browser applications and visualization solutions for immersive experiences.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
 
-                {/* Feature 4 */}
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <Shield className="text-white text-3xl" />
-                  </div>
-                  <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
-                    Leverage our 9+ years experience in building successful teams.
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-montserrat">
-                    If you work with division5, you are not alone. We will guide and support you on your journey to building exceptional software teams.
-                  </p>
-                </div>
+                {/* DivisionAI */}
+                <Link href="/entrepreneur/divisionai" className="group">
+                  <Card className="bg-transparent border-2 border-blue-400 text-white hover:bg-blue-400 hover:text-slate-800 transition-all duration-300 h-full">
+                    <CardHeader className="text-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                        <Brain className="text-blue-400 group-hover:text-slate-800 text-3xl transition-colors" />
+                      </div>
+                      <CardTitle className="text-blue-400 group-hover:text-slate-800 font-bebas uppercase tracking-wide">DIVISIONAI</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
+                        AI solutions, machine learning, and intelligent automation for modern businesses.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
 
-                {/* Feature 5 */}
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <Users className="text-white text-3xl" />
-                  </div>
-                  <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
-                    The best Albanian talent at your fingertips.
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-montserrat">
-                    Our people are our added value. Through our exception recruiting process we will have the best people available for your needs.
-                  </p>
-                </div>
+                {/* DivisionGrowth */}
+                <Link href="/entrepreneur/divisiongrowth" className="group">
+                  <Card className="bg-transparent border-2 border-green-400 text-white hover:bg-green-400 hover:text-slate-800 transition-all duration-300 h-full">
+                    <CardHeader className="text-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                        <TrendingUpIcon className="text-green-400 group-hover:text-slate-800 text-3xl transition-colors" />
+                      </div>
+                      <CardTitle className="text-green-400 group-hover:text-slate-800 font-bebas uppercase tracking-wide">DIVISIONGROWTH</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
+                        Business growth strategies, marketing optimization, and scalable growth solutions.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
 
-                {/* Feature 6 */}
-                <div className="text-center">
-                  <div className="w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <Globe className="text-white text-3xl" />
-                  </div>
-                  <h3 className="text-white text-xl font-bold mb-4 font-bebas uppercase tracking-wide">
-                    If you're not happy, you pay nothing.
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-montserrat">
-                    Unhappy with our service? You pay nothing. You have nothing to lose with{" "}
-                    <span className="text-emerald-400 font-semibold">division5</span>, only to gain.
-                  </p>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <Link href="https://division5.co/services/staff-augmentation/" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-full transition-all duration-300 font-bebas">
-                    BUILD YOUR TEAM
-                  </Button>
+                {/* DivisionDesign */}
+                <Link href="/entrepreneur/divisiondesign" className="group">
+                  <Card className="bg-transparent border-2 border-pink-400 text-white hover:bg-pink-400 hover:text-slate-800 transition-all duration-300 h-full">
+                    <CardHeader className="text-center">
+                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                        <Palette className="text-pink-400 group-hover:text-slate-800 text-3xl transition-colors" />
+                      </div>
+                      <CardTitle className="text-pink-400 group-hover:text-slate-800 font-bebas uppercase tracking-wide">DIVISIONDESIGN</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-center">
+                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
+                        Creative design solutions, brand identity, and visual experiences that bring joy to users.
+                      </p>
+                    </CardContent>
+                  </Card>
                 </Link>
               </div>
             </div>

@@ -13,9 +13,19 @@ export default function ClientLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
-  let activePage: 'home' | 'entrepreneur' | '3d-guy' | 'blog' | 'podcast' | 'contact' = 'home'
-  if (pathname.startsWith('/entrepreneur')) activePage = 'entrepreneur'
-  else if (pathname.startsWith('/the-3d-guy')) activePage = '3d-guy'
+  let activePage: 'home' | 'entrepreneur' | 'blog' | 'podcast' | 'contact' = 'home'
+  let activeSubpage: string | null = null
+  
+  if (pathname.startsWith('/entrepreneur')) {
+    activePage = 'entrepreneur'
+    // Extract subpage from pathname
+    if (pathname === '/entrepreneur') {
+      activeSubpage = null // Main entrepreneur page
+    } else {
+      activeSubpage = pathname.split('/').pop() || null
+    }
+  }
+
   else if (pathname.startsWith('/blog')) activePage = 'blog'
   else if (pathname.startsWith('/podcast')) activePage = 'podcast'
   else if (pathname.startsWith('/contact')) activePage = 'contact'
@@ -57,7 +67,7 @@ export default function ClientLayout({
           }}
         >
           <div className="w-full h-full flex flex-col items-center justify-center md:block md:items-stretch md:justify-start">
-            <NavigationMenu activePage={activePage} onNavigate={handleNavigate} />
+            <NavigationMenu activePage={activePage} activeSubpage={activeSubpage} onNavigate={handleNavigate} />
           </div>
         </div>
       )}
