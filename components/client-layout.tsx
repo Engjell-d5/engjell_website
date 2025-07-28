@@ -59,40 +59,6 @@ export default function ClientLayout({
           <div className="w-full h-full flex flex-col items-center justify-center md:block md:items-stretch md:justify-start">
             <NavigationMenu activePage={activePage} onNavigate={handleNavigate} />
           </div>
-          {/* Social Icons */}
-          <div className="px-8 pb-12 mt-auto">
-            <div className="flex space-x-6">
-              <Link 
-                href="https://threads.net/@engjellrraklli" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:opacity-80 transition-opacity"
-                aria-label="Threads"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.5 12.022V0h3.82v12.022c0 2.776.484 4.95 1.451 6.494 1.54 2.524 4.08 3.787 7.615 3.787 3.581 0 6.334-1.205 8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787-3.581 0-6.334 1.205-8.184-3.509C24.65 18.44 25.5 15.586 25.5 12.022V0h3.82v12.022c0 2.776-.484 4.95-1.451 6.494-1.54 2.524-4.08 3.787-7.615 3.787z"/>
-                </svg>
-              </Link>
-              <Link 
-                href="https://linkedin.com/in/engjell-rraklli-a8b20a68" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:opacity-80 transition-opacity"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={24} />
-              </Link>
-              <Link 
-                href="https://instagram.com/engjellrraklli" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white hover:opacity-80 transition-opacity"
-                aria-label="Instagram"
-              >
-                <Instagram size={24} />
-              </Link>
-            </div>
-          </div>
         </div>
       )}
       

@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       images: post.images?.[0] ? [
         {
           url: post.images[0].url,
-          width: post.images[0].width,
+          width: "100vw",
           height: post.images[0].height,
           alt: post.title
         }
