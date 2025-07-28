@@ -48,7 +48,6 @@ export default function DivisionGrowthPage() {
               </div>
 
           <div className="prose prose-invert prose-lg max-w-none">
-                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4 text-center break-words">DIVISIONGROWTH</h2>
                 <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">
                   LinkedIn Automation for B2B Companies
                 </h3>

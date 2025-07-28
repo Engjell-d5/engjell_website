@@ -13,10 +13,19 @@ export default function ClientLayout({
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const pathname = usePathname()
-  let activePage: 'home' | 'entrepreneur' | 'blog' | 'podcast' | 'contact' = 'home'
+  let activePage: 'home' | 'engjell-rraklli' | 'entrepreneur' | 'blog' | 'podcast' | 'contact' = 'home'
   let activeSubpage: string | null = null
   
-  if (pathname.startsWith('/entrepreneur')) {
+  if (pathname.startsWith('/engjell-rraklli')) {
+    activePage = 'engjell-rraklli'
+    // Extract subpage from pathname
+    if (pathname === '/engjell-rraklli') {
+      activeSubpage = null // Main engjell-rraklli page
+    } else {
+      activeSubpage = pathname.split('/').pop() || null
+    }
+  }
+  else if (pathname.startsWith('/entrepreneur')) {
     activePage = 'entrepreneur'
     // Extract subpage from pathname
     if (pathname === '/entrepreneur') {
@@ -25,7 +34,6 @@ export default function ClientLayout({
       activeSubpage = pathname.split('/').pop() || null
     }
   }
-
   else if (pathname.startsWith('/blog')) activePage = 'blog'
   else if (pathname.startsWith('/podcast')) activePage = 'podcast'
   else if (pathname.startsWith('/contact')) activePage = 'contact'

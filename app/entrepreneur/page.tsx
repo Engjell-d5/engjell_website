@@ -90,22 +90,7 @@ export default function EntrepreneurPage() {
               <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-16 text-center break-words">MY DIVISIONS</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-20">
-                {/* My Story */}
-                <Link href="/entrepreneur/my-story" className="group">
-                  <Card className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 transition-all duration-300 h-full">
-                    <CardHeader className="text-center">
-                      <div className="w-16 h-16 flex items-center justify-center mb-4 mx-auto">
-                        <Users className="text-white group-hover:text-slate-800 text-3xl transition-colors" />
-                      </div>
-                      <CardTitle className="text-white group-hover:text-slate-800 font-bebas uppercase tracking-wide">MY STORY</CardTitle>
-                    </CardHeader>
-                    <CardContent className="text-center">
-                      <p className="text-body group-hover:text-slate-700 text-base leading-relaxed font-montserrat">
-                        Discover my entrepreneurial journey from founding Division5 to building a framework for scaling service-based businesses.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </Link>
+
 
                 {/* Division5 */}
                 <Link href="/entrepreneur/division5" className="group">

@@ -183,7 +183,7 @@ export default function HomeClient() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                   {/* The Entrepreneur */}
-                  <Link href="/entrepreneur" className="group">
+                  <Link href="/engjell-rraklli/my-divisions" className="group">
                     <div className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-105">
                       <div className="aspect-[4/5] relative">
                         <Image
@@ -263,12 +263,7 @@ export default function HomeClient() {
             
             <div className="max-w-7xl relative z-10">
               <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-orange-400/20 rounded-full flex items-center justify-center">
-                    <Play className="h-6 w-6 text-orange-400" />
-                  </div>
-                  <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide font-bebas">LATEST EPISODES</h2>
-                </div>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide font-bebas mb-4">LATEST EPISODES</h2>
                 <p className="text-gray-300 text-lg md:text-xl font-montserrat">Deep conversations with entrepreneurs and innovators</p>
               </div>
 
@@ -410,14 +405,7 @@ export default function HomeClient() {
             
             <div className="max-w-7xl relative z-10">
               <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-emerald-400/20 rounded-full flex items-center justify-center">
-                    <svg className="h-6 w-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                  </div>
-                  <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide font-bebas">LATEST INSIGHTS</h2>
-                </div>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wide font-bebas mb-4">LATEST INSIGHTS</h2>
                 <p className="text-gray-300 text-lg md:text-xl font-montserrat">Thoughts on scaling service-based businesses and entrepreneurship</p>
               </div>
 

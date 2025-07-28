@@ -3,24 +3,39 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 
 interface NavigationMenuProps {
-  activePage: 'home' | 'entrepreneur' | 'blog' | 'podcast' | 'contact',
+  activePage: 'home' | 'engjell-rraklli' | 'entrepreneur' | 'blog' | 'podcast' | 'contact',
   activeSubpage?: string | null,
   onNavigate?: () => void
 }
 
 export default function NavigationMenu({ activePage, activeSubpage, onNavigate }: NavigationMenuProps) {
-  const [entrepreneurExpanded, setEntrepreneurExpanded] = useState(activeSubpage !== null)
+  // Only one category should be expanded at a time
+  const [entrepreneurExpanded, setEntrepreneurExpanded] = useState(activeSubpage !== null && activePage === 'entrepreneur')
+  const [engjellRraklliExpanded, setEngjellRraklliExpanded] = useState(activeSubpage !== null && activePage === 'engjell-rraklli')
   const pathname = usePathname()
 
   // Close submenu when navigating to a different page
   const handleNavigate = () => {
+    // Don't close the current category when navigating to its subpages
     onNavigate?.()
   }
 
   // Handle navigation to non-entrepreneur pages
   const handleNonEntrepreneurNavigate = () => {
     setEntrepreneurExpanded(false)
+    setEngjellRraklliExpanded(false)
     onNavigate?.()
+  }
+
+  // Handle category expansion - close other categories when one opens
+  const handleEngjellRraklliToggle = () => {
+    setEngjellRraklliExpanded(!engjellRraklliExpanded)
+    setEntrepreneurExpanded(false) // Close entrepreneur category
+  }
+
+  const handleEntrepreneurToggle = () => {
+    setEntrepreneurExpanded(!entrepreneurExpanded)
+    setEngjellRraklliExpanded(false) // Close engjell-rraklli category
   }
 
   return (
@@ -37,22 +52,51 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
       {/* Navigation */}
       <nav className="flex-1 px-8 pt-8 w-full">
         <div className="space-y-1 flex flex-col w-full">
-          <Link
-            href="/"
-            className={`block w-full sm:w-auto text-left text-white py-4 md:py-2 px-3 text-2xl md:text-lg font-extrabold md:font-bold uppercase tracking-wider font-bebas transition-colors ${
-              activePage === 'home' ? 'bg-black' : 'hover:bg-black'
-            }`}
-            onClick={handleNonEntrepreneurNavigate}
-          >
-            ENGJELL RRAKLLI
-          </Link>
+
+          
+          {/* Engjell Rraklli with submenu */}
+          <div className="relative">
+            <button
+              onClick={handleEngjellRraklliToggle}
+              className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
+                activePage === 'engjell-rraklli' || engjellRraklliExpanded ? 'bg-black' : 'hover:bg-black'
+              }`}
+            >
+              ENGJELL RRAKLLI
+            </button>
+            
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
+              engjellRraklliExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            }`}>
+              <div className="mt-2 space-y-1 pl-4">
+                <Link
+                  href="/engjell-rraklli/my-story"
+                  className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-colors ${
+                    activeSubpage === 'my-story' ? 'bg-black' : 'hover:bg-black/50'
+                  }`}
+                  onClick={handleNavigate}
+                >
+                  MY STORY
+                </Link>
+                <Link
+                  href="/engjell-rraklli/my-divisions"
+                  className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-colors ${
+                    activeSubpage === 'my-divisions' ? 'bg-black' : 'hover:bg-black/50'
+                  }`}
+                  onClick={handleNavigate}
+                >
+                  MY DIVISIONS
+                </Link>
+              </div>
+            </div>
+          </div>
           
           {/* Entrepreneur with submenu */}
           <div className="relative">
             <button
-              onClick={() => setEntrepreneurExpanded(!entrepreneurExpanded)}
+              onClick={handleEntrepreneurToggle}
               className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-colors ${
-                activePage === 'entrepreneur' ? 'bg-black' : 'hover:bg-black'
+                activePage === 'entrepreneur' || entrepreneurExpanded ? 'bg-black' : 'hover:bg-black'
               }`}
             >
               ENTREPRENEUR
@@ -62,15 +106,6 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
               entrepreneurExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}>
               <div className="mt-2 space-y-1 pl-4">
-                <Link
-                  href="/entrepreneur/my-story"
-                  className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-colors ${
-                    activeSubpage === 'my-story' ? 'bg-black' : 'hover:bg-black/50'
-                  }`}
-                  onClick={handleNavigate}
-                >
-                  MY STORY
-                </Link>
                 <Link
                   href="/entrepreneur/division5"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-colors ${

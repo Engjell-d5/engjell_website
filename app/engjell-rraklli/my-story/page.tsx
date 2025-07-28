@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "My Story - Engjell Rraklli",
     description: "Discover the entrepreneurial journey of Engjell Rraklli, from founding Division5 to building a framework for scaling service-based businesses.",
     type: "website",
-    url: "https://engjellrraklli.com/entrepreneur/my-story",
+    url: "https://engjellrraklli.com/engjell-rraklli/my-story",
     images: [
       {
         url: "/DSC0019-scaled.jpg",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     images: ["/DSC0019-scaled.jpg"]
   },
   alternates: {
-    canonical: "https://engjellrraklli.com/entrepreneur/my-story"
+    canonical: "https://engjellrraklli.com/engjell-rraklli/my-story"
   }
 }
 
