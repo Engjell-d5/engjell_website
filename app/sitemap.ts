@@ -1,8 +1,28 @@
 import { MetadataRoute } from 'next'
+import fs from 'fs'
+import path from 'path'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://engjellrraklli.com'
-  
+
+  // Read blog post slugs from local file
+  let blogPostUrls: MetadataRoute.Sitemap = []
+  try {
+    const postsPath = path.join(process.cwd(), 'data', 'posts.json')
+    const postsData = JSON.parse(fs.readFileSync(postsPath, 'utf-8'))
+    if (Array.isArray(postsData.posts)) {
+      blogPostUrls = postsData.posts.map((post: any) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: post.updated ? new Date(post.updated) : new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.6,
+      }))
+    }
+  } catch (e) {
+    // If file missing or error, skip blog posts
+    blogPostUrls = []
+  }
+
   return [
     {
       url: baseUrl,
@@ -52,5 +72,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    ...blogPostUrls,
   ]
 } 
