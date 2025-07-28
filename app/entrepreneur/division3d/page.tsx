@@ -40,32 +40,36 @@ export const metadata: Metadata = {
 export default function Division3DPage() {
   return (
     <SharedBackground>
-          {/* DIVISION 3D Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
-            <div className="max-w-7xl mx-auto text-center">
-              <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas uppercase tracking-wide mb-8 text-center">DIVISION3D</h1>
-              <p className="text-body text-lg md:text-xl leading-relaxed font-montserrat max-w-5xl mx-auto">We specialize in cutting-edge, scalable, and fast 3D web applications. Our expertise in browser-based 3D apps transforms your vision into immersive digital experiences. We use the latest technologies to build high-performance 3D solutions.</p>
+          {/* Hero Section with Background Image */}
+          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <Image
+                src="/3d.png"
+                alt="Division3D - 3D Technology and Visualization"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+            </div>
+            <div className="relative z-10 max-w-6xl mx-auto text-center">
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">DIVISION3D</h1>
+            </div>
+          </div>
+
+          {/* Content Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-16">
+                <p className="text-body text-lg md:text-xl leading-relaxed font-montserrat max-w-4xl">We specialize in cutting-edge, scalable, and fast 3D web applications. Our expertise in browser-based 3D apps transforms your vision into immersive digital experiences. We use the latest technologies to build high-performance 3D solutions.</p>
+              </div>
             </div>
           </div>
 
           {/* 3D Browser Apps Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40">
             <div className="max-w-7xl">
-              <div className="flex flex-col md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-start">
-                {/* Left side - 3D Image */}
-                <div className="relative">
-                  <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-                    <Image
-                      src="/3d.png"
-                      alt="3D Technology"
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Right side - Content */}
+              <div className="max-w-4xl mx-auto">
                 <div className="space-y-8">
                   <h3 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl font-bebas leading-tight">3D browser apps that run like native.</h3>
                   

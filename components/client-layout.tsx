@@ -67,10 +67,11 @@ export default function ClientLayout({
       {!isBioPage && (
         <div
           className={`fixed top-0 left-0 z-40 transition-transform duration-300
-            md:w-64 md:h-screen md:bg-emerald-400 md:translate-x-0
-            w-full h-full bg-emerald-400 flex flex-col
+            md:w-64 md:h-screen md:translate-x-0
+            w-full h-full flex flex-col
             ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
           style={{
+            background: 'linear-gradient(135deg, #34d399 0%, #10b981 100%)',
             boxShadow: sidebarOpen ? '0 0 0 9999px rgba(0,0,0,0.7)' : undefined
           }}
         >

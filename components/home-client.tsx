@@ -83,8 +83,7 @@ export default function HomeClient() {
             alt="Background"
             fill
             sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: 'center 150%' }}
+            className="object-cover object-center object-[center_50%] sm:object-[center_70%] md:object-[center_120%]"
             priority
             quality={85}
           />

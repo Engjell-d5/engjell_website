@@ -40,36 +40,41 @@ export const metadata: Metadata = {
 export default function DivisionGrowthPage() {
   return (
     <SharedBackground>
-          {/* Hero Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center">
-            <div className="max-w-7xl">
-              <div className="text-center mb-16">
-                <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas uppercase tracking-wide mb-8 text-center">DIVISIONGROWTH</h1>
-              </div>
+          {/* Hero Section with Background Image */}
+          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <Image
+                src="/growth.jpg"
+                alt="DivisionGrowth - LinkedIn Automation for B2B Companies"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+            </div>
+            <div className="relative z-10 max-w-6xl mx-auto text-center">
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">DIVISIONGROWTH</h1>
+            </div>
+          </div>
 
-          <div className="prose prose-invert prose-lg max-w-none">
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">
+          {/* Content Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="prose prose-invert prose-lg max-w-none">
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight text-center">
                   LinkedIn Automation for B2B Companies
                 </h3>
                 
-                <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-12">
-                  <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
-                    <p>
-                      Stop wasting time on cold outreach. We connect B2B companies with <span className="font-bold text-white">decision makers</span> through LinkedIn automation, delivering <span className="font-bold text-white">qualified meetings</span> that convert.
-                    </p>
-                    <p>
-                      Our clients see <span className="text-green-400 font-bold">3x more meetings in 30 days</span>. We handle your entire LinkedIn outreach process, from profile optimization to booking qualified meetings with decision makers.
-                    </p>
-                    <p>
-                      Perfect for B2B SaaS companies, professional service firms, and startups who need consistent pipeline generation at a fraction of the cost of an in-house team.
-                    </p>
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                      <Linkedin className="text-white text-8xl" />
-                    </div>
-                  </div>
+                <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat max-w-4xl mx-auto mb-12">
+                  <p>
+                    Stop wasting time on cold outreach. We connect B2B companies with <span className="font-bold text-white">decision makers</span> through LinkedIn automation, delivering <span className="font-bold text-white">qualified meetings</span> that convert.
+                  </p>
+                  <p>
+                    Our clients see <span className="text-green-400 font-bold">3x more meetings in 30 days</span>. We handle your entire LinkedIn outreach process, from profile optimization to booking qualified meetings with decision makers.
+                  </p>
+                  <p>
+                    Perfect for B2B SaaS companies, professional service firms, and startups who need consistent pipeline generation at a fraction of the cost of an in-house team.
+                  </p>
                 </div>
 
                 <div className="text-center">
@@ -127,66 +132,72 @@ export default function DivisionGrowthPage() {
             </div>
           </div>
 
-          {/* Results Section */}
+          {/* Who Benefits Most Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
             <div className="max-w-7xl">
-              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-sm font-medium text-slate-800">
-                  <BarChart3 className="h-4 w-4" />
-                  <span>Real Results</span>
-                </div>
-                <div className="space-y-2 max-w-3xl">
-                  <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4 text-center break-words">OUR CLIENTS SEE 3X MORE MEETINGS IN 30 DAYS</h2>
-                  <p className="text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-montserrat">Don't take our word for it. Here's what our clients have achieved with divisionGrowth.</p>
-                </div>
+              <div className="text-center mb-16">
+                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-8 text-center break-words">WHO BENEFITS MOST FROM OUR SERVICES?</h2>
+                <p className="text-gray-300 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-montserrat max-w-4xl mx-auto">Our LinkedIn automation services are designed specifically for B2B companies that need a consistent flow of qualified meetings.</p>
               </div>
               
-              <div className="grid gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg relative border border-white/10">
-                  <div className="absolute top-0 right-0 bg-blue-500 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">Outsourcing Company</div>
-                  <div className="flex flex-col h-full">
-                    <div className="mb-4">
-                      <div className="text-4xl font-bold text-blue-400">287%</div>
-                      <div className="text-sm text-gray-300">Increase in qualified meetings</div>
-                    </div>
-                    <p className="text-gray-300 italic mb-4 font-montserrat">divisionGrowth transformed our outreach strategy. We went from 5-6 meetings per month to 20+ qualified opportunities with decision makers at enterprise companies.</p>
-                    <div className="mt-auto pt-4 border-t border-white/10">
-                      <div className="font-medium text-white">Engjell Rraklli</div>
-                      <div className="text-sm text-gray-300">CEO, division5</div>
-                    </div>
+              <div className="grid gap-8 md:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white/10">
+                  <div className="text-center">
+                    <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">B2B SaaS Companies</h3>
+                    <p className="text-gray-300 font-montserrat">Looking to connect with decision makers at mid-market and enterprise companies</p>
                   </div>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg relative border border-white/10">
-                  <div className="absolute top-0 right-0 bg-purple-500 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">Design Agency</div>
-                  <div className="flex flex-col h-full">
-                    <div className="mb-4">
-                      <div className="text-4xl font-bold text-purple-400">12</div>
-                      <div className="text-sm text-gray-300">New enterprise clients in 90 days</div>
-                    </div>
-                    <p className="text-gray-300 italic mb-4 font-montserrat">The ROI is incredible. Within 3 months, we closed 12 enterprise deals directly from LinkedIn meetings booked by divisionGrowth. Their targeting is extremely precise.</p>
-                    <div className="mt-auto pt-4 border-t border-white/10">
-                      <div className="font-medium text-white">Paolo Curci</div>
-                      <div className="text-sm text-gray-300">CEO, divisionDesign</div>
-                    </div>
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white/10">
+                  <div className="text-center">
+                    <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Professional Service Firms</h3>
+                    <p className="text-gray-300 font-montserrat">Consultancies, agencies, and firms seeking to expand their client roster</p>
                   </div>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg relative border border-white/10">
-                  <div className="absolute top-0 right-0 bg-green-500 text-white px-3 py-1 text-sm font-medium rounded-bl-lg">Events Agency</div>
-                  <div className="flex flex-col h-full">
-                    <div className="mb-4">
-                      <div className="text-4xl font-bold text-green-400">€320K</div>
-                      <div className="text-sm text-gray-300">New revenue in 6 months</div>
-                    </div>
-                    <p className="text-gray-300 italic mb-4 font-montserrat">divisionGrowth helped us connect with perfect-fit clients we couldn't reach before. Our sales team is now focused on closing, not prospecting. Game-changer for our growth.</p>
-                    <div className="mt-auto pt-4 border-t border-white/10">
-                      <div className="font-medium text-white">Manuel Koelman</div>
-                      <div className="text-sm text-gray-300">Founder, PirateX</div>
-                    </div>
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white/10">
+                  <div className="text-center">
+                    <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Startups with Limited Resources</h3>
+                    <p className="text-gray-300 font-montserrat">Need outbound sales but can't afford a full-time SDR team</p>
+                  </div>
+                </div>
+
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white/10">
+                  <div className="text-center">
+                    <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Companies with Long Sales Cycles</h3>
+                    <p className="text-gray-300 font-montserrat">Need consistent pipeline generation to maintain growth</p>
                   </div>
                 </div>
               </div>
+
+                             <div className="text-center mt-12">
+                 <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-white/10 max-w-2xl mx-auto">
+                   <h3 className="text-white font-bold text-xl mb-4 font-bebas uppercase tracking-wide">Not sure if we're right for you?</h3>
+                   <div className="space-y-3 text-left mb-8">
+                     <div className="flex items-center space-x-3">
+                       <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
+                       <span className="text-gray-300 font-montserrat">You need 10+ qualified meetings per month with decision makers</span>
+                     </div>
+                     <div className="flex items-center space-x-3">
+                       <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
+                       <span className="text-gray-300 font-montserrat">Your average deal size is €10K+ (for positive ROI)</span>
+                     </div>
+                     <div className="flex items-center space-x-3">
+                       <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
+                       <span className="text-gray-300 font-montserrat">You have a clear ICP and value proposition</span>
+                     </div>
+                     <div className="flex items-center space-x-3">
+                       <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
+                       <span className="text-gray-300 font-montserrat">Your sales team can handle additional meetings</span>
+                     </div>
+                   </div>
+                   <Link href="https://divisiongrowth.com" target="_blank" rel="noopener noreferrer">
+                     <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-800 font-bold px-8 md:px-12 py-4 md:py-6 text-base md:text-lg transition-all duration-300 font-bebas">
+                       VISIT DIVISIONGROWTH
+                     </Button>
+                   </Link>
+                 </div>
+               </div>
             </div>
           </div>
 

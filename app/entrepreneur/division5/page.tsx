@@ -40,42 +40,41 @@ export const metadata: Metadata = {
 export default function Division5Page() {
   return (
     <SharedBackground>
-          {/* Hero Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center">
-            <div className="max-w-7xl">
-              <div className="text-center mb-16">
-                <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas uppercase tracking-wide mb-8 text-center">DIVISION5</h1>
-              </div>
+          {/* Hero Section with Background Image */}
+          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <Image
+                src="/d5.jpg"
+                alt="Division5 - Staff Augmentation Services"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+            </div>
+            <div className="relative z-10 max-w-6xl mx-auto text-center">
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">DIVISION5</h1>
+            </div>
+          </div>
 
-          <div className="prose prose-invert prose-lg max-w-none">
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">
+          {/* Content Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="prose prose-invert prose-lg max-w-none">
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight text-center">
                   Augment your engineering team with world-class developers.
                 </h3>
                 
-                <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-12">
-                  <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
-                    <p>
-                      With over a decade of experience in the software development industry, division5 has established itself as a trusted partner for companies seeking to scale their engineering capabilities. Our approach is simple yet powerful: we provide you with exceptional developers who seamlessly integrate into your existing team.
-                    </p>
-                    <p>
-                      We understand that every company has unique needs and challenges. That's why we take a personalized approach to staff augmentation, ensuring that the developers we provide not only have the technical skills you need but also align with your company culture and values.
-                    </p>
-                    <p>
-                      Our commitment to quality, reliability, and transparency has made us the preferred choice for companies ranging from startups to Fortune 500 enterprises. When you choose division5, you're not just getting developers – you're getting partners in your success.
-                    </p>
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-                      <Image
-                        src="/d5.jpg"
-                        alt="Division5 - Staff Augmentation Services"
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
+                <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat max-w-4xl mx-auto mb-12">
+                  <p>
+                    With over a decade of experience in the software development industry, division5 has established itself as a trusted partner for companies seeking to scale their engineering capabilities. Our approach is simple yet powerful: we provide you with exceptional developers who seamlessly integrate into your existing team.
+                  </p>
+                  <p>
+                    We understand that every company has unique needs and challenges. That's why we take a personalized approach to staff augmentation, ensuring that the developers we provide not only have the technical skills you need but also align with your company culture and values.
+                  </p>
+                  <p>
+                    Our commitment to quality, reliability, and transparency has made us the preferred choice for companies ranging from startups to Fortune 500 enterprises. When you choose division5, you're not just getting developers – you're getting partners in your success.
+                  </p>
                 </div>
 
                 <div className="text-center">

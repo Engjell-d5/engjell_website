@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Play, Calendar, Clock, Youtube, ExternalLink } from "lucide-react"
@@ -91,13 +92,25 @@ export default function PodcastClient() {
   if (loading) {
     return (
       <SharedBackground>
-          {/* Page Title */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
-            <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
+          {/* Hero Section with Background Image */}
+          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <Image
+                src="/IMG_0425-scaled.jpg"
+                alt="Scaling the Unscalable Podcast"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+            </div>
+            <div className="relative z-10 max-w-6xl mx-auto text-center">
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">PODCAST</h1>
+            </div>
           </div>
 
-          {/* Hero Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
+          {/* Content Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>
@@ -181,13 +194,25 @@ export default function PodcastClient() {
 
   return (
     <SharedBackground>
-        {/* Page Title */}
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 text-center">
-          <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-12 md:mb-16 font-bebas uppercase tracking-wide text-center break-words">PODCAST</h1>
+        {/* Hero Section with Background Image */}
+        <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+          <div className="absolute inset-0 rounded-2xl overflow-hidden">
+            <Image
+              src="/IMG_0425-scaled.jpg"
+              alt="Scaling the Unscalable Podcast"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+          </div>
+          <div className="relative z-10 max-w-6xl mx-auto text-center">
+            <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">PODCAST</h1>
+          </div>
         </div>
 
-        {/* Hero Section */}
-        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 pb-16 md:pb-24">
+        {/* Content Section */}
+        <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide text-center break-words">CONVERSATIONS THAT MATTER</h2>

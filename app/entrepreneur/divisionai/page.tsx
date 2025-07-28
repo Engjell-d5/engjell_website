@@ -40,36 +40,41 @@ export const metadata: Metadata = {
 export default function DivisionAIPage() {
   return (
     <SharedBackground>
-          {/* Hero Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24 min-h-screen flex flex-col justify-center">
-            <div className="max-w-7xl">
-              <div className="text-center mb-16">
-                <h1 className="text-white font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bebas uppercase tracking-wide mb-8 text-center">DIVISIONAI</h1>
-              </div>
+          {/* Hero Section with Background Image */}
+          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <Image
+                src="/dai.png"
+                alt="DivisionAI - AI-Powered Development"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+            </div>
+            <div className="relative z-10 max-w-6xl mx-auto text-center">
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">DIVISIONAI</h1>
+            </div>
+          </div>
 
-          <div className="prose prose-invert prose-lg max-w-none">
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight">
+          {/* Content Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="prose prose-invert prose-lg max-w-none">
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight text-center">
                   Real Engineers Powered by AI
                 </h3>
                 
-                <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center mb-12">
-                  <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
-                    <p>
-                      🚀 World-class software delivered at <span className="text-cyan-400 font-bold">record speed</span> for a <span className="text-purple-400 font-bold">fraction of the cost</span>. Our experienced engineers use cutting-edge AI tools to prototype, build MVPs, and automate workflows <span className="text-green-400 font-bold">10x faster</span> than traditional development teams.
-                    </p>
-                    <p>
-                      We specialize in rapid prototyping and development. Most MVPs are live within 3-7 days. We focus on core features first, get you something testable quickly, then iterate based on real user feedback. Speed is our superpower!
-                    </p>
-                    <p>
-                      Our engineers are experienced professionals who leverage cutting-edge AI tools to work 10x faster. They use AI for code generation, bug detection, testing, and optimization while applying human creativity and problem-solving skills.
-                    </p>
-                  </div>
-                  
-                  <div className="relative">
-                    <div className="w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                      <Brain className="text-white text-8xl" />
-                    </div>
-                  </div>
+                <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat max-w-4xl mx-auto mb-12">
+                  <p>
+                    🚀 World-class software delivered at <span className="text-cyan-400 font-bold">record speed</span> for a <span className="text-purple-400 font-bold">fraction of the cost</span>. Our experienced engineers use cutting-edge AI tools to prototype, build MVPs, and automate workflows <span className="text-green-400 font-bold">10x faster</span> than traditional development teams.
+                  </p>
+                  <p>
+                    We specialize in rapid prototyping and development. Most MVPs are live within 3-7 days. We focus on core features first, get you something testable quickly, then iterate based on real user feedback. Speed is our superpower!
+                  </p>
+                  <p>
+                    Our engineers are experienced professionals who leverage cutting-edge AI tools to work 10x faster. They use AI for code generation, bug detection, testing, and optimization while applying human creativity and problem-solving skills.
+                  </p>
                 </div>
 
                 <div className="text-center">
