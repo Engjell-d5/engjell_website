@@ -1,9 +1,53 @@
 import { NextRequest, NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
 const SENDER_API_KEY = process.env.SENDER_API_KEY
 const SENDER_LIST_ID = process.env.SENDER_LIST_ID
 
+// Rate limiting config
+const RATE_LIMIT_FILE = path.join(process.cwd(), 'data', 'rate-limit.json')
+const RATE_LIMIT_WINDOW = 10 * 60 * 1000 // 10 minutes
+const RATE_LIMIT_MAX = 5 // max requests per window per IP
+
+function getClientIp(req: NextRequest) {
+  // Try to get the real IP from headers (works with Vercel, etc.)
+  return req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || req.ip || 'unknown'
+}
+
+function readRateLimitFile() {
+  try {
+    if (!fs.existsSync(RATE_LIMIT_FILE)) return {}
+    const data = fs.readFileSync(RATE_LIMIT_FILE, 'utf-8')
+    return JSON.parse(data)
+  } catch {
+    return {}
+  }
+}
+
+function writeRateLimitFile(data: any) {
+  fs.writeFileSync(RATE_LIMIT_FILE, JSON.stringify(data, null, 2), 'utf-8')
+}
+
 export async function POST(request: NextRequest) {
+  // --- Rate limiting logic ---
+  const ip = getClientIp(request)
+  const now = Date.now()
+  let rateData = readRateLimitFile()
+  if (!rateData[ip]) rateData[ip] = []
+  // Remove old timestamps
+  rateData[ip] = rateData[ip].filter((ts: number) => now - ts < RATE_LIMIT_WINDOW)
+  if (rateData[ip].length >= RATE_LIMIT_MAX) {
+    return NextResponse.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429 }
+    )
+  }
+  // Add this request
+  rateData[ip].push(now)
+  writeRateLimitFile(rateData)
+  // --- End rate limiting logic ---
+
   try {
     const { email } = await request.json()
 
