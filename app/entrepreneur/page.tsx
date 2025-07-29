@@ -49,7 +49,7 @@ export default function EntrepreneurPage() {
                 src="/DSC0036-scaled.jpg"
                 alt="Engjell Rraklli - Entrepreneur and Business Leader"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
                 quality={95}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"

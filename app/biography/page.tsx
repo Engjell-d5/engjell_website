@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, MapPin, Rocket, Users, Target, TrendingUp, Shield, Zap, Globe, Calendar, ArrowRight, Building2, Palette, Brain, TrendingUp as TrendingUpIcon } from "lucide-react"
+import { Mail, Phone, MapPin, Rocket, Users, Target, TrendingUp, Shield, Zap, Globe, Calendar, ArrowRight, Building2, Palette, Brain, TrendingUp as TrendingUpIcon, Award, BookOpen, Lightbulb, Briefcase, Star, Trophy } from "lucide-react"
 import Footer from "@/components/footer"
 import SubscribeSection from "@/components/subscribe-section"
 import SharedBackground from "@/components/shared-background"
@@ -42,13 +42,13 @@ export default function BiographyPage() {
   return (
     <SharedBackground>
           {/* Hero Section with Background Image */}
-          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-8 md:mb-12">
+          <div className="relative px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-24 md:py-32 mb-0">
             <div className="absolute inset-0 rounded-2xl overflow-hidden">
               <Image
                 src="/DSC0019-scaled.jpg"
                 alt="Engjell Rraklli - Entrepreneur"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
                 quality={95}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
@@ -60,36 +60,109 @@ export default function BiographyPage() {
             </div>
           </div>
 
-          {/* Content Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
-            <div className="max-w-7xl mx-auto">
-              <div className="prose prose-invert prose-lg max-w-none">
-                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-8 text-left break-words">ENGJELL RRAKLLI - ENTREPRENEUR</h2>
+          {/* Timeline Section - Full Width, No Padding */}
+          <div className="w-full">
+            <TimelineComponent />
+          </div>
 
-                <div className="max-w-4xl">
-                  <p className="text-body text-lg md:text-xl leading-relaxed mb-6 font-montserrat text-left">
-                    I started entrepreneurship at a very young age. Just before graduating I quit University to build{" "}
-                    <span className="text-emerald-400 font-semibold">division5</span>, a company providing staff augmentation services in the software industry.{" "}
-                    <span className="text-emerald-400 font-semibold">division5</span> became very successful both in the domestic and international markets with customers all over the world and over 50 employees.
+          {/* Main Story Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-12 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-8 md:mb-12 text-center">ENGJELL RRAKLLI'S STORY</h2>
+              
+              <div className="space-y-8 md:space-y-12">
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    In May 2015, I finally took the first step and founded division5. Picture this: A 23-year-old with no connections, no money, no references, and no experience. How hard could it be? That's exactly what I thought. Boy, I had no clue.
                   </p>
-                  <p className="text-body text-lg md:text-xl leading-relaxed mb-8 font-montserrat text-left">
-                    My next goal is to expand on that experience, scale division5 up and build a framework for scaling service-based businesses beyond 7 figures. As a result, I write about my journey of{" "}
-                    <span className="text-emerald-400 font-semibold">scaling the unscalable</span> where I share the details of my journey, my lessons, challenges and insights on how to grow service-based businesses to 7-figures and beyond.
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    I wanted to build a game development company, but soon after starting, we found ourselves without money. The only way to keep the business going was to provide software development services. I guess this was the first big lesson in my entrepreneurial journey: <span className="text-emerald-400 font-semibold">The market doesn't care about what you want to do</span>.
+                  </p>
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    Without connections, it's tough—especially when your clients are businesses. Most collaborations in the B2B space happen within internal networks. You need a strong value proposition to gain customers. So I cherished every client I got. I did my best to deliver exceptional service and make my clients happy. Profit wasn't my priority at that time. Maybe that was a mistake. I've left so much money on the table, but I wouldn't change a thing.
+                  </p>
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    Some clients referred us to others. Slowly but surely, we built a customer base that kept coming back. Not only that, they promoted our services to their inner circles until we had to hire just to keep up with demand. Unwittingly, we were able to <span className="text-purple-400 font-semibold">provide a service people love to share</span>.
+                  </p>
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    For the first four years of division5, we acquired customers solely through word of mouth. We spent no money on marketing or sales; we just focused on the service we provided and the relationships we built. It's a slow way to grow, but it ensures you get the basics right.
+                  </p>
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    As we grew, I realized that if I wanted to provide great service, I needed to hire great people and build a culture focused on the quality we aimed to provide. Culture starts at the top. As a leader, it's your responsibility to shape and steer the culture in the right direction. The best way to do this is by leading through example, hiring the right people, and not tolerating behaviors that go against the culture you want to build.
+                  </p>
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    Today, division5 has customers dating back eight years. They keep coming back because they know they can trust me and that I'm reliable. <span className="text-blue-400 font-semibold">Prioritizing relationships is the best investment you can make</span>. From a single staff augmentation company, we've evolved into a comprehensive ecosystem of specialized divisions, each focused on delivering exceptional value in their respective fields.
+                  </p>
+                </div>
+
+                <div className="text-left">
+                  <p className="text-gray-300 text-lg md:text-xl leading-relaxed font-montserrat">
+                    The journey has taught me that business is simple. We tend to overcomplicate things, but in reality, running a successful service-based business means getting the basics right: provide a valuable service, keep customers happy, and serve as many customers as you can. How do you know you're doing the right things? If you provide a service people love to share, that's a great indication that you're headed in the right direction.
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Timeline Section */}
+          {/* Key Lessons Section */}
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-12 md:py-16">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-3">ENTREPRENEURIAL JOURNEY</h2>
-                <p className="text-gray-300 text-lg md:text-xl font-montserrat">A decade of building, pivoting, and scaling businesses</p>
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4">KEY LESSONS</h2>
+                <p className="text-gray-300 text-lg md:text-xl font-montserrat">What the journey taught me</p>
               </div>
               
-              <TimelineComponent />
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Trophy className="w-10 h-10 text-emerald-400" />
+                  </div>
+                  <div className="text-emerald-400 text-2xl font-bold mb-2">Be Patient</div>
+                  <div className="text-gray-300 font-montserrat text-lg">Good things take time</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Globe className="w-10 h-10 text-purple-400" />
+                  </div>
+                  <div className="text-purple-400 text-2xl font-bold mb-2">Invest in Yourself</div>
+                  <div className="text-gray-300 font-montserrat text-lg">The best investment you can make</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Building2 className="w-10 h-10 text-blue-400" />
+                  </div>
+                  <div className="text-blue-400 text-2xl font-bold mb-2">Relationships First</div>
+                  <div className="text-gray-300 font-montserrat text-lg">More important than profit</div>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-10 h-10 text-pink-400" />
+                  </div>
+                  <div className="text-pink-400 text-2xl font-bold mb-2">Clarity & Focus</div>
+                  <div className="text-gray-300 font-montserrat text-lg">As important as persistence</div>
+                </div>
+              </div>
             </div>
           </div>
 
