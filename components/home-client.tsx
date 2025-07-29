@@ -191,10 +191,7 @@ export default function HomeClient() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/90 via-emerald-800/30 to-transparent"></div>
-                        <div className="absolute top-4 left-4 bg-emerald-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
-                          BUSINESS
-                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/50 via-emerald-800/10 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                           <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">ENTREPRENEUR</h3>
                           <p className="text-emerald-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">BUILD</p>
@@ -217,10 +214,7 @@ export default function HomeClient() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-800/30 to-transparent"></div>
-                        <div className="absolute top-4 left-4 bg-purple-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
-                          CREATIVE
-                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-purple-800/10 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                           <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">3D GUY</h3>
                           <p className="text-purple-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">CREATE</p>
@@ -243,10 +237,7 @@ export default function HomeClient() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-orange-900/90 via-orange-800/30 to-transparent"></div>
-                        <div className="absolute top-4 left-4 bg-orange-400/90 backdrop-blur-sm rounded-full px-3 py-1 text-xs font-bold text-white">
-                          MEDIA
-                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-900/50 via-orange-800/10 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                           <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">PODCAST</h3>
                           <p className="text-orange-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">LISTEN</p>
