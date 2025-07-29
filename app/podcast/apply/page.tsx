@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import PodcastApplicationForm from '@/components/podcast-application-form'
+import { DynamicPodcastApplicationForm } from '@/components/dynamic-imports'
 
 export const metadata: Metadata = {
   title: "Apply to be a Guest | Scaling the Unscalable Podcast",
@@ -71,19 +71,19 @@ export default function PodcastApplyPage() {
             <div>
               <h3 className="text-xl font-bebas text-emerald-400 mb-4">What We Cover</h3>
               <ul className="space-y-3 text-gray-300 font-montserrat">
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Business scaling strategies and challenges</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Entrepreneurial journeys and lessons learned</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Innovation in business and technology</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Leadership and team building insights</span>
                 </li>
@@ -92,19 +92,19 @@ export default function PodcastApplyPage() {
             <div>
               <h3 className="text-xl font-bebas text-emerald-400 mb-4">What We're Looking For</h3>
               <ul className="space-y-3 text-gray-300 font-montserrat">
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Businesses with unique scaling stories</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Entrepreneurs with valuable insights to share</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Innovators disrupting their industries</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-3 justify-start">
                   <div className="w-2 h-2 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></div>
                   <span>Leaders with compelling business journeys</span>
                 </li>
@@ -113,11 +113,11 @@ export default function PodcastApplyPage() {
           </div>
         </div>
 
-        {/* Application Form */}
-        <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-          <h2 className="text-3xl font-bebas text-white mb-8 text-center">Guest Application</h2>
-          <PodcastApplicationForm />
-        </div>
+                 {/* Application Form */}
+         <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
+           <h2 className="text-3xl font-bebas text-white mb-8 text-center">Guest Application</h2>
+           <DynamicPodcastApplicationForm />
+         </div>
 
         {/* What to Expect */}
         <div className="bg-slate-800/50 rounded-2xl p-8 mt-12 border border-slate-700">

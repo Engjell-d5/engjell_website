@@ -49,6 +49,7 @@ const nextConfig = {
         },
       },
     },
+    esmExternals: 'loose',
   },
   compress: true,
   poweredByHeader: false,
@@ -62,20 +63,38 @@ const nextConfig = {
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
         cacheGroups: {
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
+            priority: 10,
           },
           common: {
             name: 'common',
             minChunks: 2,
             chunks: 'all',
             enforce: true,
+            priority: 5,
+          },
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: 'react',
+            chunks: 'all',
+            priority: 20,
+          },
+          ui: {
+            test: /[\\/]node_modules[\\/](@radix-ui|lucide-react)[\\/]/,
+            name: 'ui',
+            chunks: 'all',
+            priority: 15,
           },
         },
       }
+      
+      // Console logs are already removed by Next.js compiler configuration
     }
 
     // Optimize images

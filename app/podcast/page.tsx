@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import PodcastClient from "@/components/podcast-client"
+import { DynamicPodcastClient } from "@/components/dynamic-imports"
 
 export const metadata: Metadata = {
   title: "Podcast - Scaling the Unscalable",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 }
 
 export default function PodcastPage() {
-  return <PodcastClient />
+  return <DynamicPodcastClient />
 }

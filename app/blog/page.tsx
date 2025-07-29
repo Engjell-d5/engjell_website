@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import BlogClient from "@/components/blog-client"
+import { DynamicBlogClient } from "@/components/dynamic-imports"
 
 export const metadata: Metadata = {
   title: "Blog - Engjell Rraklli",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
-  return <BlogClient />
+  return <DynamicBlogClient />
 }

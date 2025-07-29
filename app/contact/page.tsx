@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
 import SharedBackground from "@/components/shared-background"
 import Footer from "@/components/footer"
-import ContactForm from "@/components/contact-form"
+import { DynamicContactForm } from "@/components/dynamic-imports"
 
 import { Metadata } from "next"
 
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-bebas uppercase tracking-wide">SEND ME AN EMAIL</h2>
                   <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas">Have a question?</h3>
                   
-                  <ContactForm />
+                  <DynamicContactForm />
                 </div>
               </div>
             </div>
