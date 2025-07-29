@@ -191,7 +191,7 @@ export default function HomeClient() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/50 via-emerald-800/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/50 via-emerald-800/20 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                           <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">ENTREPRENEUR</h3>
                           <p className="text-emerald-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">BUILD</p>
@@ -214,7 +214,7 @@ export default function HomeClient() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-purple-800/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-purple-800/20 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                           <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">3D GUY</h3>
                           <p className="text-purple-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">CREATE</p>
@@ -237,7 +237,7 @@ export default function HomeClient() {
                           fill
                           className="object-cover transition-transform duration-300 group-hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-orange-900/50 via-orange-800/10 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-orange-900/50 via-orange-800/20 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6">
                           <h3 className="text-white font-bold text-2xl md:text-3xl mb-2 font-bebas uppercase tracking-wide">PODCAST</h3>
                           <p className="text-orange-400 font-semibold text-lg md:text-xl font-bebas uppercase tracking-wide">LISTEN</p>
