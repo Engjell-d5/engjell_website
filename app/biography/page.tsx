@@ -82,10 +82,10 @@ export default function BiographyPage() {
           </div>
 
           {/* Timeline Section */}
-          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-16 md:py-24">
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-12 md:py-16">
             <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4">ENTREPRENEURIAL JOURNEY</h2>
+              <div className="text-center mb-12">
+                <h2 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-3">ENTREPRENEURIAL JOURNEY</h2>
                 <p className="text-gray-300 text-lg md:text-xl font-montserrat">A decade of building, pivoting, and scaling businesses</p>
               </div>
               

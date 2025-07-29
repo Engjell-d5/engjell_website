@@ -105,14 +105,14 @@ export default function TimelineComponent() {
       {/* Central Timeline Line */}
       <div className="absolute left-1/2 transform -translate-x-px w-0.5 bg-gradient-to-b from-emerald-400 via-purple-400 via-pink-400 via-blue-400 to-cyan-400 h-full opacity-30"></div>
       
-      <div className="space-y-16 md:space-y-24">
+      <div className="space-y-8 md:space-y-12">
         {timelineData.map((item, index) => (
           <div
             key={index}
             data-index={index}
             className={`relative flex items-center ${
               index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-            } flex-col md:gap-12 gap-8 transition-all duration-1000 ${
+            } flex-col md:gap-8 gap-6 transition-all duration-1000 ${
               visibleItems.includes(index) 
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-8'
@@ -125,30 +125,30 @@ export default function TimelineComponent() {
             </div>
 
             {/* Content Card */}
-            <div className={`flex-1 max-w-md ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center md:text-left`}>
-              <div className={`p-6 rounded-2xl border backdrop-blur-sm transition-all duration-500 hover:scale-105 ${getColorClasses(item.color)} bg-slate-900/50`}>
+            <div className={`flex-1 max-w-sm ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'} text-center md:text-left`}>
+              <div className={`p-4 rounded-xl border backdrop-blur-sm transition-all duration-500 hover:scale-105 ${getColorClasses(item.color)} bg-slate-900/50`}>
                 {/* Year Badge */}
-                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-slate-800/50 border border-current/20">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-sm font-semibold">{item.year}</span>
+                <div className="inline-flex items-center gap-2 mb-3 px-2 py-1 rounded-full bg-slate-800/50 border border-current/20">
+                  <Calendar className="w-3 h-3" />
+                  <span className="text-xs font-semibold">{item.year}</span>
                 </div>
 
                 {/* Icon and Title */}
-                <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} justify-center`}>
-                  <div className={`p-2 rounded-lg ${getColorClasses(item.color)} bg-slate-800/50`}>
+                <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} justify-center`}>
+                  <div className={`p-1.5 rounded-md ${getColorClasses(item.color)} bg-slate-800/50`}>
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold font-bebas uppercase tracking-wide">{item.title}</h3>
+                  <h3 className="text-lg font-bold font-bebas uppercase tracking-wide">{item.title}</h3>
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed font-montserrat mb-3">
+                <p className="text-gray-300 text-xs leading-relaxed font-montserrat mb-2">
                   {item.description}
                 </p>
 
                 {/* Division Badge */}
                 {item.division && (
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide ${getColorClasses(item.color)} bg-slate-800/50 border border-current/20`}>
+                  <div className={`inline-block px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide ${getColorClasses(item.color)} bg-slate-800/50 border border-current/20`}>
                     {item.division}
                   </div>
                 )}
@@ -156,7 +156,7 @@ export default function TimelineComponent() {
             </div>
 
             {/* Spacer for mobile */}
-            <div className="md:hidden w-full h-8"></div>
+            <div className="md:hidden w-full h-4"></div>
           </div>
         ))}
       </div>
