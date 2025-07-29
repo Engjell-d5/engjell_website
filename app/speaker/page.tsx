@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "The Speaker - Engjell Rraklli",
     description: "Discover Engjell Rraklli's speaking topics on AI productivity, scaling service businesses, and building lasting client relationships.",
     type: "website",
-    url: "https://engjellrraklli.com/engjell-rraklli/my-speaker-profile",
+    url: "https://engjellrraklli.com/speaker",
     images: [
       {
         url: "/DSC0048-1.jpg",
@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     images: ["/DSC0048-1.jpg"]
   },
   alternates: {
-    canonical: "https://engjellrraklli.com/engjell-rraklli/my-speaker-profile"
+    canonical: "https://engjellrraklli.com/speaker"
   }
 }
 
-export default function MySpeakerProfilePage() {
+export default function SpeakerPage() {
   return (
     <SharedBackground>
       {/* Hero Section with Background Image */}

@@ -2,7 +2,7 @@
 
 # === CONFIGURATION ===
 VPS_USER="root"
-VPS_HOST="division5.co"
+VPS_HOST="144.91.71.117"
 VPS_PATH="/var/www/html/engjellrraklli.com"
 ENV_FILE_PATH=".env"
 

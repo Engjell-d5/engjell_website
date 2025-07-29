@@ -10,14 +10,14 @@ import Image from "next/image"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "My Story - Engjell Rraklli",
+  title: "Biography - Engjell Rraklli",
   description: "Discover the entrepreneurial journey of Engjell Rraklli, from founding Division5 to building a framework for scaling service-based businesses.",
-  keywords: ["entrepreneur", "my story", "Division5", "entrepreneurship journey", "business scaling", "service business"],
+  keywords: ["entrepreneur", "biography", "Division5", "entrepreneurship journey", "business scaling", "service business"],
   openGraph: {
-    title: "My Story - Engjell Rraklli",
+    title: "Biography - Engjell Rraklli",
     description: "Discover the entrepreneurial journey of Engjell Rraklli, from founding Division5 to building a framework for scaling service-based businesses.",
     type: "website",
-    url: "https://engjellrraklli.com/engjell-rraklli/my-story",
+    url: "https://engjellrraklli.com/biography",
     images: [
       {
         url: "/DSC0019-scaled.jpg",
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "My Story - Engjell Rraklli",
+    title: "Biography - Engjell Rraklli",
     description: "Discover the entrepreneurial journey of Engjell Rraklli, from founding Division5 to building a framework for scaling service-based businesses.",
     images: ["/DSC0019-scaled.jpg"]
   },
   alternates: {
-    canonical: "https://engjellrraklli.com/engjell-rraklli/my-story"
+    canonical: "https://engjellrraklli.com/biography"
   }
 }
 
-export default function MyStoryPage() {
+export default function BiographyPage() {
   return (
     <SharedBackground>
           {/* Hero Section with Background Image */}
@@ -56,7 +56,7 @@ export default function MyStoryPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
             </div>
             <div className="relative z-10 max-w-6xl mx-auto text-center">
-              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">MY STORY</h1>
+              <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">BIOGRAPHY</h1>
             </div>
           </div>
 

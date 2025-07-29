@@ -3,7 +3,7 @@ import { useState } from "react"
 import { usePathname } from "next/navigation"
 
 interface NavigationMenuProps {
-  activePage: 'home' | 'engjell-rraklli' | 'entrepreneur' | 'blog' | 'podcast' | 'contact',
+  activePage: 'home' | 'entrepreneur' | 'blog' | 'podcast' | 'contact',
   activeSubpage?: string | null,
   onNavigate?: () => void
 }
@@ -11,7 +11,7 @@ interface NavigationMenuProps {
 export default function NavigationMenu({ activePage, activeSubpage, onNavigate }: NavigationMenuProps) {
   // Only one category should be expanded at a time
   const [entrepreneurExpanded, setEntrepreneurExpanded] = useState(activeSubpage !== null && activePage === 'entrepreneur')
-  const [engjellRraklliExpanded, setEngjellRraklliExpanded] = useState(activeSubpage !== null && activePage === 'engjell-rraklli')
+  const [engjellRraklliExpanded, setEngjellRraklliExpanded] = useState(activeSubpage !== null && (activeSubpage === 'biography' || activeSubpage === 'speaker'))
   
   // State to track immediately clicked items for instant visual feedback
   const [clickedItem, setClickedItem] = useState<string | null>(null)
@@ -59,53 +59,53 @@ export default function NavigationMenu({ activePage, activeSubpage, onNavigate }
         <div className="space-y-1 flex flex-col w-full">
 
           
-          {/* Engjell Rraklli with submenu */}
-          <div className="relative">
-            <button
-              onClick={handleEngjellRraklliToggle}
-              className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-all duration-300 rounded-lg ${
-                activePage === 'engjell-rraklli' || engjellRraklliExpanded 
-                  ? 'bg-black/40 backdrop-blur-sm border border-white/30' 
-                  : 'hover:bg-black/40 hover:backdrop-blur-sm border border-transparent hover:border-white/30'
-              }`}
-            >
-              ENGJELL RRAKLLI
-            </button>
+                     {/* Engjell Rraklli with submenu */}
+           <div className="relative">
+             <button
+               onClick={handleEngjellRraklliToggle}
+               className={`block w-full sm:w-auto text-left text-white py-2 px-3 text-lg font-bold uppercase tracking-wider font-bebas transition-all duration-300 rounded-lg ${
+                 engjellRraklliExpanded 
+                   ? 'bg-black/40 backdrop-blur-sm border border-white/30' 
+                   : 'hover:bg-black/40 hover:backdrop-blur-sm border border-transparent hover:border-white/30'
+               }`}
+             >
+               ENGJELL RRAKLLI
+             </button>
             
             <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
               engjellRraklliExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}>
               <div className="mt-2 space-y-1 pl-4">
                 <Link
-                  href="/engjell-rraklli/my-story"
+                  href="/biography"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'my-story' || clickedItem === '/engjell-rraklli/my-story'
+                    activeSubpage === 'biography' || clickedItem === '/biography'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={() => handleNavigate('/engjell-rraklli/my-story')}
+                  onClick={() => handleNavigate('/biography')}
                 >
-                  MY STORY
+                  BIOGRAPHY
                 </Link>
                 <Link
-                  href="/engjell-rraklli/my-divisions"
+                  href="/entrepreneur"
                   className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                    activeSubpage === 'my-divisions' || clickedItem === '/engjell-rraklli/my-divisions'
+                    activeSubpage === 'entrepreneur' || clickedItem === '/entrepreneur'
                       ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg' 
                       : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                   }`}
-                  onClick={() => handleNavigate('/engjell-rraklli/my-divisions')}
+                  onClick={() => handleNavigate('/entrepreneur')}
                 >
-                  MY DIVISIONS
+                  ENTREPRENEUR
                 </Link>
                                     <Link
-                      href="/engjell-rraklli/my-speaker-profile"
+                      href="/speaker"
                       className={`block w-full sm:w-auto text-left text-white py-1 px-3 text-sm font-medium uppercase tracking-wider font-bebas transition-all duration-300 rounded-md ${
-                        activeSubpage === 'my-speaker-profile' || clickedItem === '/engjell-rraklli/my-speaker-profile'
+                        activeSubpage === 'speaker' || clickedItem === '/speaker'
                           ? 'bg-emerald-600/60 backdrop-blur-sm border border-emerald-400/40 shadow-lg'
                           : 'hover:bg-emerald-600/40 hover:backdrop-blur-sm border border-transparent hover:border-emerald-400/30'
                       }`}
-                      onClick={() => handleNavigate('/engjell-rraklli/my-speaker-profile')}
+                      onClick={() => handleNavigate('/speaker')}
                     >
                       THE SPEAKER
                     </Link>

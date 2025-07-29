@@ -118,7 +118,7 @@ export default function BioPage() {
 
           {/* 3D Guy Page */}
           <Link 
-            href="/the-3d-guy"
+                            href="/entrepreneur"
             className="block w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 text-white text-center font-semibold hover:bg-white/20 transition-all duration-300 group"
           >
             <div className="flex items-center justify-center space-x-3">

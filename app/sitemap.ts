@@ -30,26 +30,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
+
     {
-      url: `${baseUrl}/engjell-rraklli`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/engjell-rraklli/my-story`,
+      url: `${baseUrl}/biography`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/engjell-rraklli/my-divisions`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/engjell-rraklli/my-speaker-profile`,
+      url: `${baseUrl}/speaker`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
