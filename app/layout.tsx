@@ -75,6 +75,7 @@ export const metadata: Metadata = {
   verification: {
     // Add your Google Search Console verification code here when available
     // google: 'your-google-verification-code',
+    // Example: google: 'abc123def456ghi789',
   },
 }
 

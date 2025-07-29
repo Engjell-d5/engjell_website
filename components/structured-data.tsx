@@ -57,6 +57,24 @@ export default function StructuredData() {
     "publisher": {
       "@type": "Person",
       "name": "Engjell Rraklli"
+    },
+    "genre": ["Business", "Technology", "Entrepreneurship"],
+    "inLanguage": "en",
+    "isAccessibleForFree": true
+  }
+
+  const podcastApplicationSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Apply to be a Guest - Scaling the Unscalable Podcast",
+    "description": "Application form for potential guests on the Scaling the Unscalable podcast. Open to entrepreneurs, business leaders, and innovators.",
+    "url": "https://engjellrraklli.com/podcast/apply",
+    "mainEntity": {
+      "@type": "WebApplication",
+      "name": "Podcast Guest Application",
+      "description": "Application form for podcast guest opportunities",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser"
     }
   }
 
@@ -78,6 +96,12 @@ export default function StructuredData() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(podcastSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(podcastApplicationSchema),
         }}
       />
     </>

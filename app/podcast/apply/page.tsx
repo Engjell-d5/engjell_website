@@ -3,8 +3,31 @@ import PodcastApplicationForm from '@/components/podcast-application-form'
 
 export const metadata: Metadata = {
   title: "Apply to be a Guest | Scaling the Unscalable Podcast",
-  description: "Apply to be a guest on the Scaling the Unscalable podcast. Share your business journey, successes, and insights with our audience.",
-  keywords: ["podcast guest", "business podcast", "entrepreneur interview", "scaling business", "podcast application"],
+  description: "Apply to be a guest on the Scaling the Unscalable podcast. Share your business journey, successes, and insights with our audience. Open to entrepreneurs, business leaders, and innovators.",
+  keywords: ["podcast guest", "business podcast", "entrepreneur interview", "scaling business", "podcast application", "guest speaker", "business leader", "innovation podcast"],
+  openGraph: {
+    title: "Apply to be a Guest | Scaling the Unscalable Podcast",
+    description: "Apply to be a guest on the Scaling the Unscalable podcast. Share your business journey, successes, and insights with our audience.",
+    type: "website",
+    url: "https://engjellrraklli.com/podcast/apply",
+    images: [
+      {
+        url: "/DSC0048-1.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Apply to be a Guest - Scaling the Unscalable Podcast"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Apply to be a Guest | Scaling the Unscalable Podcast",
+    description: "Apply to be a guest on the Scaling the Unscalable podcast. Share your business journey and insights.",
+    images: ["/DSC0048-1.jpg"]
+  },
+  alternates: {
+    canonical: "https://engjellrraklli.com/podcast/apply"
+  }
 }
 
 export default function PodcastApplyPage() {
