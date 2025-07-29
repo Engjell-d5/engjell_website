@@ -58,6 +58,9 @@ export default function EntrepreneurPage() {
             </div>
             <div className="relative z-10 max-w-6xl mx-auto text-center">
               <h1 className="text-white text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold font-bebas uppercase tracking-wide">ENTREPRENEUR</h1>
+              <blockquote className="text-emerald-400 text-xl md:text-2xl font-semibold italic mt-6 md:mt-8 max-w-4xl mx-auto text-left">
+                "Clarity and focus are as important as persistence."
+              </blockquote>
             </div>
               </div>
 
@@ -65,18 +68,20 @@ export default function EntrepreneurPage() {
           <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
             <div className="max-w-7xl mx-auto">
           <div className="prose prose-invert prose-lg max-w-none">
-                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4 text-left break-words">BUILDING THE FUTURE</h2>
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight text-left">One entrepreneur, multiple ventures, endless possibilities.</h3>
+                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4 text-left break-words">WHAT MAKES A GREAT SERVICE</h2>
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas leading-tight text-left">The philosophy that drives every division.</h3>
 
                 <div className="max-w-4xl">
-                  <blockquote className="text-emerald-400 text-xl md:text-2xl font-semibold italic mb-6 border-l-4 border-emerald-400 pl-6 text-left">
-                    "Success isn't about building one great company, it's about building multiple great companies that work together."
-                  </blockquote>
-                  <p className="text-body text-lg md:text-xl leading-relaxed mb-6 font-montserrat text-left">
-                    From my early days as a young entrepreneur, I've always believed in the power of diversification and specialization. Each division represents a unique expertise area, allowing us to serve clients with world-class solutions across multiple domains.
+                  <p className="text-body text-lg md:text-xl leading-relaxed mb-6">
+                    Great service isn't about being perfect, it's about being reliable, transparent, and genuinely helpful. We've learned that the best way to serve clients is through clear communication, honest partnerships, and consistent delivery.
                   </p>
-                  <p className="text-body text-lg md:text-xl leading-relaxed mb-8 font-montserrat text-left">
-                    What started as a single staff augmentation company has evolved into a comprehensive ecosystem of specialized divisions, each focused on delivering exceptional value in their respective fields.
+                  
+                  <p className="text-body text-lg md:text-xl leading-relaxed mb-6">
+                    Every division operates on three core principles: being a great listener and communicator, building trust through transparency, and delivering on promises without over-promising. This philosophy has been the foundation of our growth from a single developer to multiple specialized teams.
+                  </p>
+                  
+                  <p className="text-body text-lg md:text-xl leading-relaxed">
+                    When you focus on what truly matters, relationships, trust, and quality, the business follows. That's why every client interaction, every project delivery, and every team decision is guided by these simple but powerful principles.
                   </p>
                 </div>
               </div>
@@ -106,7 +111,7 @@ export default function EntrepreneurPage() {
                       <CardTitle className="text-emerald-400 group-hover:text-emerald-400 font-bebas uppercase tracking-wide text-2xl transition-all duration-700 transform translate-y-0 group-hover:-translate-y-full opacity-100 group-hover:opacity-0">DIVISION 5</CardTitle>
                       <div className="absolute inset-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-all duration-700 delay-300">
                         <p className="text-emerald-400/90 text-sm leading-relaxed font-montserrat text-center px-4 max-w-xs">
-                          Elite engineering teams on demand. 50+ world-class developers scaling your tech infrastructure.
+                          Elite engineering teams on demand. 50+ world-class developers delivering quality service through trust, responsibility, and accountability.
                         </p>
                       </div>
                     </div>
@@ -128,7 +133,7 @@ export default function EntrepreneurPage() {
                       <CardTitle className="text-blue-400 group-hover:text-blue-400 font-bebas uppercase tracking-wide text-2xl transition-all duration-700 transform translate-y-0 group-hover:-translate-y-full opacity-100 group-hover:opacity-0">DIVISION GROWTH</CardTitle>
                       <div className="absolute inset-y-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-all duration-700 delay-300">
                         <p className="text-blue-400/90 text-sm leading-relaxed font-montserrat text-center px-4 max-w-xs">
-                          LinkedIn automation for B2B companies. Connect with decision makers and deliver qualified meetings.
+                          LinkedIn automation that delivers qualified meetings. Connect with decision makers and scale your B2B business at a fraction of the cost.
                         </p>
                       </div>
                     </div>
@@ -150,7 +155,7 @@ export default function EntrepreneurPage() {
                       <CardTitle className="text-purple-400 group-hover:text-purple-400 font-bebas uppercase tracking-wide text-2xl transition-all duration-700 transform translate-y-0 group-hover:-translate-y-full opacity-100 group-hover:opacity-0">DIVISION 3D</CardTitle>
                       <div className="absolute inset-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-all duration-700 delay-300">
                         <p className="text-purple-400/90 text-sm leading-relaxed font-montserrat text-center px-4 max-w-xs">
-                          Next-gen 3D experiences in the browser. From virtual showrooms to interactive visualizations.
+                          Next-gen 3D experiences that transform how you showcase products. From virtual showrooms to interactive visualizations that convert.
                         </p>
                       </div>
                     </div>
@@ -172,7 +177,7 @@ export default function EntrepreneurPage() {
                       <CardTitle className="text-cyan-400 group-hover:text-cyan-400 font-bebas uppercase tracking-wide text-2xl transition-all duration-700 transform translate-y-0 group-hover:-translate-y-full opacity-100 group-hover:opacity-0">DIVISION AI</CardTitle>
                       <div className="absolute inset-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-all duration-700 delay-300">
                         <p className="text-cyan-400/90 text-sm leading-relaxed font-montserrat text-center px-4 max-w-xs">
-                          Real engineers powered by AI. World-class software delivered at record speed for a fraction of the cost.
+                          Real engineers powered by AI. World-class software delivered at record speed for a fraction of the cost. The future of development.
                         </p>
                       </div>
                     </div>
@@ -205,12 +210,48 @@ export default function EntrepreneurPage() {
                       <CardTitle className="text-pink-400 group-hover:text-pink-400 font-bebas uppercase tracking-wide text-2xl transition-all duration-700 transform translate-y-0 group-hover:-translate-y-full opacity-100 group-hover:opacity-0">DIVISION DESIGN</CardTitle>
                       <div className="absolute inset-0 flex items-center justify-center transform translate-y-full group-hover:translate-y-0 transition-all duration-700 delay-300">
                         <p className="text-pink-400/90 text-sm leading-relaxed font-montserrat text-center px-4 max-w-xs">
-                          Design that moves markets. From pixel-perfect interfaces to brand experiences that create emotional connections.
+                          Design that moves markets. From pixel-perfect interfaces to brand experiences that create emotional connections and drive results.
                         </p>
                       </div>
                     </div>
                   </Card>
                 </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Business Philosophy Section */}
+          <div className="px-8 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-8 md:py-12">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bebas uppercase tracking-wide mb-4">THE PHILOSOPHY</h2>
+                <p className="text-gray-300 text-lg md:text-xl font-montserrat">How we build businesses that last</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Heart className="w-8 h-8 text-emerald-400" />
+                  </div>
+                  <h3 className="text-emerald-400 text-xl font-bold mb-3">Relationships First</h3>
+                  <p className="text-gray-300 font-montserrat text-sm">Optimize for relationships, not for profit. When you genuinely care about your customers and their success, they'll keep coming back.</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <h3 className="text-purple-400 text-xl font-bold mb-3">Trust & Accountability</h3>
+                  <p className="text-gray-300 font-montserrat text-sm">Build culture with business in mind. Trust, responsibility, and accountability are the foundation of every successful service business.</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Target className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-blue-400 text-xl font-bold mb-3">Specialization Wins</h3>
+                  <p className="text-gray-300 font-montserrat text-sm">Be really good at specific things rather than mediocre at everything. Each division focuses on what it does best.</p>
+                </div>
               </div>
             </div>
           </div>
