@@ -17,19 +17,19 @@ export default function ClientLayout({
   let activeSubpage: string | null = null
   
   if (pathname === '/biography') {
-    activePage = 'entrepreneur'
+    activePage = 'home' // Changed from 'entrepreneur' to 'home'
     activeSubpage = 'biography'
   } else if (pathname === '/speaker') {
-    activePage = 'entrepreneur'
+    activePage = 'home' // Changed from 'entrepreneur' to 'home'
     activeSubpage = 'speaker'
-  } else if (pathname.startsWith('/entrepreneur')) {
+  } else if (pathname === '/entrepreneur') {
+    // This is the entrepreneur submenu item under ENGJELL RRAKLLI
+    activePage = 'home'
+    activeSubpage = 'entrepreneur'
+  } else if (pathname.startsWith('/entrepreneur/')) {
+    // These are the actual entrepreneur category subpages
     activePage = 'entrepreneur'
-    // Extract subpage from pathname
-    if (pathname === '/entrepreneur') {
-      activeSubpage = null // Main entrepreneur page
-    } else {
-      activeSubpage = pathname.split('/').pop() || null
-    }
+    activeSubpage = pathname.split('/').pop() || null
   }
   else if (pathname.startsWith('/blog')) activePage = 'blog'
   else if (pathname.startsWith('/podcast')) activePage = 'podcast'

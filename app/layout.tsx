@@ -4,6 +4,7 @@ import { Montserrat, Bebas_Neue } from 'next/font/google'
 import ClientLayout from '@/components/client-layout'
 import StructuredData from '@/components/structured-data'
 import PerformanceMonitor from '@/components/performance-monitor'
+import { Toaster } from '@/components/ui/toaster'
 
 const montserrat = Montserrat({ 
   subsets: ['latin'],
@@ -109,6 +110,7 @@ export default function RootLayout({
         <ClientLayout>
           {children}
         </ClientLayout>
+        <Toaster />
       </body>
     </html>
   )

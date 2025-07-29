@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
 import SharedBackground from "@/components/shared-background"
 import Footer from "@/components/footer"
+import ContactForm from "@/components/contact-form"
 
 import { Metadata } from "next"
 
@@ -79,28 +80,7 @@ export default function ContactPage() {
                   <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-bebas uppercase tracking-wide">SEND ME AN EMAIL</h2>
                   <h3 className="text-white text-2xl md:text-3xl font-bold mb-8 font-bebas">Have a question?</h3>
                   
-                  <div className="space-y-6">
-                    <Input
-                      placeholder="Your Name"
-                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg text-lg py-4"
-                    />
-                    
-                    <Input
-                      type="email"
-                      placeholder="Your Email"
-                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg text-lg py-4"
-                    />
-                    
-                    <Textarea
-                      placeholder="Your Message"
-                      rows={6}
-                      className="bg-slate-700 border-slate-600 text-white placeholder:text-gray-400 rounded-lg text-lg py-4"
-                    />
-                    
-                    <Button className="bg-emerald-400 hover:bg-emerald-500 text-white font-bold px-8 md:px-12 py-4 md:py-6 text-base md:text-lg rounded-lg font-bebas">
-                      SEND
-                    </Button>
-                  </div>
+                  <ContactForm />
                 </div>
               </div>
             </div>
