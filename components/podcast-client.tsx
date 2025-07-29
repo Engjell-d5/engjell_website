@@ -119,24 +119,41 @@ export default function PodcastClient() {
                 <p className="text-body text-lg md:text-xl mb-8 font-montserrat">
                   Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
                 </p>
-                <div className="flex justify-center space-x-4">
-                  <Button 
-                    onClick={subscribeToYouTube}
-                    className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
-                  >
-                    <Youtube size={20} className="mr-2" />
-                    SUBSCRIBE ON YOUTUBE
-                  </Button>
-                  <Button 
-                    asChild
-                    className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
-                  >
-                    <Link href={getLatestEpisodeUrl()} target="_blank">
-                      <Play size={20} className="mr-2" />
-                      LATEST EPISODE
-                    </Link>
-                  </Button>
-                </div>
+                              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <Button 
+                  onClick={subscribeToYouTube}
+                  className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
+                >
+                  <Youtube size={20} className="mr-2" />
+                  SUBSCRIBE ON YOUTUBE
+                </Button>
+                <Button 
+                  asChild
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
+                >
+                  <Link href={getLatestEpisodeUrl()} target="_blank">
+                    <Play size={20} className="mr-2" />
+                    LATEST EPISODE
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Apply to be a Guest Section */}
+              <div className="mt-12 p-6 bg-slate-800/50 rounded-2xl border border-slate-700 max-w-2xl mx-auto">
+                <h3 className="text-white font-bold text-2xl md:text-3xl font-bebas mb-4">WANT TO BE A GUEST?</h3>
+                <p className="text-gray-300 text-base md:text-lg mb-6 font-montserrat">
+                  Share your business journey and insights with our audience. We're looking for entrepreneurs, innovators, and business leaders with compelling stories.
+                </p>
+                <Button 
+                  asChild
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl rounded-lg font-bebas w-full sm:w-auto"
+                >
+                  <Link href="/podcast/apply">
+                    <ExternalLink size={20} className="mr-2" />
+                    APPLY TO BE A GUEST
+                  </Link>
+                </Button>
+              </div>
               </div>
 
               {/* Loading State for Podcast Episodes */}
@@ -221,7 +238,7 @@ export default function PodcastClient() {
               <p className="text-body text-lg md:text-xl mb-8 font-montserrat">
                 Deep conversations with entrepreneurs, innovators, and thought leaders shaping the future of technology and business.
               </p>
-              <div className="flex justify-center space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <Button 
                   onClick={subscribeToYouTube}
                   className="bg-red-600 hover:bg-red-700 text-white font-bold px-6 md:px-8 py-3 md:py-4 text-base md:text-lg rounded-lg font-bebas"
@@ -236,6 +253,23 @@ export default function PodcastClient() {
                   <Link href={getLatestEpisodeUrl()} target="_blank">
                     <Play size={20} className="mr-2" />
                     LATEST EPISODE
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Apply to be a Guest Section */}
+              <div className="mt-12 p-6 bg-slate-800/50 rounded-2xl border border-slate-700 max-w-2xl mx-auto">
+                <h3 className="text-white font-bold text-2xl md:text-3xl font-bebas mb-4">WANT TO BE A GUEST?</h3>
+                <p className="text-gray-300 text-base md:text-lg mb-6 font-montserrat">
+                  Share your business journey and insights with our audience. We're looking for entrepreneurs, innovators, and business leaders with compelling stories.
+                </p>
+                <Button 
+                  asChild
+                  className="bg-emerald-400 hover:bg-emerald-500 text-black font-bold px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl rounded-lg font-bebas w-full sm:w-auto"
+                >
+                  <Link href="/podcast/apply">
+                    <ExternalLink size={20} className="mr-2" />
+                    APPLY TO BE A GUEST
                   </Link>
                 </Button>
               </div>
